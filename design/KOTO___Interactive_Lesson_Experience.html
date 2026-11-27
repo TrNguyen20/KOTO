@@ -1,0 +1,549 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_dashboard" name="shell-type"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,500;0,600;1,400&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"primary":"#ae1d14","tertiary-fixed-dim":"#a0d3a5","on-secondary-fixed":"#001b3c","error":"#ba1a1a","on-tertiary-container":"#e3ffe2","on-error-container":"#93000a","outline":"#8f706b","tertiary-fixed":"#bcefc0","outline-variant":"#e3beb9","secondary":"#485f84","secondary-container":"#bbd3fd","surface":"#fcf8fb","inverse-primary":"#ffb4a9","surface-container-low":"#f6f3f5","on-surface-variant":"#5b403c","inverse-surface":"#303032","surface-container-lowest":"#ffffff","on-error":"#ffffff","on-tertiary-fixed-variant":"#22502d","on-surface":"#1b1b1d","surface-variant":"#e4e2e4","surface-dim":"#dcd9dc","on-tertiary":"#ffffff","surface-container-high":"#eae7ea","primary-fixed-dim":"#ffb4a9","on-primary":"#ffffff","on-secondary-container":"#445a7f","inverse-on-surface":"#f3f0f2","secondary-fixed-dim":"#b0c7f1","surface-bright":"#fcf8fb","on-background":"#1b1b1d","primary-container":"#d1382a","surface-tint":"#b62419","surface-container":"#f0edef","secondary-fixed":"#d5e3ff","surface-container-highest":"#e4e2e4","on-tertiary-fixed":"#00210a","error-container":"#ffdad6","on-primary-fixed":"#410000","background":"#fcf8fb","tertiary-container":"#4d7c55","primary-fixed":"#ffdad5","on-secondary-fixed-variant":"#30476a","on-secondary":"#ffffff","tertiary":"#35633e","on-primary-fixed-variant":"#930203","on-primary-container":"#fff5f3"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"space-md":"1rem","gutter-mobile":"1rem","gutter":"1.5rem","margin-mobile":"1.25rem","margin":"3rem","space-xl":"2.5rem","space-sm":"0.5rem","space-lg":"1.5rem","space-xs":"0.25rem"},"fontFamily":{"body-md":["Plus Jakarta Sans"],"headline-lg":["Noto Serif"],"headline-lg-mobile":["Noto Serif"],"label-md":["Plus Jakarta Sans"],"headline-md":["Noto Serif"],"label-sm":["Plus Jakarta Sans"],"body-sm":["Plus Jakarta Sans"],"kanji-hero":["Noto Serif"],"headline-sm":["Noto Serif"],"display-hero":["Noto Serif"],"kanji-reading":["Noto Serif"],"body-lg":["Plus Jakarta Sans"],"display-hero-mobile":["Noto Serif"]},"fontSize":{"body-md":["16px",{"lineHeight":"26px","fontWeight":"400"}],"headline-lg":["40px",{"lineHeight":"52px","letterSpacing":"-0.01em","fontWeight":"500"}],"headline-lg-mobile":["30px",{"lineHeight":"40px","letterSpacing":"-0.01em","fontWeight":"500"}],"label-md":["14px",{"lineHeight":"20px","letterSpacing":"0.02em","fontWeight":"600"}],"headline-md":["28px",{"lineHeight":"38px","fontWeight":"500"}],"label-sm":["12px",{"lineHeight":"16px","letterSpacing":"0.06em","fontWeight":"600"}],"body-sm":["14px",{"lineHeight":"22px","fontWeight":"400"}],"kanji-hero":["64px",{"lineHeight":"72px","fontWeight":"400"}],"headline-sm":["22px",{"lineHeight":"30px","fontWeight":"600"}],"display-hero":["56px",{"lineHeight":"68px","letterSpacing":"-0.02em","fontWeight":"600"}],"kanji-reading":["20px",{"lineHeight":"28px","fontWeight":"400"}],"body-lg":["18px",{"lineHeight":"28px","fontWeight":"400"}],"display-hero-mobile":["38px",{"lineHeight":"48px","letterSpacing":"-0.01em","fontWeight":"600"}]}}}}</script></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased" data-new-gr-c-s-check-loaded="14.1351.0" data-gr-ext-installed=""><aside class="fixed left-0 top-0 h-full w-64 bg-surface-container-lowest z-40 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col"><div class="h-16 px-space-md flex items-center justify-between"><div class="flex items-center gap-space-xs"><div class="w-6 h-6 rounded bg-primary flex items-center justify-center"><span class="text-on-primary font-headline-sm text-label-sm font-semibold">言</span></div><span class="font-headline-sm text-headline-sm tracking-tight text-on-surface">KOTO</span></div><span class="font-label-sm text-label-sm px-space-xs py-0.5 rounded bg-surface-container-high text-on-surface-variant uppercase">N5 Focus</span></div><div class="px-space-md py-space-sm"><div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm mb-space-xs"><span class="tracking-wide uppercase">Stage Progress</span><span>4 / 7</span></div><div class="w-full h-1.5 bg-surface-container-high rounded-full overflow-hidden"><div class="h-full bg-primary-container rounded-full" style="width: 57.1%"></div></div></div><nav class="px-space-sm py-space-md flex flex-col gap-space-xs" data-active-classes="bg-primary-container text-on-primary-container font-semibold rounded-lg"><a aria-current="page" class="flex items-center gap-space-sm px-space-md py-space-sm transition-all bg-primary-container text-on-primary-container font-semibold rounded-lg" data-path="lesson-workspace" href="#"><span class="material-symbols-outlined text-[20px]">menu_book</span><span class="font-label-md text-label-md">Interactive Practice</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="lesson-notes" href="#"><span class="material-symbols-outlined text-[20px]">edit_note</span><span class="font-label-md text-label-md">Grammar Notes</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="vocabulary-drawer" href="#"><span class="material-symbols-outlined text-[20px]">translate</span><span class="font-label-md text-label-md">Vocabulary Lexicon</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="ai-tutor-dialogue" href="#"><span class="material-symbols-outlined text-[20px]">psychology_alt</span><span class="font-label-md text-label-md">AI Sensei Portal</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="curriculum-index" href="#"><span class="material-symbols-outlined text-[20px]">list_alt</span><span class="font-label-md text-label-md">Unit Syllabus</span></a></nav></div><div class="p-space-md bg-surface-container-low"><div class="flex items-center justify-between mb-space-xs"><span class="font-label-sm text-label-sm text-on-surface-variant">Recall Accuracy</span><span class="font-label-sm text-label-sm text-tertiary font-semibold">92%</span></div><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-primary text-[18px]">verified</span><span class="font-label-sm text-label-sm text-on-surface-variant">Hanko Verified</span></div></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-16 bg-surface/80 backdrop-blur-xl z-30 shadow-[0_1px_8px_rgba(0,0,0,0.04)] px-space-lg flex items-center justify-between"><div class="flex items-center gap-space-sm"><div class="flex items-center gap-space-xs font-label-md text-label-md"><span class="text-on-surface-variant">Unit 03: 日々の行動</span><span class="text-on-surface-variant">/</span><span class="text-on-surface font-semibold">Lesson 3.2: Spatial Particles Disambiguation (に vs で vs へ)</span></div><div class="h-4 w-px bg-surface-container-high mx-space-xs"></div><div class="hidden lg:flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm bg-surface-container px-space-sm py-0.5 rounded"><span class="material-symbols-outlined text-[16px]">flag</span><span>Stage 4 of 7: Interactive Practice &amp; Recall</span></div></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs bg-surface-container-low p-1 rounded-xl"><button class="px-space-sm py-1 rounded bg-surface-container-lowest text-on-surface font-label-sm text-label-sm shadow-[0_1px_8px_rgba(0,0,0,0.04)]" type="button">振仮名 ON</button><button class="px-space-sm py-1 rounded text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm transition-colors" type="button">Kanji Scaffolding</button></div><button class="p-space-xs rounded text-on-surface-variant hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">volume_up</span></button><button class="flex items-center gap-space-xs px-space-sm py-1.5 rounded-lg bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors font-label-sm text-label-sm" type="button"><span class="material-symbols-outlined text-primary text-[18px]">chat_spark</span><span>AI Sensei</span></button><button class="p-space-xs rounded text-on-surface-variant hover:text-error transition-colors" title="Pause / Exit Session" type="button"><span class="material-symbols-outlined text-[20px]">pause_circle</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="w-full pt-16 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<!-- Interactive Practice Workspace Layout -->
+<div class="w-full max-w-7xl mx-auto px-space-md lg:px-space-xl py-space-md flex flex-col gap-space-lg">
+<!-- 1. STAGE PROGRESSION & COGNITIVE MILESTONES -->
+<section class="w-full bg-surface-container-lowest rounded-xl p-space-md lg:p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<span class="w-7 h-7 rounded bg-primary-fixed text-primary font-label-md text-label-md flex items-center justify-center font-bold">04</span>
+<div>
+<div class="flex items-center gap-space-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Active Stage</span>
+<span class="text-on-surface-variant">•</span>
+<span class="font-label-sm text-label-sm text-primary font-semibold">Stage 4 of 7</span>
+</div>
+<h1 class="font-headline-sm text-headline-sm text-on-surface leading-tight">Interactive Syntactic Assembly &amp; Recall</h1>
+</div>
+</div>
+<div class="flex items-center gap-space-md">
+<div class="flex flex-col items-end">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Cognitive Mastery Loop</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">68% Session Retention</span>
+</div>
+<!-- Hanko Mastery Stamp -->
+<div class="w-10 h-10 rounded border-2 border-primary-container flex flex-col items-center justify-center p-0.5 text-primary-container select-none rotate-3">
+<span class="font-kanji-reading text-[11px] leading-none font-bold">習熟</span>
+<span class="font-label-sm text-[8px] leading-none mt-0.5 font-bold uppercase tracking-tighter">Verified</span>
+</div>
+</div>
+</div>
+<!-- Seven Stage Micro-Pill Pipeline -->
+<div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-space-xs pt-space-xs">
+<!-- Stage 1 -->
+<div class="flex flex-col gap-1.5 p-space-xs rounded bg-surface-container-low opacity-90">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-[11px] text-on-surface-variant font-semibold">01 ORIENT</span>
+<span class="material-symbols-outlined text-tertiary text-[16px]">check_circle</span>
+</div>
+<div class="h-1 w-full bg-tertiary rounded-full"></div>
+</div>
+<!-- Stage 2 -->
+<div class="flex flex-col gap-1.5 p-space-xs rounded bg-surface-container-low opacity-90">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-[11px] text-on-surface-variant font-semibold">02 INPUT</span>
+<span class="material-symbols-outlined text-tertiary text-[16px]">check_circle</span>
+</div>
+<div class="h-1 w-full bg-tertiary rounded-full"></div>
+</div>
+<!-- Stage 3 -->
+<div class="flex flex-col gap-1.5 p-space-xs rounded bg-surface-container-low opacity-90">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-[11px] text-on-surface-variant font-semibold">03 SYNTAX</span>
+<span class="material-symbols-outlined text-tertiary text-[16px]">check_circle</span>
+</div>
+<div class="h-1 w-full bg-tertiary rounded-full"></div>
+</div>
+<!-- Stage 4: ACTIVE -->
+<div class="flex flex-col gap-1.5 p-space-xs rounded bg-primary-fixed shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-[11px] text-on-primary-fixed font-bold">04 PRACTICE</span>
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+</div>
+<div class="h-1 w-full bg-primary rounded-full"></div>
+</div>
+<!-- Stage 5 -->
+<div class="flex flex-col gap-1.5 p-space-xs rounded bg-surface-container-high">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-[11px] text-on-surface-variant">05 APPLICATION</span>
+<span class="material-symbols-outlined text-outline text-[14px]">lock</span>
+</div>
+<div class="h-1 w-full bg-surface-variant rounded-full"></div>
+</div>
+<!-- Stage 6 -->
+<div class="flex flex-col gap-1.5 p-space-xs rounded bg-surface-container-high">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-[11px] text-on-surface-variant">06 DIAGNOSIS</span>
+<span class="material-symbols-outlined text-outline text-[14px]">lock</span>
+</div>
+<div class="h-1 w-full bg-surface-variant rounded-full"></div>
+</div>
+<!-- Stage 7 -->
+<div class="flex flex-col gap-1.5 p-space-xs rounded bg-surface-container-high">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-[11px] text-on-surface-variant">07 RETENTION</span>
+<span class="material-symbols-outlined text-outline text-[14px]">lock</span>
+</div>
+<div class="h-1 w-full bg-surface-variant rounded-full"></div>
+</div>
+</div>
+</section>
+<!-- 2. MAIN LEARNING CANVAS: 2-COLUMN COGNITIVE WORKSPACE -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<!-- LEFT ARENA: Interactive Sentence Matrix (Columns 1-7, 60-62%) -->
+<div class="lg:col-span-7 flex flex-col gap-space-md">
+<!-- Challenge Briefing Card -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-widest font-semibold">Prompt 4.2 · Production</span>
+<span class="text-on-surface-variant">/</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Self-Identification &amp; Status</span>
+</div>
+<div class="flex items-center gap-space-xs bg-surface-container px-space-sm py-0.5 rounded text-on-surface-variant">
+<span class="material-symbols-outlined text-[15px]">apartment</span>
+<span class="font-label-sm text-[11px]">Tokyo Academic Seminar</span>
+</div>
+</div>
+<div class="flex flex-col gap-space-xs">
+<h2 class="font-headline-md text-headline-md text-on-surface font-semibold">
+              Construct a formal Japanese self-introduction stating you are a Vietnamese university student.
+            </h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              Establish an authentic, polite sociolinguistic identity frame using the standard copula structure <span class="font-kanji-reading text-on-surface font-medium">〜は〜です</span>. Include your origin attribute via the genitive linkage particle.
+            </p>
+</div>
+<!-- TARGET SLOT MATRIX (Dropzones) -->
+<div class="mt-space-sm bg-surface-container-low p-space-md lg:p-space-lg rounded-xl flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Syntactic Assembly Track</span>
+<button class="flex items-center gap-1 text-on-surface-variant hover:text-primary transition-colors font-label-sm text-label-sm" id="clearSlotsBtn">
+<span class="material-symbols-outlined text-[16px]">restart_alt</span>
+<span>Reset Slots</span>
+</button>
+</div>
+<!-- Target Slots Container -->
+<div class="flex flex-wrap items-center gap-space-xs py-space-sm" id="targetSlotMatrix">
+<!-- Slot 1: 私 -->
+<div class="flex flex-col items-center gap-1 group">
+<span class="font-label-sm text-[10px] tracking-tight uppercase text-on-surface-variant px-1 rounded bg-surface-container">Topic Subj</span>
+<div class="slot-box min-w-[72px] h-16 rounded-lg bg-surface-container-lowest shadow-sm flex flex-col items-center justify-center p-1 cursor-pointer transition-all hover:bg-surface-container" data-slot-index="0">
+<span class="furigana-label text-[10px] text-on-surface-variant leading-none">わたし</span>
+<span class="font-headline-sm text-headline-sm text-on-surface leading-none">私</span>
+</div>
+</div>
+<!-- Particle Glue -->
+<span class="text-on-surface-variant font-label-md text-label-md mt-4">+</span>
+<!-- Slot 2: は -->
+<div class="flex flex-col items-center gap-1 group">
+<span class="font-label-sm text-[10px] tracking-tight uppercase text-primary px-1 rounded bg-primary-fixed">Particle (wa)</span>
+<div class="slot-box min-w-[56px] h-16 rounded-lg bg-surface-container-lowest shadow-sm flex flex-col items-center justify-center p-1 cursor-pointer transition-all hover:bg-surface-container" data-slot-index="1">
+<span class="furigana-label text-[10px] text-on-surface-variant leading-none">wa</span>
+<span class="font-headline-sm text-headline-sm text-primary leading-none font-semibold">は</span>
+</div>
+</div>
+<!-- Particle Glue -->
+<span class="text-on-surface-variant font-label-md text-label-md mt-4">+</span>
+<!-- Slot 3: ベトナム人 -->
+<div class="flex flex-col items-center gap-1 group">
+<span class="font-label-sm text-[10px] tracking-tight uppercase text-on-surface-variant px-1 rounded bg-surface-container">Origin Attribute</span>
+<div class="slot-box min-w-[104px] h-16 rounded-lg bg-surface-container-lowest shadow-sm flex flex-col items-center justify-center p-1 cursor-pointer transition-all hover:bg-surface-container" data-slot-index="2">
+<span class="furigana-label text-[10px] text-on-surface-variant leading-none">ベトナムじん</span>
+<span class="font-headline-sm text-headline-sm text-on-surface leading-none">ベトナム人</span>
+</div>
+</div>
+<!-- Particle Glue -->
+<span class="text-on-surface-variant font-label-md text-label-md mt-4">+</span>
+<!-- Slot 4: の -->
+<div class="flex flex-col items-center gap-1 group">
+<span class="font-label-sm text-[10px] tracking-tight uppercase text-secondary px-1 rounded bg-secondary-fixed">Genitive Link</span>
+<div class="slot-box min-w-[56px] h-16 rounded-lg bg-surface-container-lowest shadow-sm flex flex-col items-center justify-center p-1 cursor-pointer transition-all hover:bg-surface-container" data-slot-index="3">
+<span class="furigana-label text-[10px] text-on-surface-variant leading-none">no</span>
+<span class="font-headline-sm text-headline-sm text-secondary leading-none">の</span>
+</div>
+</div>
+<!-- Particle Glue -->
+<span class="text-on-surface-variant font-label-md text-label-md mt-4">+</span>
+<!-- Slot 5: 学生 -->
+<div class="flex flex-col items-center gap-1 group">
+<span class="font-label-sm text-[10px] tracking-tight uppercase text-on-surface-variant px-1 rounded bg-surface-container">Identity Noun</span>
+<div class="slot-box min-w-[80px] h-16 rounded-lg bg-surface-container-lowest shadow-sm flex flex-col items-center justify-center p-1 cursor-pointer transition-all hover:bg-surface-container" data-slot-index="4">
+<span class="furigana-label text-[10px] text-on-surface-variant leading-none">がくせい</span>
+<span class="font-headline-sm text-headline-sm text-on-surface leading-none">学生</span>
+</div>
+</div>
+<!-- Particle Glue -->
+<span class="text-on-surface-variant font-label-md text-label-md mt-4">+</span>
+<!-- Slot 6: です -->
+<div class="flex flex-col items-center gap-1 group">
+<span class="font-label-sm text-[10px] tracking-tight uppercase text-primary px-1 rounded bg-primary-fixed">Polite Copula</span>
+<div class="slot-box min-w-[72px] h-16 rounded-lg bg-surface-container-lowest shadow-sm flex flex-col items-center justify-center p-1 cursor-pointer transition-all hover:bg-surface-container" data-slot-index="5">
+<span class="furigana-label text-[10px] text-on-surface-variant leading-none">desu</span>
+<span class="font-headline-sm text-headline-sm text-primary leading-none font-semibold">です</span>
+</div>
+</div>
+<!-- Punctuation -->
+<div class="flex flex-col items-center gap-1">
+<span class="font-label-sm text-[10px] tracking-tight text-transparent select-none">.</span>
+<div class="w-8 h-16 rounded-lg bg-surface-container flex items-center justify-center text-on-surface font-headline-sm text-headline-sm">
+                  。
+                </div>
+</div>
+</div>
+<!-- Syntactic Assembly Status Line -->
+<div class="mt-space-xs flex items-center gap-space-sm p-space-sm rounded bg-surface-container-lowest transition-all" id="assemblyFeedback">
+<span class="material-symbols-outlined text-tertiary text-[20px]">check_circle</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Grammatically Valid &amp; Natural Order</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Literal: “As for me, [I am a] Vietnamese university student.”</span>
+</div>
+</div>
+</div>
+<!-- INTERACTIVE WORD BANK TILE REPOSITORIES -->
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Word Bank &amp; Morphological Tokens</span>
+<span class="text-on-surface-variant font-label-sm text-[11px]">(Click or Drag to swap slots)</span>
+</div>
+<span class="font-label-sm text-[11px] text-on-surface-variant bg-surface-container px-space-xs py-0.5 rounded">6 Selected · 4 Distractors</span>
+</div>
+<!-- Tiles Mosaic -->
+<div class="flex flex-wrap gap-space-xs items-center">
+<!-- Correct Tiles (Rendered as in-use / soft highlight) -->
+<button class="word-tile px-space-md py-2 rounded-lg bg-surface-container-high text-on-surface-variant hover:bg-surface-container transition-all flex flex-col items-center justify-center shadow-sm select-none" data-kana="わたし" data-word="私">
+<span class="furigana-label text-[10px] leading-none opacity-80">わたし</span>
+<span class="font-headline-sm text-[18px] leading-snug">私</span>
+</button>
+<button class="word-tile px-space-md py-2 rounded-lg bg-surface-container-high text-on-surface-variant hover:bg-surface-container transition-all flex flex-col items-center justify-center shadow-sm select-none" data-kana="wa" data-word="は">
+<span class="furigana-label text-[10px] leading-none opacity-80">wa</span>
+<span class="font-headline-sm text-[18px] leading-snug text-primary font-semibold">は</span>
+</button>
+<button class="word-tile px-space-md py-2 rounded-lg bg-surface-container-high text-on-surface-variant hover:bg-surface-container transition-all flex flex-col items-center justify-center shadow-sm select-none" data-kana="ベトナムじん" data-word="ベトナム人">
+<span class="furigana-label text-[10px] leading-none opacity-80">ベトナムじん</span>
+<span class="font-headline-sm text-[18px] leading-snug">ベトナム人</span>
+</button>
+<button class="word-tile px-space-md py-2 rounded-lg bg-surface-container-high text-on-surface-variant hover:bg-surface-container transition-all flex flex-col items-center justify-center shadow-sm select-none" data-kana="no" data-word="の">
+<span class="furigana-label text-[10px] leading-none opacity-80">no</span>
+<span class="font-headline-sm text-[18px] leading-snug text-secondary font-medium">の</span>
+</button>
+<button class="word-tile px-space-md py-2 rounded-lg bg-surface-container-high text-on-surface-variant hover:bg-surface-container transition-all flex flex-col items-center justify-center shadow-sm select-none" data-kana="がくせい" data-word="学生">
+<span class="furigana-label text-[10px] leading-none opacity-80">がくせい</span>
+<span class="font-headline-sm text-[18px] leading-snug">学生</span>
+</button>
+<button class="word-tile px-space-md py-2 rounded-lg bg-surface-container-high text-on-surface-variant hover:bg-surface-container transition-all flex flex-col items-center justify-center shadow-sm select-none" data-kana="desu" data-word="です">
+<span class="furigana-label text-[10px] leading-none opacity-80">desu</span>
+<span class="font-headline-sm text-[18px] leading-snug text-primary font-semibold">です</span>
+</button>
+<!-- Distractor Tiles (Available) -->
+<button class="word-tile px-space-md py-2 rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container hover:shadow-md transition-all flex flex-col items-center justify-center shadow-sm select-none" data-kana="にほんじん" data-word="日本人">
+<span class="furigana-label text-[10px] text-on-surface-variant leading-none">にほんじん</span>
+<span class="font-headline-sm text-[18px] leading-snug">日本人</span>
+</button>
+<button class="word-tile px-space-md py-2 rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container hover:shadow-md transition-all flex flex-col items-center justify-center shadow-sm select-none" data-kana="かいしゃいん" data-word="会社員">
+<span class="furigana-label text-[10px] text-on-surface-variant leading-none">かいしゃいん</span>
+<span class="font-headline-sm text-[18px] leading-snug">会社員</span>
+</button>
+<button class="word-tile px-space-md py-2 rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container hover:shadow-md transition-all flex flex-col items-center justify-center shadow-sm select-none" data-kana="wo" data-word="を">
+<span class="furigana-label text-[10px] text-on-surface-variant leading-none">wo</span>
+<span class="font-headline-sm text-[18px] leading-snug">を</span>
+</button>
+<button class="word-tile px-space-md py-2 rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container hover:shadow-md transition-all flex flex-col items-center justify-center shadow-sm select-none" data-kana="ではありません" data-word="ではありません">
+<span class="furigana-label text-[10px] text-on-surface-variant leading-none">dewa arimasen</span>
+<span class="font-headline-sm text-[18px] leading-snug">ではありません</span>
+</button>
+</div>
+</div>
+<!-- Tactile Action Bar -->
+<div class="flex flex-col sm:flex-row items-center justify-between gap-space-sm pt-space-sm bg-surface-container-low p-space-md rounded-xl">
+<div class="flex items-center gap-space-xs w-full sm:w-auto">
+<button class="px-space-sm py-2 rounded bg-surface-container-lowest hover:bg-surface-container text-on-surface font-label-sm text-label-sm shadow-sm transition-all flex items-center gap-1" id="toggleFuriganaBtn" type="button">
+<span class="material-symbols-outlined text-[16px]">subtitles</span>
+<span>Furigana: <strong class="text-primary">ON</strong></span>
+</button>
+<button class="px-space-sm py-2 rounded bg-surface-container-lowest hover:bg-surface-container text-on-surface font-label-sm text-label-sm shadow-sm transition-all flex items-center gap-1" id="listenPromptAudio" type="button">
+<span class="material-symbols-outlined text-secondary text-[16px]">volume_up</span>
+<span>Hear Prompt (⌘P)</span>
+</button>
+<button class="p-2 rounded bg-surface-container-lowest hover:bg-surface-container text-on-surface-variant hover:text-on-surface shadow-sm transition-all" id="hintToggleBtn" title="Show Grammar Hint" type="button">
+<span class="material-symbols-outlined text-[18px]">lightbulb</span>
+</button>
+</div>
+<!-- Primary Commit Action Button -->
+<button class="w-full sm:w-auto px-space-lg py-2.5 rounded bg-primary text-on-primary hover:bg-primary-container font-label-md text-label-md flex items-center justify-center gap-space-xs shadow-md hover:shadow-lg transition-all active:scale-[0.99]" id="checkCommitBtn" type="button">
+<span class="material-symbols-outlined text-[18px]">done_all</span>
+<span>Check &amp; Synthesize</span>
+<kbd class="ml-1 px-1.5 py-0.5 text-[10px] bg-on-primary/20 rounded font-mono">Enter ↵</kbd>
+</button>
+</div>
+</div>
+<!-- Embedded Contextual Narrative Scaffolding -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex items-start gap-space-md">
+<div class="w-20 h-20 rounded-lg overflow-hidden shrink-0 bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="A serene Japanese university classroom setting in modern Tokyo with clean wooden furniture, gentle morning sunlight streaming through washi blinds, and an open notebook with fountain pen and Japanese calligraphy notes in soft muted tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6N_uZMu7lhdBQwZA3-8zQHZlx7hkKAXsdljfJ8JxM32EBCaDXP-BBXhEFlj6IdV0ThyMX3zbWEfWUUNzkG1sWc_etIFm-p5HeSKs-N1_yu4oXap6FDodqeAO0SlKhOXr9uHHfTa_MtXCSFhgaK8bHaoTcfEUQ-tBat8lLOEJeZRpbVNDC2pXY1CNwcicqei5KLNG5hTNMfZ4ZX2EzY4JoKJeEB1QcknqTtot1U9w">
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-sm text-[11px] text-tertiary font-bold uppercase tracking-wider">Sociolinguistic Context</span>
+<span class="text-on-surface-variant">•</span>
+<span class="font-label-sm text-[11px] text-on-surface-variant">Societal Norms &amp; Humility</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface leading-snug">
+              In formal Tokyo academic seminars, the genitive connector <span class="font-semibold text-secondary">の</span> establishes relational membership rather than individualistic ownership. Stating <span class="font-kanji-reading text-body-sm">ベトナム人の学生</span> frames you with professional humility.
+            </p>
+</div>
+</div>
+</div>
+<!-- RIGHT PANEL: Contextual Morpho-Syntax & AI Sensei (Columns 8-12, 38-40%) -->
+<div class="lg:col-span-5 flex flex-col gap-space-md">
+<!-- 2.1 Formula Box: Core Morphological Model -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">account_tree</span>
+<span class="font-label-sm text-label-sm text-primary uppercase font-bold tracking-wider">Syntactic Formula</span>
+</div>
+<span class="font-label-sm text-[11px] text-on-surface-variant font-mono">N5·G01</span>
+</div>
+<!-- Formula Pill Container -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col gap-space-xs">
+<div class="flex flex-wrap items-center gap-1.5 font-label-md text-label-md">
+<span class="px-2 py-1 bg-surface-container-lowest rounded shadow-sm text-on-surface font-semibold">[ 名詞 A ]</span>
+<span class="text-primary font-bold font-kanji-reading text-headline-sm leading-none">は</span>
+<span class="px-2 py-1 bg-surface-container-lowest rounded shadow-sm text-on-surface font-semibold">[ 名詞 B ]</span>
+<span class="text-primary font-bold font-kanji-reading text-headline-sm leading-none">です</span>
+</div>
+<div class="text-on-surface-variant font-body-sm text-[13px] pt-1 leading-snug">
+<span class="font-semibold text-on-surface">Rule:</span> “As for Noun A (Topic), it is Noun B.” The copula <span class="font-kanji-reading">です</span> marks polite register and affirmative reality.
+            </div>
+</div>
+</div>
+<!-- 2.2 Deep Pedagogical Orthography: Why 'は' is pronounced 'wa' -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[20px]">history_edu</span>
+<span class="font-label-sm text-label-sm text-secondary uppercase font-bold tracking-wider">Phonological History</span>
+</div>
+<h3 class="font-headline-sm text-[18px] text-on-surface">
+            Orthographic Preservation: <span class="font-kanji-reading text-primary">歴史的仮名遣い</span>
+</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+            In Old Japanese (Heian Period), the particle は was pronounced with a bilabial stop <code class="font-mono text-xs bg-surface-container px-1 py-0.5 rounded text-on-surface">/pa/</code>, which weakened phonologically through <code class="font-mono text-xs bg-surface-container px-1 py-0.5 rounded text-on-surface">/ɸa/ (fa)</code>, settling into <code class="font-mono text-xs bg-surface-container px-1 py-0.5 rounded text-on-surface">/wa/</code>. In the 1946 orthographic post-war reform, the glyph は was retained exclusively as the grammatical topic marker to honor classical grammatical cohesion.
+          </p>
+<div class="flex items-center justify-between p-space-sm rounded bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm">
+<span>Written: <strong class="text-on-surface font-kanji-reading">私は</strong></span>
+<span class="material-symbols-outlined text-outline text-[16px]">arrow_forward</span>
+<span>Pronounced: <strong class="text-primary font-mono text-[13px]">/watashi wa/</strong></span>
+</div>
+</div>
+<!-- 2.3 Side-by-Side Morphological Table -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface uppercase font-bold tracking-wider">Copular Paradigm</span>
+<span class="font-label-sm text-[11px] text-tertiary bg-tertiary-fixed px-2 py-0.5 rounded font-semibold">Polite (丁寧語)</span>
+</div>
+<div class="flex flex-col gap-space-xs">
+<!-- Row 1: Affirmative -->
+<div class="p-space-sm rounded-lg bg-surface-container-low flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-[11px] text-on-surface-variant uppercase">Affirmative</span>
+<span class="font-headline-sm text-[16px] text-on-surface font-medium">〜は〜です</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant font-medium">A is B</span>
+</div>
+<!-- Row 2: Question -->
+<div class="p-space-sm rounded-lg bg-surface-container-low flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-[11px] text-on-surface-variant uppercase">Interrogative</span>
+<span class="font-headline-sm text-[16px] text-on-surface font-medium">〜は〜ですか</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant font-medium">Is A B?</span>
+</div>
+<!-- Row 3: Polite Negative -->
+<div class="p-space-sm rounded-lg bg-surface-container-low flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-[11px] text-on-surface-variant uppercase">Polite Negative</span>
+<span class="font-headline-sm text-[16px] text-on-surface font-medium">〜ではありません</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant font-medium">A is not B</span>
+</div>
+</div>
+</div>
+<!-- 2.4 Contextual AI Sensei Scaffolding Widget -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-on-primary shadow-sm">
+<span class="material-symbols-outlined text-[18px]">psychology</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-semibold">AI Sensei Diagnostic</span>
+<span class="font-label-sm text-[11px] text-tertiary font-medium">Active Linguistic Monitor</span>
+</div>
+</div>
+<span class="font-label-sm text-[11px] text-on-surface-variant bg-surface-container px-2 py-0.5 rounded">Adaptive N5</span>
+</div>
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col gap-space-xs text-on-surface">
+<div class="flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5">chat_bubble</span>
+<p class="font-body-sm text-body-sm text-on-surface leading-snug">
+                “Notice that in natural everyday Japanese, omitting <span class="font-kanji-reading font-medium">「私は」</span> is common when context is evident! However, in formal initial meetings (<span class="font-kanji-reading">はじめまして</span>), explicitly stating <span class="font-kanji-reading font-medium">「私は」</span> anchors your sociolinguistic position with deliberate respect.”
+              </p>
+</div>
+</div>
+<div class="flex items-center gap-space-xs pt-space-xs">
+<button class="flex-1 px-space-sm py-2 rounded bg-surface-container hover:bg-surface-container-high text-on-surface transition-all font-label-sm text-label-sm flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-primary text-[16px]">help</span>
+<span>Ask about の particle</span>
+</button>
+<button class="px-space-sm py-2 rounded bg-surface-container hover:bg-surface-container-high text-on-surface transition-all font-label-sm text-label-sm flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-[16px]">forum</span>
+<span>Open Sensei Log</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- 3. ACOUSTIC SHADOWING & WAVEFORM PITCH ACCENT TRAY -->
+<section class="w-full bg-surface-container-lowest rounded-xl p-space-md lg:p-space-lg shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-space-md">
+<!-- Audio Wave & Pitch Accent Visualization -->
+<div class="flex flex-col gap-space-xs flex-1">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">graphic_eq</span>
+<span class="font-label-sm text-label-sm text-on-surface uppercase font-bold tracking-wider">Acoustic Shadowing · Tokyo Standard Pitch Accent</span>
+</div>
+<span class="font-label-sm text-[11px] text-on-surface-variant font-mono">Heiban (平板) / Odaka Hybrid</span>
+</div>
+<!-- Target Japanese Pitch Trace Diagram -->
+<div class="bg-surface-container-low rounded-lg p-space-sm flex flex-col gap-1">
+<div class="flex items-center justify-between text-on-surface font-headline-sm text-[16px] px-2">
+<span>は・じ・め・ま・し・て</span>
+<span class="text-on-surface-variant">、</span>
+<span>私・は</span>
+<span>ベ・ト・ナ・ム・人・の</span>
+<span>学・生・で・す</span>
+<span>。</span>
+</div>
+<!-- Inline SVG Pitch Contour Diagram -->
+<div class="w-full h-8 relative flex items-center">
+<svg class="w-full h-8 text-primary" fill="none" preserveAspectRatio="none" viewBox="0 0 700 32">
+<!-- Pitch high line -->
+<path d="M 10 22 L 40 8 L 120 8 L 140 22 L 180 22 L 210 8 L 260 8 L 300 22 L 340 8 L 440 8 L 480 22 L 520 8 L 600 8 L 650 22 L 690 22" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path>
+<!-- Pitch nodes -->
+<circle class="fill-surface-container-lowest stroke-primary stroke-2" cx="10" cy="22" r="3"></circle>
+<circle class="fill-primary" cx="40" cy="8" r="3"></circle>
+<circle class="fill-primary" cx="120" cy="8" r="3"></circle>
+<circle class="fill-primary" cx="210" cy="8" r="3"></circle>
+<circle class="fill-primary" cx="340" cy="8" r="3"></circle>
+<circle class="fill-primary" cx="520" cy="8" r="3"></circle>
+<circle class="fill-surface-container-lowest stroke-primary stroke-2" cx="650" cy="22" r="3"></circle>
+</svg>
+</div>
+<div class="flex justify-between text-[10px] text-on-surface-variant px-1 font-mono">
+<span>Low (L)</span>
+<span>High (H) Plateau</span>
+<span>Downstep</span>
+<span>Cadence Drop</span>
+</div>
+</div>
+</div>
+<!-- Playback Controls & Shadowing Mic -->
+<div class="flex items-center gap-space-sm self-end md:self-center shrink-0">
+<!-- Speed Toggle -->
+<div class="flex items-center bg-surface-container-low p-1 rounded-lg">
+<button class="px-space-sm py-1 rounded text-on-surface-variant hover:text-on-surface font-label-sm text-[12px] font-semibold transition-colors" id="speed08">0.8×</button>
+<button class="px-space-sm py-1 rounded bg-surface-container-lowest text-on-surface font-label-sm text-[12px] font-semibold shadow-sm" id="speed10">1.0×</button>
+</div>
+<!-- Master Play Button -->
+<button class="w-12 h-12 rounded-full bg-on-surface text-surface flex items-center justify-center hover:bg-primary transition-all shadow-md active:scale-95" id="playAudioMaster" title="Play Full Sentence">
+<span class="material-symbols-outlined text-[24px]">play_arrow</span>
+</button>
+<!-- Shadowing Record Button -->
+<button class="flex items-center gap-2 px-space-md py-2.5 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface font-label-sm text-label-sm font-semibold transition-all" id="micShadowBtn">
+<span class="material-symbols-outlined text-primary text-[20px] animate-pulse">mic</span>
+<span class="hidden sm:inline">Record Shadowing</span>
+</button>
+</div>
+</section>
+</div>
+<!-- Client-side Interactive Ergonomics Script -->
+<script>
+    (function initInteractiveEngine() {
+      // 1. Furigana Toggle
+      const toggleFuriganaBtn = document.getElementById('toggleFuriganaBtn');
+      let furiganaVisible = true;
+      if (toggleFuriganaBtn) {
+        toggleFuriganaBtn.addEventListener('click', () => {
+          furiganaVisible = !furiganaVisible;
+          document.querySelectorAll('.furigana-label').forEach(el => {
+            el.style.visibility = furiganaVisible ? 'visible' : 'hidden';
+          });
+          const strongTag = toggleFuriganaBtn.querySelector('strong');
+          if (strongTag) {
+            strongTag.textContent = furiganaVisible ? 'ON' : 'OFF';
+            strongTag.className = furiganaVisible ? 'text-primary' : 'text-on-surface-variant';
+          }
+        });
+      }
+
+      // 2. Audio Playback feedback simulation
+      const playAudioMaster = document.getElementById('playAudioMaster');
+      if (playAudioMaster) {
+        playAudioMaster.addEventListener('click', () => {
+          const icon = playAudioMaster.querySelector('.material-symbols-outlined');
+          if (icon) {
+            icon.textContent = 'pause';
+            setTimeout(() => { icon.textContent = 'play_arrow'; }, 1800);
+          }
+        });
+      }
+
+      // 3. Speed Toggle switches
+      const speed08 = document.getElementById('speed08');
+      const speed10 = document.getElementById('speed10');
+      if (speed08 && speed10) {
+        speed08.addEventListener('click', () => {
+          speed08.className = 'px-space-sm py-1 rounded bg-surface-container-lowest text-on-surface font-label-sm text-[12px] font-semibold shadow-sm';
+          speed10.className = 'px-space-sm py-1 rounded text-on-surface-variant hover:text-on-surface font-label-sm text-[12px] font-semibold transition-colors';
+        });
+        speed10.addEventListener('click', () => {
+          speed10.className = 'px-space-sm py-1 rounded bg-surface-container-lowest text-on-surface font-label-sm text-[12px] font-semibold shadow-sm';
+          speed08.className = 'px-space-sm py-1 rounded text-on-surface-variant hover:text-on-surface font-label-sm text-[12px] font-semibold transition-colors';
+        });
+      }
+
+      // 4. Interactive Word Bank Tile selection micro-interaction
+      const wordTiles = document.querySelectorAll('.word-tile');
+      wordTiles.forEach(tile => {
+        tile.addEventListener('click', () => {
+          tile.classList.toggle('scale-95');
+          setTimeout(() => tile.classList.remove('scale-95'), 120);
+        });
+      });
+
+      // 5. Commit Verification Toast
+      const checkCommitBtn = document.getElementById('checkCommitBtn');
+      const feedback = document.getElementById('assemblyFeedback');
+      if (checkCommitBtn && feedback) {
+        checkCommitBtn.addEventListener('click', () => {
+          feedback.classList.remove('bg-surface-container-lowest');
+          feedback.classList.add('bg-tertiary-fixed');
+          setTimeout(() => {
+            feedback.classList.remove('bg-tertiary-fixed');
+            feedback.classList.add('bg-surface-container-lowest');
+          }, 1400);
+        });
+      }
+
+      // Keyboard Shortcut listener (Enter ↵ to check)
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' && checkCommitBtn) {
+          checkCommitBtn.click();
+        }
+      });
+    })();
+  </script>
+</div></main></div>
+
+<grammarly-desktop-integration data-grammarly-shadow-root="true" style="visibility: visible !important;"></grammarly-desktop-integration></body><grammarly-desktop-integration data-grammarly-shadow-root="true" style="visibility: visible !important;"></grammarly-desktop-integration></html>

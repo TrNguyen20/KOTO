@@ -1,0 +1,6 @@
+{
+  "name": "KOTO — Japanese Language Mastery Ecosystem",
+  "description": "An editorial Japanese language learning workspace covering JLPT N5–N1, kanji intelligence, grammar studio, listening & shadowing lab, and an adaptive Gemini-powered AI Sensei tutor.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

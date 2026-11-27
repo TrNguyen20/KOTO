@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"on-primary":"#ffffff","tertiary-fixed-dim":"#a0d3a5","surface-container":"#f0edef","surface-container-high":"#eae7ea","on-primary-fixed":"#410000","on-error-container":"#93000a","on-secondary-fixed":"#001b3c","surface-container-lowest":"#ffffff","surface":"#fcf8fb","secondary-container":"#bbd3fd","on-surface-variant":"#5b403c","secondary-fixed":"#d5e3ff","on-surface":"#1b1b1d","surface-bright":"#fcf8fb","on-secondary-container":"#445a7f","on-primary-container":"#fff5f3","surface-container-highest":"#e4e2e4","on-error":"#ffffff","secondary":"#485f84","primary-container":"#d1382a","on-background":"#1b1b1d","inverse-on-surface":"#f3f0f2","primary-fixed-dim":"#ffb4a9","on-secondary-fixed-variant":"#30476a","on-secondary":"#ffffff","tertiary-container":"#4d7c55","error-container":"#ffdad6","on-tertiary":"#ffffff","surface-tint":"#b62419","on-tertiary-fixed":"#00210a","tertiary":"#35633e","surface-variant":"#e4e2e4","on-tertiary-fixed-variant":"#22502d","tertiary-fixed":"#bcefc0","background":"#fcf8fb","surface-dim":"#dcd9dc","outline":"#8f706b","secondary-fixed-dim":"#b0c7f1","surface-container-low":"#f6f3f5","on-primary-fixed-variant":"#930203","primary":"#ae1d14","outline-variant":"#e3beb9","on-tertiary-container":"#e3ffe2","primary-fixed":"#ffdad5","inverse-primary":"#ffb4a9","inverse-surface":"#303032","error":"#ba1a1a"},borderRadius:{DEFAULT:"0.125rem",lg:"0.25rem",xl:"0.5rem",full:"0.75rem"},spacing:{gutter:"1.5rem","space-lg":"1.5rem","space-md":"1rem","gutter-mobile":"1rem","space-sm":"0.5rem","space-xl":"2.5rem","margin-mobile":"1.25rem","space-xs":"0.25rem",margin:"3rem"},fontFamily:{"headline-sm":["Noto Serif"],"headline-lg":["Noto Serif"],"display-hero":["Noto Serif"],"headline-lg-mobile":["Noto Serif"],"kanji-reading":["Noto Serif"],"headline-md":["Noto Serif"],"label-md":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"label-sm":["Plus Jakarta Sans"],"display-hero-mobile":["Noto Serif"],"body-lg":["Plus Jakarta Sans"],"body-sm":["Plus Jakarta Sans"],"kanji-hero":["Noto Serif"]},fontSize:{"headline-sm":["22px",{lineHeight:"30px",fontWeight:"600"}],"headline-lg":["40px",{lineHeight:"52px",letterSpacing:"-0.01em",fontWeight:"500"}],"display-hero":["56px",{lineHeight:"68px",letterSpacing:"-0.02em",fontWeight:"600"}],"headline-lg-mobile":["30px",{lineHeight:"40px",letterSpacing:"-0.01em",fontWeight:"500"}],"kanji-reading":["20px",{lineHeight:"28px",fontWeight:"400"}],"headline-md":["28px",{lineHeight:"38px",fontWeight:"500"}],"label-md":["14px",{lineHeight:"20px",letterSpacing:"0.02em",fontWeight:"600"}],"body-md":["16px",{lineHeight:"26px",fontWeight:"400"}],"label-sm":["12px",{lineHeight:"16px",letterSpacing:"0.06em",fontWeight:"600"}],"display-hero-mobile":["38px",{lineHeight:"48px",letterSpacing:"-0.01em",fontWeight:"600"}],"body-lg":["18px",{lineHeight:"28px",fontWeight:"400"}],"body-sm":["14px",{lineHeight:"22px",fontWeight:"400"}],"kanji-hero":["64px",{lineHeight:"72px",fontWeight:"400"}]}}}}</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-screen w-[260px] bg-surface-container-low shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col justify-between overflow-y-auto"><div class="flex flex-col"><div class="h-16 px-space-md flex items-center justify-between"><div class="flex items-center gap-space-sm"><img alt="KOTO Brand Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ALJJyrD83e6FfTO5VzhVeXtp_t6hNQa0l5Ig2HLbxnyJU-Ff6LpimNZ6077oFeYIy7sdbA3ILnMp7SuOu8UzWbXNT0pP-BEAMDWG1u_v7kYnwbnQ6RwDTwCHYdJOLdrRa7MNbzhuDxvx7QoWL-EQHfdYdLaBeNXiDpu29UF7Z0VTEtOJ84cI-XPNtzNvw73L1zRqgdDwcQwvza-Rqq8DqIZCIWeNlZMBiVsFoapN1RoKyOM"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm tracking-tight text-on-surface leading-none">言登</span><span class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant">KOTO</span></div></div><span class="px-space-xs py-0.5 rounded bg-surface-container-high font-label-sm text-label-sm text-on-surface-variant font-medium">v2.4</span></div><nav class="px-space-sm py-space-sm flex flex-col gap-space-xs" data-active-classes="bg-primary-container text-on-primary font-medium rounded-lg shadow-sm"><div class="pt-space-xs pb-space-xs px-space-sm flex items-center justify-between"><span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-semibold">Ecosystem</span><span class="font-label-sm text-label-sm text-on-surface-variant opacity-60">基盤</span></div><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[20px] transition-colors">grid_view</span><span class="font-body-sm text-body-sm flex-1">Dashboard</span><span class="font-label-sm text-label-sm text-on-surface-variant opacity-50">台</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="learning-path" href="#"><span class="material-symbols-outlined text-[20px] transition-colors">route</span><span class="font-body-sm text-body-sm flex-1">Learning Path</span><span class="font-label-sm text-label-sm text-on-surface-variant opacity-50">進路</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="review-center" href="#"><span class="material-symbols-outlined text-[20px] transition-colors">repeat</span><span class="font-body-sm text-body-sm flex-1">Review Center</span><span class="px-1.5 py-0.5 rounded bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm font-semibold">14</span></a><div class="pt-space-md pb-space-xs px-space-sm flex items-center justify-between"><span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-semibold">Core Pillars</span><span class="font-label-sm text-label-sm text-on-surface-variant opacity-60">六柱</span></div><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="vocabulary-lab" href="#"><span class="material-symbols-outlined text-[20px] transition-colors">style</span><span class="font-body-sm text-body-sm flex-1">Vocabulary Lab</span><span class="font-label-sm text-label-sm text-on-surface-variant opacity-50">語彙</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="kanji-studio" href="#"><span class="material-symbols-outlined text-[20px] transition-colors">brush</span><span class="font-body-sm text-body-sm flex-1">Kanji Studio</span><span class="font-label-sm text-label-sm text-on-surface-variant opacity-50">漢字</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="grammar-studio" href="#"><span class="material-symbols-outlined text-[20px] transition-colors">menu_book</span><span class="font-body-sm text-body-sm flex-1">Grammar Studio</span><span class="font-label-sm text-label-sm text-on-surface-variant opacity-50">文法</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="listening-and-shadowing" href="#"><span class="material-symbols-outlined text-[20px] transition-colors">headphones</span><span class="font-body-sm text-body-sm flex-1">Listening &amp; Shadowing</span><span class="font-label-sm text-label-sm text-on-surface-variant opacity-50">聴解</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="speaking-and-dialogue" href="#"><span class="material-symbols-outlined text-[20px] transition-colors">record_voice_over</span><span class="font-body-sm text-body-sm flex-1">Speaking &amp; Dialogue</span><span class="font-label-sm text-label-sm text-on-surface-variant opacity-50">会話</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="reading-and-library" href="#"><span class="material-symbols-outlined text-[20px] transition-colors">auto_stories</span><span class="font-body-sm text-body-sm flex-1">Reading &amp; Library</span><span class="font-label-sm text-label-sm text-on-surface-variant opacity-50">読解</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="writing-and-composition" href="#"><span class="material-symbols-outlined text-[20px] transition-colors">edit_note</span><span class="font-body-sm text-body-sm flex-1">Writing &amp; Composition</span><span class="font-label-sm text-label-sm text-on-surface-variant opacity-50">作文</span></a><div class="pt-space-md pb-space-xs px-space-sm flex items-center justify-between"><span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-semibold">Mastery &amp; Tools</span><span class="font-label-sm text-label-sm text-on-surface-variant opacity-60">応用</span></div><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="jlpt-exam-center" href="#"><span class="material-symbols-outlined text-[20px] transition-colors">assignment_turned_in</span><span class="font-body-sm text-body-sm flex-1">JLPT Exam Center</span><span class="font-label-sm text-label-sm text-on-surface-variant opacity-50">試験</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="ai-sensei-tutor" href="#"><span class="material-symbols-outlined text-[20px] transition-colors">psychology</span><span class="font-body-sm text-body-sm flex-1">AI Sensei Tutor</span><span class="font-label-sm text-label-sm text-on-surface-variant opacity-50">先生</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="culture-and-keigo" href="#"><span class="material-symbols-outlined text-[20px] transition-colors">temple_buddhist</span><span class="font-body-sm text-body-sm flex-1">Culture &amp; Keigo</span><span class="font-label-sm text-label-sm text-on-surface-variant opacity-50">敬語</span></a></nav></div><div class="p-space-sm flex flex-col gap-space-xs"><div class="p-space-sm rounded-lg bg-surface-container flex flex-col gap-space-xs"><div class="flex items-center justify-between"><span class="font-label-sm text-label-sm uppercase tracking-wide text-on-surface font-semibold">N5 Mastery</span><span class="font-label-sm text-label-sm font-semibold text-primary">68%</span></div><div class="w-full h-1.5 rounded-full bg-surface-container-highest overflow-hidden"><div class="h-full bg-primary rounded-full w-[68%]"></div></div><div class="flex justify-between items-center text-on-surface-variant font-label-sm text-label-sm pt-0.5"><span>476 / 700 語</span><span class="text-[10px] text-on-surface-variant font-medium">初級基礎</span></div></div><div class="flex items-center justify-between px-space-sm py-1.5"><a class="flex items-center gap-space-xs font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="settings" href="#"><span class="material-symbols-outlined text-[18px]">settings</span><span>Preferences</span></a><a class="flex items-center gap-space-xs font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="dictionary-search" href="#"><span class="material-symbols-outlined text-[18px]">library_books</span><span>辞書</span></a></div></div></aside><div class="pl-[260px]"><header class="fixed top-0 left-[260px] right-0 h-16 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-lg"><div class="flex items-center gap-space-md"><div class="flex items-center bg-surface-container px-2 py-1 rounded-lg gap-1.5"><span class="px-2 py-0.5 rounded bg-primary text-on-primary font-label-sm text-label-sm font-bold tracking-wide">N5</span><div class="flex items-center gap-1 cursor-pointer text-on-surface-variant hover:text-on-surface"><span class="font-label-sm text-label-sm font-medium">JLPT Level</span><span class="material-symbols-outlined text-[18px]">expand_more</span></div></div><button class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg bg-surface-container-low text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors text-left w-60"><span class="material-symbols-outlined text-[18px]">search</span><span class="font-body-sm text-body-sm flex-1 text-on-surface-variant">Search vocabulary, kanji...</span><kbd class="px-1.5 py-0.5 rounded bg-surface-container-highest font-label-sm text-label-sm text-on-surface-variant">⌘K</kbd></button></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-1 px-space-sm py-1 rounded-lg bg-surface-container-low"><span class="text-primary font-bold text-sm">🔥</span><span class="font-label-md text-label-md font-semibold text-on-surface">18</span><span class="font-label-sm text-label-sm text-on-surface-variant">days</span></div><div class="flex items-center gap-1.5 px-space-sm py-1 rounded-lg bg-primary-fixed text-on-primary-fixed"><span class="material-symbols-outlined text-[18px] text-primary">alarm</span><span class="font-label-sm text-label-sm font-semibold">14 Due</span></div><div class="flex items-center gap-1.5 px-space-sm py-1 rounded-lg bg-surface-container-low text-on-surface"><span class="material-symbols-outlined text-[18px] text-tertiary">timelapse</span><span class="font-label-sm text-label-sm font-medium">25/30m</span></div><div class="h-5 w-[1px] bg-surface-container-highest"></div><div class="flex items-center gap-2"><button class="flex items-center gap-1 px-2 py-1 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-label-sm text-label-sm"><span class="material-symbols-outlined text-[16px]">volume_up</span><span>Audio</span></button><button class="flex items-center gap-1 px-2 py-1 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-label-sm text-label-sm"><span class="material-symbols-outlined text-[16px]">translate</span><span>振仮名</span></button></div><div class="h-5 w-[1px] bg-surface-container-highest"></div><div class="flex items-center gap-space-sm cursor-pointer"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzM8bneD0hM9bOCIUJcYJ8lyva152PfGqkP7zF1r5alGuyT3NvRSt5NQphSq7jgBHJ5_fkHjJcqh2vJMIxC-_E0uT9XwaQscIztZZCNlt78ElHJd1fP2oEUjug3VYOzaZ6g2mphDM-t1cfO5zPAv1AHTJam2MZgpRJAwcGIgBOT0U501PWRhsl7MdYFbNtn7ZSGAFnuNgz7Sw269NEV3mMumnlzNZ0DGlUrv2yKWA"/><div class="flex flex-col text-left"><span class="font-label-sm text-label-sm font-semibold text-on-surface leading-none">T. Tanaka</span><span class="font-label-sm text-label-sm text-on-surface-variant opacity-70 leading-none pt-0.5">Shokunin</span></div></div></div></header><main class="relative pt-16 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<!-- Top Editorial Header & Breadcrumb Context -->
+<section class="w-full px-space-lg py-space-md bg-surface-container-lowest shadow-sm flex flex-col gap-space-sm">
+<div class="flex flex-wrap items-center justify-between gap-y-2">
+<div class="flex items-center gap-space-sm text-on-surface-variant font-label-sm text-label-sm tracking-wider uppercase">
+<span>体系 / ECOSYSTEM</span>
+<span class="opacity-40">/</span>
+<span class="text-on-surface font-semibold">KANJI INTELLIGENCE (漢字スタジオ)</span>
+<span class="opacity-40">/</span>
+<span class="text-primary font-medium tracking-normal normal-case">Radical Decomposition &amp; Orthographic Memory</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span>Syllabary Core: 2,136 Jōyō</span>
+</span>
+<div class="px-2 py-0.5 rounded bg-surface-container-high font-label-sm text-label-sm text-on-surface-variant">
+          Academic Edition
+        </div>
+</div>
+</div>
+<!-- Filter & Classification Matrix Toolbar -->
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md pt-space-xs">
+<!-- JLPT & Scope Tabs -->
+<div class="flex flex-wrap items-center gap-1.5">
+<button class="px-3 py-1 rounded font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors">
+          All (2,136)
+        </button>
+<button class="px-3 py-1 rounded font-label-sm text-label-sm bg-primary text-on-primary font-bold shadow-sm">
+          N5 Essential 103
+        </button>
+<button class="px-3 py-1 rounded font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors">
+          N4 (181)
+        </button>
+<button class="px-3 py-1 rounded font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors">
+          N3 (361)
+        </button>
+<button class="px-3 py-1 rounded font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors">
+          N2 (415)
+        </button>
+<button class="px-3 py-1 rounded font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors">
+          N1 Jōyō (1,076)
+        </button>
+</div>
+<!-- Classification & View Mode Selectors -->
+<div class="flex flex-wrap items-center gap-space-sm">
+<div class="flex items-center rounded bg-surface-container p-0.5">
+<span class="px-2.5 py-1 font-label-sm text-label-sm text-on-surface-variant">Filter:</span>
+<button class="px-2.5 py-0.5 rounded bg-surface-container-lowest font-label-sm text-label-sm font-medium text-on-surface shadow-sm">
+            Kyōiku G1
+          </button>
+<button class="px-2 py-0.5 rounded font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface transition-colors">
+            Radicals (部首)
+          </button>
+<button class="px-2 py-0.5 rounded font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface transition-colors">
+            Strokes
+          </button>
+</div>
+<div class="h-4 w-[1px] bg-surface-container-highest hidden sm:block"></div>
+<div class="flex items-center rounded bg-surface-container-high p-0.5">
+<button class="px-2.5 py-1 rounded font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface transition-colors">
+            Matrix
+          </button>
+<button class="px-2.5 py-1 rounded bg-surface-container-lowest font-label-sm text-label-sm font-semibold text-primary shadow-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px]">center_focus_strong</span>
+<span>Dissection</span>
+</button>
+<button class="px-2.5 py-1 rounded font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface transition-colors">
+            Stroke Seq
+          </button>
+<button class="px-2.5 py-1 rounded font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface transition-colors">
+            Lexicon
+          </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Master-Detail Core Canvas (12-Column Asymmetric Balance) -->
+<div class="w-full px-space-lg py-space-lg grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
+<!-- LEFT PANEL: Kanji Progression & Radical Index (4 columns) -->
+<aside class="lg:col-span-4 flex flex-col gap-space-md">
+<!-- Search & Command Input -->
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-on-surface-variant text-[20px]">search</span>
+<input class="w-full pl-10 pr-12 py-2 rounded bg-surface-container-lowest text-on-surface font-body-sm text-body-sm shadow-sm placeholder:text-on-surface-variant focus:outline-none focus:bg-surface-container-low transition-all" placeholder="Filter radical, reading, stroke, meaning..." type="text" value="時 (time)"/>
+<kbd class="absolute right-2.5 top-2 px-1.5 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-on-surface-variant">⌘K</kbd>
+</div>
+<!-- Quick Radical Index Ribbon -->
+<div class="flex flex-col gap-1.5 bg-surface-container-lowest p-space-sm rounded-lg shadow-sm">
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm px-1">
+<span class="uppercase font-semibold">Primary Radicals (主要部首)</span>
+<span class="text-[11px] opacity-70">214 Historic Index</span>
+</div>
+<div class="flex items-center justify-between gap-1 overflow-x-auto pb-1 text-on-surface">
+<button class="w-8 h-8 flex items-center justify-center rounded bg-primary-fixed text-on-primary-fixed font-headline-sm text-headline-sm font-semibold shadow-sm">
+            日
+          </button>
+<button class="w-8 h-8 flex items-center justify-center rounded hover:bg-surface-container-high text-on-surface font-headline-sm text-headline-sm transition-colors">
+            口
+          </button>
+<button class="w-8 h-8 flex items-center justify-center rounded hover:bg-surface-container-high text-on-surface font-headline-sm text-headline-sm transition-colors">
+            木
+          </button>
+<button class="w-8 h-8 flex items-center justify-center rounded hover:bg-surface-container-high text-on-surface font-headline-sm text-headline-sm transition-colors">
+            水
+          </button>
+<button class="w-8 h-8 flex items-center justify-center rounded hover:bg-surface-container-high text-on-surface font-headline-sm text-headline-sm transition-colors">
+            人
+          </button>
+<button class="w-8 h-8 flex items-center justify-center rounded hover:bg-surface-container-high text-on-surface font-headline-sm text-headline-sm transition-colors">
+            艸
+          </button>
+<button class="w-8 h-8 flex items-center justify-center rounded hover:bg-surface-container-high text-on-surface font-headline-sm text-headline-sm transition-colors">
+            心
+          </button>
+<button class="w-8 h-8 flex items-center justify-center rounded hover:bg-surface-container-high text-on-surface font-headline-sm text-headline-sm transition-colors">
+            言
+          </button>
+</div>
+</div>
+<!-- Kanji Progress Roster -->
+<div class="flex flex-col gap-2 bg-surface-container-lowest p-space-sm rounded-lg shadow-sm">
+<div class="flex items-center justify-between px-2 pt-1 pb-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-bold uppercase tracking-wider">
+            N5 Foundation Cohort · Section A
+          </span>
+<span class="font-label-sm text-label-sm text-tertiary font-semibold">18 / 103 Mastered</span>
+</div>
+<!-- List Entries -->
+<div class="flex flex-col gap-1.5">
+<!-- Item 1: Active Selected (時) -->
+<div class="relative p-3 rounded-lg bg-surface-container text-on-surface shadow-sm cursor-pointer flex items-center justify-between transition-all">
+<div class="flex items-center gap-space-md">
+<div class="w-12 h-12 rounded bg-surface-container-lowest flex items-center justify-center font-headline-lg text-headline-lg text-primary shadow-sm leading-none pt-0.5">
+                時
+              </div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm font-semibold">時</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Time / Hour</span>
+</div>
+<div class="flex items-center gap-2 font-label-sm text-label-sm text-on-surface-variant pt-0.5">
+<span class="px-1 py-0.2 rounded bg-surface-container-highest text-[10px] uppercase font-bold text-primary">N5</span>
+<span>10 画 (strokes)</span>
+<span>·</span>
+<span class="text-tertiary font-semibold">96% recall</span>
+</div>
+</div>
+</div>
+<!-- Traditional Hanko Square Stamp -->
+<div class="flex flex-col items-center justify-center w-7 h-7 rounded border border-primary text-primary font-serif font-bold text-[10px] leading-tight select-none rotate-3 bg-on-primary">
+<span>済</span>
+</div>
+</div>
+<!-- Item 2: 駅 -->
+<div class="p-3 rounded-lg hover:bg-surface-container-low text-on-surface transition-all cursor-pointer flex items-center justify-between">
+<div class="flex items-center gap-space-md">
+<div class="w-12 h-12 rounded bg-surface-container flex items-center justify-center font-headline-lg text-headline-lg text-on-surface leading-none pt-0.5">
+                駅
+              </div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm font-medium">駅</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Station</span>
+</div>
+<div class="flex items-center gap-2 font-label-sm text-label-sm text-on-surface-variant pt-0.5">
+<span class="px-1 py-0.2 rounded bg-surface-container text-[10px] font-bold">N5</span>
+<span>14 画</span>
+<span>·</span>
+<span class="text-secondary font-medium">In Review</span>
+</div>
+</div>
+</div>
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+</div>
+<!-- Item 3: 食 -->
+<div class="p-3 rounded-lg hover:bg-surface-container-low text-on-surface transition-all cursor-pointer flex items-center justify-between">
+<div class="flex items-center gap-space-md">
+<div class="w-12 h-12 rounded bg-surface-container flex items-center justify-center font-headline-lg text-headline-lg text-on-surface leading-none pt-0.5">
+                食
+              </div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm font-medium">食</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Eat / Meal</span>
+</div>
+<div class="flex items-center gap-2 font-label-sm text-label-sm text-on-surface-variant pt-0.5">
+<span class="px-1 py-0.2 rounded bg-surface-container text-[10px] font-bold">N5</span>
+<span>9 画</span>
+<span>·</span>
+<span class="text-tertiary font-medium">Mastered</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col items-center justify-center w-7 h-7 rounded border border-primary/40 text-primary/70 font-serif font-bold text-[10px] leading-tight select-none">
+<span>済</span>
+</div>
+</div>
+<!-- Item 4: 店 -->
+<div class="p-3 rounded-lg hover:bg-surface-container-low text-on-surface transition-all cursor-pointer flex items-center justify-between">
+<div class="flex items-center gap-space-md">
+<div class="w-12 h-12 rounded bg-surface-container flex items-center justify-center font-headline-lg text-headline-lg text-on-surface leading-none pt-0.5">
+                店
+              </div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm font-medium">店</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Shop / Store</span>
+</div>
+<div class="flex items-center gap-2 font-label-sm text-label-sm text-on-surface-variant pt-0.5">
+<span class="px-1 py-0.2 rounded bg-surface-container text-[10px] font-bold">N5</span>
+<span>8 画</span>
+<span>·</span>
+<span class="text-tertiary font-medium">Mastered</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col items-center justify-center w-7 h-7 rounded border border-primary/40 text-primary/70 font-serif font-bold text-[10px] leading-tight select-none">
+<span>済</span>
+</div>
+</div>
+<!-- Item 5: 行 -->
+<div class="p-3 rounded-lg hover:bg-surface-container-low text-on-surface transition-all cursor-pointer flex items-center justify-between">
+<div class="flex items-center gap-space-md">
+<div class="w-12 h-12 rounded bg-surface-container flex items-center justify-center font-headline-lg text-headline-lg text-on-surface leading-none pt-0.5">
+                行
+              </div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm font-medium">行</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Go / Conduct</span>
+</div>
+<div class="flex items-center gap-2 font-label-sm text-label-sm text-on-surface-variant pt-0.5">
+<span class="px-1 py-0.2 rounded bg-surface-container text-[10px] font-bold">N5</span>
+<span>6 画</span>
+<span>·</span>
+<span class="text-on-surface-variant">Consolidating</span>
+</div>
+</div>
+</div>
+<span class="w-2 h-2 rounded-full bg-outline-variant"></span>
+</div>
+<!-- Item 6: 会 -->
+<div class="p-3 rounded-lg hover:bg-surface-container-low text-on-surface transition-all cursor-pointer flex items-center justify-between">
+<div class="flex items-center gap-space-md">
+<div class="w-12 h-12 rounded bg-surface-container flex items-center justify-center font-headline-lg text-headline-lg text-on-surface leading-none pt-0.5">
+                会
+              </div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm font-medium">会</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Meet / Society</span>
+</div>
+<div class="flex items-center gap-2 font-label-sm text-label-sm text-on-surface-variant pt-0.5">
+<span class="px-1 py-0.2 rounded bg-surface-container text-[10px] font-bold">N5</span>
+<span>6 画</span>
+<span>·</span>
+<span class="text-primary font-medium">Learning (Day 2)</span>
+</div>
+</div>
+</div>
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+</div>
+</div>
+<button class="w-full py-2.5 mt-2 rounded bg-surface-container font-label-sm text-label-sm font-semibold text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors flex items-center justify-center gap-1.5">
+<span>Display next 12 glyphs</span>
+<span class="material-symbols-outlined text-[16px]">expand_more</span>
+</button>
+</div>
+<!-- Historical Calligraphy Artifact Card -->
+<div class="rounded-lg bg-surface-container-lowest p-space-md shadow-sm flex flex-col gap-space-sm relative overflow-hidden">
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<span class="uppercase font-semibold">Script Evolutionary Lineage</span>
+<span class="text-[11px]">甲骨文 → 楷書</span>
+</div>
+<div class="grid grid-cols-3 gap-2 py-1">
+<div class="p-2 rounded bg-surface-container flex flex-col items-center">
+<span class="font-serif text-[24px] text-on-surface-variant">𡇙</span>
+<span class="text-[10px] text-on-surface-variant mt-1">Oracle Bone</span>
+</div>
+<div class="p-2 rounded bg-surface-container flex flex-col items-center">
+<span class="font-serif text-[24px] text-on-surface-variant">𪚥</span>
+<span class="text-[10px] text-on-surface-variant mt-1">Seal Script</span>
+</div>
+<div class="p-2 rounded bg-primary-fixed flex flex-col items-center">
+<span class="font-headline-sm text-headline-sm text-on-primary-fixed font-bold">時</span>
+<span class="text-[10px] text-on-primary-fixed-variant mt-1 font-semibold">Modern Kaisho</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+          The early graph combined the solar sign with a foot marking forward motion, later harmonized with the temple radical.
+        </p>
+</div>
+</aside>
+<!-- RIGHT MAIN STAGE: Deep Kanji Intelligence Workspace for '時' (8 columns) -->
+<main class="lg:col-span-8 flex flex-col gap-space-lg">
+<!-- HERO GLYPH INSPECTION AREA -->
+<section class="rounded-lg bg-surface-container-lowest p-space-lg shadow-sm flex flex-col gap-space-md relative">
+<div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+<div class="flex items-center gap-space-md">
+<div class="px-2.5 py-1 rounded bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm font-bold tracking-wide">
+              JLPT N5
+            </div>
+<div class="px-2.5 py-1 rounded bg-surface-container font-label-sm text-label-sm text-on-surface-variant font-medium">
+              Kyōiku Grade 1
+            </div>
+<div class="px-2.5 py-1 rounded bg-surface-container font-label-sm text-label-sm text-on-surface-variant font-medium">
+              10 Strokes (画)
+            </div>
+<div class="px-2.5 py-1 rounded bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span>部首: 日</span>
+<span class="text-[11px] font-normal">(ひ・ひへん · Sun)</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 rounded hover:bg-surface-container text-on-surface-variant hover:text-on-surface transition-colors" title="Bookmark Glyph">
+<span class="material-symbols-outlined text-[20px]">bookmark</span>
+</button>
+<button class="p-2 rounded hover:bg-surface-container text-on-surface-variant hover:text-on-surface transition-colors" title="Pronunciation Audio">
+<span class="material-symbols-outlined text-[20px]">volume_up</span>
+</button>
+<button class="p-2 rounded hover:bg-surface-container text-on-surface-variant hover:text-on-surface transition-colors" title="Export Calligraphy Sheet">
+<span class="material-symbols-outlined text-[20px]">print</span>
+</button>
+</div>
+</div>
+<!-- Center Hero Visual Split: Calligraphy Inspection + Etymological Mnemonic -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-space-lg pt-space-xs items-center">
+<!-- Calligraphic Hero Card with Stroke Annotation Grid -->
+<div class="md:col-span-5 flex flex-col items-center justify-center p-6 bg-surface-container-low rounded-lg relative overflow-hidden">
+<!-- Simulated Japanese Genkō Yōshi Grid Lines -->
+<div class="absolute inset-4 border border-dashed border-outline-variant/40 pointer-events-none flex">
+<div class="w-1/2 h-full border-r border-dashed border-outline-variant/30"></div>
+<div class="absolute top-1/2 left-0 right-0 border-t border-dashed border-outline-variant/30"></div>
+</div>
+<!-- Radical highlight annotation -->
+<span class="absolute top-2 left-2 text-[10px] uppercase font-label-sm text-on-surface-variant/70 tracking-widest">
+              Kaisho Stencil
+            </span>
+<!-- Mammoth Glyph -->
+<div class="relative z-10 flex items-center justify-center my-4">
+<span class="font-kanji-hero text-[118px] leading-none text-on-surface font-normal select-none tracking-tight">
+                時
+              </span>
+<!-- Vector Stroke Guidance Annotations (Numbered Badges) -->
+<span class="absolute top-3 left-3 w-5 h-5 rounded-full bg-primary text-on-primary text-[10px] font-bold flex items-center justify-center shadow-sm">1</span>
+<span class="absolute top-10 left-12 w-5 h-5 rounded-full bg-primary text-on-primary text-[10px] font-bold flex items-center justify-center shadow-sm">2</span>
+<span class="absolute top-2 left-20 w-5 h-5 rounded-full bg-secondary text-on-secondary text-[10px] font-bold flex items-center justify-center shadow-sm">5</span>
+<span class="absolute bottom-6 right-5 w-5 h-5 rounded-full bg-secondary text-on-secondary text-[10px] font-bold flex items-center justify-center shadow-sm">10</span>
+</div>
+<!-- Radical Indicator Pill -->
+<div class="relative z-10 flex items-center gap-2 mt-2 px-3 py-1 rounded-full bg-surface-container-lowest text-on-surface-variant font-label-sm text-label-sm shadow-sm">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="font-medium">Left Component: 日 (4 strokes)</span>
+</div>
+</div>
+<!-- Mnemonic, Breakdown & Cognitive Narrative -->
+<div class="md:col-span-7 flex flex-col gap-space-md">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary font-bold">
+                ORTHOGRAPHIC STORY &amp; MNEMONIC
+              </span>
+<h2 class="font-headline-md text-headline-md text-on-surface pt-1 pb-2">
+                "The Sun over the Temple Marks Time."
+              </h2>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                A visual assembly of two balanced elements: On the left, <span class="text-on-surface font-semibold">日</span> (the Sun, daylight cycle). On the right, <span class="text-on-surface font-semibold">寺</span> (temple or steady measure, itself made of ground <span class="text-on-surface font-medium">土</span> and sun-dial inch <span class="text-on-surface font-medium">寸</span>). As shadows traverse the ancient temple stone, hours pass into memory.
+              </p>
+</div>
+<!-- Component Radical Decomposition Blocks -->
+<div class="grid grid-cols-2 gap-3 pt-1">
+<div class="p-3 rounded-lg bg-surface-container flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-headline-sm font-semibold text-primary">日</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Radical #72</span>
+</div>
+<span class="font-label-sm text-label-sm font-semibold text-on-surface">ひ・にち (Sun / Day)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant text-[12px]">Positional: left-side (へん)</span>
+</div>
+<div class="p-3 rounded-lg bg-surface-container flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-headline-sm font-semibold text-secondary">寺</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Phonetic Primitive</span>
+</div>
+<span class="font-label-sm text-label-sm font-semibold text-on-surface">てら (Temple / Sanctuary)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant text-[12px]">Imparts the historical sound 'JI'</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- PHONETIC & READING ARCHITECTURE -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<!-- On-yomi (Sino-Japanese) -->
+<div class="p-space-md rounded-lg bg-surface-container-lowest shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center justify-between border-b border-surface-container pb-2">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+<span class="font-label-sm text-label-sm font-bold text-on-surface uppercase tracking-wider">
+                On-yomi (音読み · Sino-Japanese)
+              </span>
+</div>
+<span class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-on-surface-variant">
+              High Frequency (頻出)
+            </span>
+</div>
+<div class="flex items-baseline gap-3 pt-1">
+<span class="font-headline-lg text-headline-lg font-bold text-primary">ジ</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">[ji] · Primary reading in compounds</span>
+</div>
+<div class="flex flex-wrap gap-2 pt-2 text-on-surface-variant font-label-sm text-label-sm">
+<span class="px-2 py-1 rounded bg-surface-container-low">何時 (nan-ji)</span>
+<span class="px-2 py-1 rounded bg-surface-container-low">時代 (ji-dai)</span>
+<span class="px-2 py-1 rounded bg-surface-container-low">時間 (ji-kan)</span>
+</div>
+</div>
+<!-- Kun-yomi (Native Japanese) -->
+<div class="p-space-md rounded-lg bg-surface-container-lowest shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center justify-between border-b border-surface-container pb-2">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-tertiary"></span>
+<span class="font-label-sm text-label-sm font-bold text-on-surface uppercase tracking-wider">
+                Kun-yomi (訓読み · Native Japanese)
+              </span>
+</div>
+<span class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-on-surface-variant">
+              Everyday Vernacular
+            </span>
+</div>
+<div class="flex items-baseline gap-3 pt-1">
+<span class="font-headline-lg text-headline-lg font-bold text-tertiary">とき</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">[toki], -どき [-doki] (Rendaku)</span>
+</div>
+<div class="flex flex-wrap gap-2 pt-2 text-on-surface-variant font-label-sm text-label-sm">
+<span class="px-2 py-1 rounded bg-surface-container-low">その時 (sono toki)</span>
+<span class="px-2 py-1 rounded bg-surface-container-low">時々 (tokidoki)</span>
+<span class="px-2 py-1 rounded bg-surface-container-low">潮時 (shiodoki)</span>
+</div>
+</div>
+</section>
+<!-- COMPOUND WORD NETWORK (VOCABULARY LAB INTEGRATION) -->
+<section class="rounded-lg bg-surface-container-lowest p-space-md shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">hub</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Essential Compounds (連語・熟語)</h3>
+</div>
+<a class="font-label-sm text-label-sm text-primary hover:underline font-semibold flex items-center gap-1" href="#">
+<span>Explore in Vocabulary Lab</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          Core lexical items constructed with '時' appearing in standard JLPT N5 curriculum:
+        </p>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+<!-- Card 1 -->
+<div class="p-3 rounded-lg bg-surface-container-low hover:bg-surface-container transition-all flex flex-col justify-between gap-2 group cursor-pointer">
+<div class="flex items-start justify-between">
+<div>
+<ruby class="font-headline-sm text-headline-sm font-semibold text-on-surface">
+                  時間<rt class="font-label-sm text-label-sm text-on-surface-variant">じかん</rt>
+</ruby>
+<div class="font-body-sm text-body-sm text-on-surface-variant">jikan · Time / Period / Hours</div>
+</div>
+<span class="px-1.5 py-0.5 rounded bg-surface-container-highest text-[10px] font-bold text-primary">N5</span>
+</div>
+<div class="flex items-center justify-between text-[11px] text-on-surface-variant pt-2 border-t border-outline-variant/30">
+<span>時 [time] + 間 [interval]</span>
+<span class="text-tertiary font-semibold flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+<span>Active Vocab</span>
+</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="p-3 rounded-lg bg-surface-container-low hover:bg-surface-container transition-all flex flex-col justify-between gap-2 group cursor-pointer">
+<div class="flex items-start justify-between">
+<div>
+<ruby class="font-headline-sm text-headline-sm font-semibold text-on-surface">
+                  時計<rt class="font-label-sm text-label-sm text-on-surface-variant">とけい</rt>
+</ruby>
+<div class="font-body-sm text-body-sm text-on-surface-variant">tokei · Clock / Wristwatch</div>
+</div>
+<span class="px-1.5 py-0.5 rounded bg-surface-container-highest text-[10px] font-bold text-primary">N5</span>
+</div>
+<div class="flex items-center justify-between text-[11px] text-on-surface-variant pt-2 border-t border-outline-variant/30">
+<span>時 [time] + 計 [measure]</span>
+<span class="text-tertiary font-semibold flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+<span>Active Vocab</span>
+</span>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="p-3 rounded-lg bg-surface-container-low hover:bg-surface-container transition-all flex flex-col justify-between gap-2 group cursor-pointer">
+<div class="flex items-start justify-between">
+<div>
+<ruby class="font-headline-sm text-headline-sm font-semibold text-on-surface">
+                  時々<rt class="font-label-sm text-label-sm text-on-surface-variant">ときどき</rt>
+</ruby>
+<div class="font-body-sm text-body-sm text-on-surface-variant">tokidoki · Sometimes / At intervals</div>
+</div>
+<span class="px-1.5 py-0.5 rounded bg-surface-container-highest text-[10px] font-bold text-primary">N5</span>
+</div>
+<div class="flex items-center justify-between text-[11px] text-on-surface-variant pt-2 border-t border-outline-variant/30">
+<span>時 [time] + 々 [iteration mark]</span>
+<span class="text-secondary font-medium">Scheduled Today</span>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="p-3 rounded-lg bg-surface-container-low hover:bg-surface-container transition-all flex flex-col justify-between gap-2 group cursor-pointer">
+<div class="flex items-start justify-between">
+<div>
+<ruby class="font-headline-sm text-headline-sm font-semibold text-on-surface">
+                  何時<rt class="font-label-sm text-label-sm text-on-surface-variant">なんじ</rt>
+</ruby>
+<div class="font-body-sm text-body-sm text-on-surface-variant">nanji · What time?</div>
+</div>
+<span class="px-1.5 py-0.5 rounded bg-surface-container-highest text-[10px] font-bold text-primary">N5</span>
+</div>
+<div class="flex items-center justify-between text-[11px] text-on-surface-variant pt-2 border-t border-outline-variant/30">
+<span>何 [what] + 時 [o'clock]</span>
+<span class="text-tertiary font-semibold flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+<span>Active Vocab</span>
+</span>
+</div>
+</div>
+</div>
+</section>
+<!-- INTERACTIVE STROKE ORDER & TACTILE WRITING SANDBOX -->
+<section class="rounded-lg bg-surface-container-lowest p-space-md shadow-sm flex flex-col gap-space-md">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-bold">
+              KINETIC CALLIGRAPHY &amp; WRITING PRACTICE
+            </span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Stroke Sequence Calibration (10 画)</h3>
+</div>
+<div class="flex items-center gap-2">
+<button class="px-3 py-1.5 rounded bg-surface-container text-on-surface font-label-sm text-label-sm font-semibold hover:bg-surface-container-high transition-colors flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">play_arrow</span>
+<span>Simulate Animation</span>
+</button>
+<button class="px-3 py-1.5 rounded bg-primary text-on-primary font-label-sm text-label-sm font-semibold hover:bg-primary-container transition-colors flex items-center gap-1.5 shadow-sm">
+<span class="material-symbols-outlined text-[16px]">draw</span>
+<span>Freehand Sandbox</span>
+</button>
+</div>
+</div>
+<!-- 10-Step Horizontal Progressive Stroke Sequence Diagram -->
+<div class="w-full overflow-x-auto pb-2">
+<div class="flex items-center gap-2 min-w-[620px]">
+<!-- Stroke 1 -->
+<div class="flex-1 flex flex-col items-center p-2 rounded bg-surface-container-low">
+<span class="text-[10px] font-label-sm text-on-surface-variant font-bold mb-1">1. 丨</span>
+<div class="w-10 h-10 rounded bg-surface-container-lowest flex items-center justify-center font-serif text-[18px] text-primary">
+                丨
+              </div>
+<span class="text-[9px] text-on-surface-variant mt-1">Down</span>
+</div>
+<!-- Stroke 2 -->
+<div class="flex-1 flex flex-col items-center p-2 rounded bg-surface-container-low">
+<span class="text-[10px] font-label-sm text-on-surface-variant font-bold mb-1">2. 𠃍</span>
+<div class="w-10 h-10 rounded bg-surface-container-lowest flex items-center justify-center font-serif text-[18px] text-primary">
+                冂
+              </div>
+<span class="text-[9px] text-on-surface-variant mt-1">Fold</span>
+</div>
+<!-- Stroke 3 -->
+<div class="flex-1 flex flex-col items-center p-2 rounded bg-surface-container-low">
+<span class="text-[10px] font-label-sm text-on-surface-variant font-bold mb-1">3. 一</span>
+<div class="w-10 h-10 rounded bg-surface-container-lowest flex items-center justify-center font-serif text-[18px] text-primary">
+                日
+              </div>
+<span class="text-[9px] text-on-surface-variant mt-1">Mid bar</span>
+</div>
+<!-- Stroke 4 -->
+<div class="flex-1 flex flex-col items-center p-2 rounded bg-surface-container-low">
+<span class="text-[10px] font-label-sm text-on-surface-variant font-bold mb-1">4. 一</span>
+<div class="w-10 h-10 rounded bg-surface-container-lowest flex items-center justify-center font-serif text-[18px] text-primary">
+                日
+              </div>
+<span class="text-[9px] text-on-surface-variant mt-1">Seal base</span>
+</div>
+<!-- Stroke 5 -->
+<div class="flex-1 flex flex-col items-center p-2 rounded bg-surface-container-low">
+<span class="text-[10px] font-label-sm text-on-surface-variant font-bold mb-1">5. 一</span>
+<div class="w-10 h-10 rounded bg-surface-container-lowest flex items-center justify-center font-serif text-[18px] text-secondary">
+                日土
+              </div>
+<span class="text-[9px] text-on-surface-variant mt-1">Temple top</span>
+</div>
+<!-- Stroke 6 -->
+<div class="flex-1 flex flex-col items-center p-2 rounded bg-surface-container-low">
+<span class="text-[10px] font-label-sm text-on-surface-variant font-bold mb-1">6. 丨</span>
+<div class="w-10 h-10 rounded bg-surface-container-lowest flex items-center justify-center font-serif text-[18px] text-secondary">
+                日土
+              </div>
+<span class="text-[9px] text-on-surface-variant mt-1">Spine</span>
+</div>
+<!-- Stroke 7 -->
+<div class="flex-1 flex flex-col items-center p-2 rounded bg-surface-container-low">
+<span class="text-[10px] font-label-sm text-on-surface-variant font-bold mb-1">7. 一</span>
+<div class="w-10 h-10 rounded bg-surface-container-lowest flex items-center justify-center font-serif text-[18px] text-secondary">
+                日土
+              </div>
+<span class="text-[9px] text-on-surface-variant mt-1">Long base</span>
+</div>
+<!-- Stroke 8 -->
+<div class="flex-1 flex flex-col items-center p-2 rounded bg-surface-container-low">
+<span class="text-[10px] font-label-sm text-on-surface-variant font-bold mb-1">8. 一</span>
+<div class="w-10 h-10 rounded bg-surface-container-lowest flex items-center justify-center font-serif text-[18px] text-secondary">
+                日寺
+              </div>
+<span class="text-[9px] text-on-surface-variant mt-1">Inch bar</span>
+</div>
+<!-- Stroke 9 -->
+<div class="flex-1 flex flex-col items-center p-2 rounded bg-surface-container-low">
+<span class="text-[10px] font-label-sm text-on-surface-variant font-bold mb-1">9. 亅</span>
+<div class="w-10 h-10 rounded bg-surface-container-lowest flex items-center justify-center font-serif text-[18px] text-secondary">
+                日寺
+              </div>
+<span class="text-[9px] text-on-surface-variant mt-1">Hook</span>
+</div>
+<!-- Stroke 10 -->
+<div class="flex-1 flex flex-col items-center p-2 rounded bg-surface-container border border-primary/20">
+<span class="text-[10px] font-label-sm text-primary font-bold mb-1">10. 丶</span>
+<div class="w-10 h-10 rounded bg-surface-container-lowest flex items-center justify-center font-serif text-[18px] text-primary font-bold">
+                時
+              </div>
+<span class="text-[9px] text-primary font-medium mt-1">Final dot</span>
+</div>
+</div>
+</div>
+<!-- Practice Canvas / Critique Area -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-space-md p-space-md rounded-lg bg-surface-container-low items-center">
+<div class="md:col-span-4 flex flex-col items-center">
+<!-- Simulated Genko Canvas Box -->
+<div class="w-44 h-44 rounded-lg bg-surface-container-lowest border border-dashed border-outline/30 relative flex items-center justify-center shadow-inner cursor-crosshair">
+<div class="absolute inset-0 flex">
+<div class="w-1/2 h-full border-r border-dashed border-outline-variant/30"></div>
+<div class="absolute top-1/2 left-0 right-0 border-t border-dashed border-outline-variant/30"></div>
+</div>
+<!-- Faint watermark guide -->
+<span class="font-kanji-hero text-[88px] text-surface-container-highest select-none pointer-events-none">
+                時
+              </span>
+<span class="absolute bottom-2 text-[10px] text-on-surface-variant font-label-sm tracking-wide">
+                Canvas Ready · Draw here
+              </span>
+</div>
+</div>
+<div class="md:col-span-8 flex flex-col gap-space-xs">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-[20px]">verified</span>
+<span class="font-label-sm text-label-sm font-bold text-on-surface uppercase tracking-wide">
+                Stroke Balance Critique (AI 評価)
+              </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+              Maintain the 1:2 width ratio between the left radical <span class="text-on-surface font-semibold">日</span> and right compound <span class="text-on-surface font-semibold">寺</span>. The final dot (stroke 10) must center beneath the horizontal line of 寸 to preserve central equilibrium.
+            </p>
+<div class="flex items-center gap-space-md pt-2">
+<div class="flex items-center gap-1.5 text-on-surface font-label-sm text-label-sm">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span>Equilibrium Score: <strong>94/100</strong></span>
+</div>
+<div class="flex items-center gap-1.5 text-on-surface font-label-sm text-label-sm">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span>Pressure Gradient: <strong>Optimized</strong></span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CROSS-MODULE ECOSYSTEM INTEGRATION & SRS STATUS -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-space-md">
+<!-- Cross-Module Curriculum Tracking -->
+<div class="md:col-span-7 p-space-md rounded-lg bg-surface-container-lowest shadow-sm flex flex-col justify-between gap-space-sm">
+<div>
+<div class="flex items-center justify-between pb-2">
+<span class="font-label-sm text-label-sm font-bold text-on-surface-variant uppercase tracking-wider">
+                CURRICULAR CROSS-REFERENCES
+              </span>
+<span class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-on-surface-variant">
+                Live Sync
+              </span>
+</div>
+<div class="flex flex-col gap-2.5 pt-1">
+<div class="flex items-center gap-space-sm p-2 rounded bg-surface-container-low">
+<span class="material-symbols-outlined text-[18px] text-primary">route</span>
+<span class="font-body-sm text-body-sm text-on-surface flex-1">
+<strong>Path Unit 04</strong>: Temporal Orientations &amp; Daily Hours
+                </span>
+<span class="font-label-sm text-label-sm text-tertiary font-bold">100% complete</span>
+</div>
+<div class="flex items-center gap-space-sm p-2 rounded bg-surface-container-low">
+<span class="material-symbols-outlined text-[18px] text-secondary">style</span>
+<span class="font-body-sm text-body-sm text-on-surface flex-1">
+<strong>Vocabulary Lab</strong>: 4 active words reinforced
+                </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">4/4 Mastered</span>
+</div>
+<div class="flex items-center gap-space-sm p-2 rounded bg-surface-container-low">
+<span class="material-symbols-outlined text-[18px] text-tertiary">record_voice_over</span>
+<span class="font-body-sm text-body-sm text-on-surface flex-1">
+<strong>Speaking &amp; Dialogue</strong>: Lesson 3.3 (Time Queries)
+                </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Passed</span>
+</div>
+</div>
+</div>
+<div class="pt-2 flex items-center justify-between text-[11px] text-on-surface-variant">
+<span>Integrated across 3 KOTO Core Pillars</span>
+<span class="text-primary font-medium">Orthography synced to Spaced Repetition</span>
+</div>
+</div>
+<!-- SRS Retention & Authenticated Hanko Status -->
+<div class="md:col-span-5 p-space-md rounded-lg bg-surface-container-lowest shadow-sm flex flex-col justify-between gap-space-sm">
+<div>
+<div class="flex items-center justify-between pb-2">
+<span class="font-label-sm text-label-sm font-bold text-on-surface-variant uppercase tracking-wider">
+                RETENTION ENGINE (SRS)
+              </span>
+<span class="px-2 py-0.5 rounded bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm font-bold">
+                MATURE STAGE
+              </span>
+</div>
+<!-- Retention Metric Visual Ring/Bar -->
+<div class="flex items-center gap-space-md pt-2">
+<div class="relative w-16 h-16 flex items-center justify-center">
+<!-- Inline SVG Spark Gauge -->
+<svg class="w-full h-full -rotate-90" viewbox="0 0 36 36">
+<path class="text-surface-container-high" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3"></path>
+<path class="text-tertiary" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="96, 100" stroke-linecap="round" stroke-width="3"></path>
+</svg>
+<span class="absolute font-headline-sm text-headline-sm font-bold text-on-surface">96%</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm font-semibold text-on-surface">Memory Stability: 21 Days</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant text-[13px]">Next evaluation in 18 days</span>
+<span class="text-[11px] text-tertiary font-medium">8 consecutive correct recalls</span>
+</div>
+</div>
+</div>
+<!-- Bottom Signature Hanko Seal Area -->
+<div class="flex items-center justify-between pt-3 border-t border-surface-container">
+<div class="flex flex-col">
+<span class="text-[10px] uppercase font-label-sm text-on-surface-variant font-bold">
+                VERIFIED BY KOTO MASTERY SYSTEM
+              </span>
+<span class="text-[12px] font-serif text-on-surface font-medium">認可証 · Authenticated Orthography</span>
+</div>
+<!-- Official Hanko Stamp -->
+<div class="flex flex-col items-center justify-center w-10 h-10 rounded border-2 border-primary text-primary font-serif font-bold text-[13px] leading-tight select-none rotate-2 bg-on-primary shadow-sm">
+<span>極</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+</div>
+</div></main></div></body></html>

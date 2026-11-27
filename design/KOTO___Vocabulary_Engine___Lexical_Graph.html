@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"on-primary":"#ffffff","tertiary-fixed-dim":"#a0d3a5","surface-container":"#f0edef","surface-container-high":"#eae7ea","on-primary-fixed":"#410000","on-error-container":"#93000a","on-secondary-fixed":"#001b3c","surface-container-lowest":"#ffffff","surface":"#fcf8fb","secondary-container":"#bbd3fd","on-surface-variant":"#5b403c","secondary-fixed":"#d5e3ff","on-surface":"#1b1b1d","surface-bright":"#fcf8fb","on-secondary-container":"#445a7f","on-primary-container":"#fff5f3","surface-container-highest":"#e4e2e4","on-error":"#ffffff","secondary":"#485f84","primary-container":"#d1382a","on-background":"#1b1b1d","inverse-on-surface":"#f3f0f2","primary-fixed-dim":"#ffb4a9","on-secondary-fixed-variant":"#30476a","on-secondary":"#ffffff","tertiary-container":"#4d7c55","error-container":"#ffdad6","on-tertiary":"#ffffff","surface-tint":"#b62419","on-tertiary-fixed":"#00210a","tertiary":"#35633e","surface-variant":"#e4e2e4","on-tertiary-fixed-variant":"#22502d","tertiary-fixed":"#bcefc0","background":"#fcf8fb","surface-dim":"#dcd9dc","outline":"#8f706b","secondary-fixed-dim":"#b0c7f1","surface-container-low":"#f6f3f5","on-primary-fixed-variant":"#930203","primary":"#ae1d14","outline-variant":"#e3beb9","on-tertiary-container":"#e3ffe2","primary-fixed":"#ffdad5","inverse-primary":"#ffb4a9","inverse-surface":"#303032","error":"#ba1a1a"},borderRadius:{DEFAULT:"0.125rem",lg:"0.25rem",xl:"0.5rem",full:"0.75rem"},spacing:{gutter:"1.5rem","space-lg":"1.5rem","space-md":"1rem","gutter-mobile":"1rem","space-sm":"0.5rem","space-xl":"2.5rem","margin-mobile":"1.25rem","space-xs":"0.25rem",margin:"3rem"},fontFamily:{"headline-sm":["Noto Serif"],"headline-lg":["Noto Serif"],"display-hero":["Noto Serif"],"headline-lg-mobile":["Noto Serif"],"kanji-reading":["Noto Serif"],"headline-md":["Noto Serif"],"label-md":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"label-sm":["Plus Jakarta Sans"],"display-hero-mobile":["Noto Serif"],"body-lg":["Plus Jakarta Sans"],"body-sm":["Plus Jakarta Sans"],"kanji-hero":["Noto Serif"]},fontSize:{"headline-sm":["22px",{lineHeight:"30px",fontWeight:"600"}],"headline-lg":["40px",{lineHeight:"52px",letterSpacing:"-0.01em",fontWeight:"500"}],"display-hero":["56px",{lineHeight:"68px",letterSpacing:"-0.02em",fontWeight:"600"}],"headline-lg-mobile":["30px",{lineHeight:"40px",letterSpacing:"-0.01em",fontWeight:"500"}],"kanji-reading":["20px",{lineHeight:"28px",fontWeight:"400"}],"headline-md":["28px",{lineHeight:"38px",fontWeight:"500"}],"label-md":["14px",{lineHeight:"20px",letterSpacing:"0.02em",fontWeight:"600"}],"body-md":["16px",{lineHeight:"26px",fontWeight:"400"}],"label-sm":["12px",{lineHeight:"16px",letterSpacing:"0.06em",fontWeight:"600"}],"display-hero-mobile":["38px",{lineHeight:"48px",letterSpacing:"-0.01em",fontWeight:"600"}],"body-lg":["18px",{lineHeight:"28px",fontWeight:"400"}],"body-sm":["14px",{lineHeight:"22px",fontWeight:"400"}],"kanji-hero":["64px",{lineHeight:"72px",fontWeight:"400"}]}}}}</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-screen w-[260px] bg-surface-container-low shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col justify-between overflow-y-auto"><div class="flex flex-col"><div class="h-16 px-space-md flex items-center justify-between"><div class="flex items-center gap-space-sm"><img alt="KOTO Brand Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ALJJyrD83e6FfTO5VzhVeXtp_t6hNQa0l5Ig2HLbxnyJU-Ff6LpimNZ6077oFeYIy7sdbA3ILnMp7SuOu8UzWbXNT0pP-BEAMDWG1u_v7kYnwbnQ6RwDTwCHYdJOLdrRa7MNbzhuDxvx7QoWL-EQHfdYdLaBeNXiDpu29UF7Z0VTEtOJ84cI-XPNtzNvw73L1zRqgdDwcQwvza-Rqq8DqIZCIWeNlZMBiVsFoapN1RoKyOM"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm tracking-tight text-on-surface leading-none">言登</span><span class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant">KOTO</span></div></div><span class="px-space-xs py-0.5 rounded bg-surface-container-high font-label-sm text-label-sm text-on-surface-variant font-medium">v2.4</span></div><nav class="px-space-sm py-space-sm flex flex-col gap-space-xs" data-active-classes="bg-primary-container text-on-primary font-medium rounded-lg shadow-sm"><div class="pt-space-xs pb-space-xs px-space-sm flex items-center justify-between"><span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-semibold">Ecosystem</span><span class="font-label-sm text-label-sm text-on-surface-variant opacity-60">基盤</span></div><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[20px] transition-colors">grid_view</span><span class="font-body-sm text-body-sm flex-1">Dashboard</span><span class="font-label-sm text-label-sm text-on-surface-variant opacity-50">台</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="learning-path" href="#"><span class="material-symbols-outlined text-[20px] transition-colors">route</span><span class="font-body-sm text-body-sm flex-1">Learning Path</span><span class="font-label-sm text-label-sm text-on-surface-variant opacity-50">進路</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="review-center" href="#"><span class="material-symbols-outlined text-[20px] transition-colors">repeat</span><span class="font-body-sm text-body-sm flex-1">Review Center</span><span class="px-1.5 py-0.5 rounded bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm font-semibold">14</span></a><div class="pt-space-md pb-space-xs px-space-sm flex items-center justify-between"><span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-semibold">Core Pillars</span><span class="font-label-sm text-label-sm text-on-surface-variant opacity-60">六柱</span></div><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="vocabulary-lab" href="#"><span class="material-symbols-outlined text-[20px] transition-colors">style</span><span class="font-body-sm text-body-sm flex-1">Vocabulary Lab</span><span class="font-label-sm text-label-sm text-on-surface-variant opacity-50">語彙</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="kanji-studio" href="#"><span class="material-symbols-outlined text-[20px] transition-colors">brush</span><span class="font-body-sm text-body-sm flex-1">Kanji Studio</span><span class="font-label-sm text-label-sm text-on-surface-variant opacity-50">漢字</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="grammar-studio" href="#"><span class="material-symbols-outlined text-[20px] transition-colors">menu_book</span><span class="font-body-sm text-body-sm flex-1">Grammar Studio</span><span class="font-label-sm text-label-sm text-on-surface-variant opacity-50">文法</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="listening-and-shadowing" href="#"><span class="material-symbols-outlined text-[20px] transition-colors">headphones</span><span class="font-body-sm text-body-sm flex-1">Listening &amp; Shadowing</span><span class="font-label-sm text-label-sm text-on-surface-variant opacity-50">聴解</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="speaking-and-dialogue" href="#"><span class="material-symbols-outlined text-[20px] transition-colors">record_voice_over</span><span class="font-body-sm text-body-sm flex-1">Speaking &amp; Dialogue</span><span class="font-label-sm text-label-sm text-on-surface-variant opacity-50">会話</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="reading-and-library" href="#"><span class="material-symbols-outlined text-[20px] transition-colors">auto_stories</span><span class="font-body-sm text-body-sm flex-1">Reading &amp; Library</span><span class="font-label-sm text-label-sm text-on-surface-variant opacity-50">読解</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="writing-and-composition" href="#"><span class="material-symbols-outlined text-[20px] transition-colors">edit_note</span><span class="font-body-sm text-body-sm flex-1">Writing &amp; Composition</span><span class="font-label-sm text-label-sm text-on-surface-variant opacity-50">作文</span></a><div class="pt-space-md pb-space-xs px-space-sm flex items-center justify-between"><span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-semibold">Mastery &amp; Tools</span><span class="font-label-sm text-label-sm text-on-surface-variant opacity-60">応用</span></div><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="jlpt-exam-center" href="#"><span class="material-symbols-outlined text-[20px] transition-colors">assignment_turned_in</span><span class="font-body-sm text-body-sm flex-1">JLPT Exam Center</span><span class="font-label-sm text-label-sm text-on-surface-variant opacity-50">試験</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="ai-sensei-tutor" href="#"><span class="material-symbols-outlined text-[20px] transition-colors">psychology</span><span class="font-body-sm text-body-sm flex-1">AI Sensei Tutor</span><span class="font-label-sm text-label-sm text-on-surface-variant opacity-50">先生</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="culture-and-keigo" href="#"><span class="material-symbols-outlined text-[20px] transition-colors">temple_buddhist</span><span class="font-body-sm text-body-sm flex-1">Culture &amp; Keigo</span><span class="font-label-sm text-label-sm text-on-surface-variant opacity-50">敬語</span></a></nav></div><div class="p-space-sm flex flex-col gap-space-xs"><div class="p-space-sm rounded-lg bg-surface-container flex flex-col gap-space-xs"><div class="flex items-center justify-between"><span class="font-label-sm text-label-sm uppercase tracking-wide text-on-surface font-semibold">N5 Mastery</span><span class="font-label-sm text-label-sm font-semibold text-primary">68%</span></div><div class="w-full h-1.5 rounded-full bg-surface-container-highest overflow-hidden"><div class="h-full bg-primary rounded-full w-[68%]"></div></div><div class="flex justify-between items-center text-on-surface-variant font-label-sm text-label-sm pt-0.5"><span>476 / 700 語</span><span class="text-[10px] text-on-surface-variant font-medium">初級基礎</span></div></div><div class="flex items-center justify-between px-space-sm py-1.5"><a class="flex items-center gap-space-xs font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="settings" href="#"><span class="material-symbols-outlined text-[18px]">settings</span><span>Preferences</span></a><a class="flex items-center gap-space-xs font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="dictionary-search" href="#"><span class="material-symbols-outlined text-[18px]">library_books</span><span>辞書</span></a></div></div></aside><div class="pl-[260px]"><header class="fixed top-0 left-[260px] right-0 h-16 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-lg"><div class="flex items-center gap-space-md"><div class="flex items-center bg-surface-container px-2 py-1 rounded-lg gap-1.5"><span class="px-2 py-0.5 rounded bg-primary text-on-primary font-label-sm text-label-sm font-bold tracking-wide">N5</span><div class="flex items-center gap-1 cursor-pointer text-on-surface-variant hover:text-on-surface"><span class="font-label-sm text-label-sm font-medium">JLPT Level</span><span class="material-symbols-outlined text-[18px]">expand_more</span></div></div><button class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg bg-surface-container-low text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors text-left w-60"><span class="material-symbols-outlined text-[18px]">search</span><span class="font-body-sm text-body-sm flex-1 text-on-surface-variant">Search vocabulary, kanji...</span><kbd class="px-1.5 py-0.5 rounded bg-surface-container-highest font-label-sm text-label-sm text-on-surface-variant">⌘K</kbd></button></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-1 px-space-sm py-1 rounded-lg bg-surface-container-low"><span class="text-primary font-bold text-sm">🔥</span><span class="font-label-md text-label-md font-semibold text-on-surface">18</span><span class="font-label-sm text-label-sm text-on-surface-variant">days</span></div><div class="flex items-center gap-1.5 px-space-sm py-1 rounded-lg bg-primary-fixed text-on-primary-fixed"><span class="material-symbols-outlined text-[18px] text-primary">alarm</span><span class="font-label-sm text-label-sm font-semibold">14 Due</span></div><div class="flex items-center gap-1.5 px-space-sm py-1 rounded-lg bg-surface-container-low text-on-surface"><span class="material-symbols-outlined text-[18px] text-tertiary">timelapse</span><span class="font-label-sm text-label-sm font-medium">25/30m</span></div><div class="h-5 w-[1px] bg-surface-container-highest"></div><div class="flex items-center gap-2"><button class="flex items-center gap-1 px-2 py-1 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-label-sm text-label-sm"><span class="material-symbols-outlined text-[16px]">volume_up</span><span>Audio</span></button><button class="flex items-center gap-1 px-2 py-1 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-label-sm text-label-sm"><span class="material-symbols-outlined text-[16px]">translate</span><span>振仮名</span></button></div><div class="h-5 w-[1px] bg-surface-container-highest"></div><div class="flex items-center gap-space-sm cursor-pointer"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzM8bneD0hM9bOCIUJcYJ8lyva152PfGqkP7zF1r5alGuyT3NvRSt5NQphSq7jgBHJ5_fkHjJcqh2vJMIxC-_E0uT9XwaQscIztZZCNlt78ElHJd1fP2oEUjug3VYOzaZ6g2mphDM-t1cfO5zPAv1AHTJam2MZgpRJAwcGIgBOT0U501PWRhsl7MdYFbNtn7ZSGAFnuNgz7Sw269NEV3mMumnlzNZ0DGlUrv2yKWA"/><div class="flex flex-col text-left"><span class="font-label-sm text-label-sm font-semibold text-on-surface leading-none">T. Tanaka</span><span class="font-label-sm text-label-sm text-on-surface-variant opacity-70 leading-none pt-0.5">Shokunin</span></div></div></div></header><main class="relative pt-16 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<!-- Top Command & Semantic Filtering Bar -->
+<section class="w-full px-space-lg pt-space-lg pb-space-md">
+<div class="max-w-[1400px] mx-auto flex flex-col gap-space-md">
+<!-- Breadcrumb & Workspace Metadata -->
+<div class="flex flex-wrap items-center justify-between gap-y-2">
+<div class="flex items-center gap-space-sm font-label-sm text-label-sm tracking-wider uppercase text-on-surface-variant">
+<span class="text-primary font-bold">言語</span>
+<span>/</span>
+<span class="text-on-surface font-semibold">Lexical Knowledge Graph</span>
+<span class="inline-block w-1 h-1 rounded-full bg-outline-variant"></span>
+<span class="font-normal text-on-surface-variant opacity-75">N5–N1 Cross-Linked Engine</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="flex items-center gap-1.5 px-2.5 py-1 rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+            Graph Mesh: 8,420 Connected Nodes
+          </span>
+<span class="px-2 py-1 rounded bg-surface-container-high font-label-sm text-label-sm text-on-surface-variant">
+            SRS Cycle 04
+          </span>
+</div>
+</div>
+<!-- Level Selector & Study Mode Pivots -->
+<div class="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-space-md">
+<!-- JLPT Tab Row -->
+<div class="flex items-center gap-1 p-1 bg-surface-container rounded-lg overflow-x-auto">
+<button class="px-3.5 py-1.5 rounded font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface transition-colors">
+            All (全)
+          </button>
+<button class="px-3.5 py-1.5 rounded bg-surface-container-lowest text-primary font-label-sm text-label-sm font-bold shadow-sm">
+            N5 Core (742)
+          </button>
+<button class="px-3.5 py-1.5 rounded font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface transition-colors">
+            N4 (620)
+          </button>
+<button class="px-3.5 py-1.5 rounded font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface transition-colors">
+            N3 (1,850)
+          </button>
+<button class="px-3.5 py-1.5 rounded font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface transition-colors">
+            N2 (2,410)
+          </button>
+<button class="px-3.5 py-1.5 rounded font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface transition-colors">
+            N1 (3,280)
+          </button>
+</div>
+<!-- Mode Switches -->
+<div class="flex items-center gap-1 p-1 bg-surface-container-low rounded-lg self-start lg:self-auto">
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded bg-surface-container-lowest text-on-surface shadow-sm font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[17px] text-primary">manage_search</span>
+<span>Lexical Inspector</span>
+</button>
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container font-label-sm text-label-sm transition-colors">
+<span class="material-symbols-outlined text-[17px]">view_quilt</span>
+<span>SRS Matrix</span>
+</button>
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container font-label-sm text-label-sm transition-colors">
+<span class="material-symbols-outlined text-[17px]">hearing</span>
+<span>Audio Recall</span>
+</button>
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container font-label-sm text-label-sm transition-colors">
+<span class="material-symbols-outlined text-[17px]">hub</span>
+<span>Family Graph</span>
+</button>
+</div>
+</div>
+<!-- Semantic Topic Filters & Global Search Prompt -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm pt-space-xs">
+<div class="flex flex-wrap items-center gap-2">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant mr-1">Topic:</span>
+<button class="px-2.5 py-1 rounded bg-surface-container-highest text-on-surface font-label-sm text-label-sm font-medium">
+            Daily Life · 生活
+          </button>
+<button class="px-2.5 py-1 rounded bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm font-semibold">
+            Dining &amp; Food · 飲食
+          </button>
+<button class="px-2.5 py-1 rounded bg-surface-container-low text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-label-sm text-label-sm transition-colors">
+            Transit · 交通
+          </button>
+<button class="px-2.5 py-1 rounded bg-surface-container-low text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-label-sm text-label-sm transition-colors">
+            Work · 仕事
+          </button>
+<button class="px-2.5 py-1 rounded bg-surface-container-low text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-label-sm text-label-sm transition-colors">
+            Keigo · 敬語
+          </button>
+</div>
+<div class="flex items-center gap-2 w-full sm:w-auto">
+<div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-container-lowest shadow-sm flex-1 sm:w-80">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">search</span>
+<input class="w-full bg-transparent font-body-sm text-body-sm text-on-surface placeholder:text-on-surface-variant/60 focus:outline-none" placeholder="Search Kanji, Kana, Romaji, English, VN..." type="text"/>
+<kbd class="px-1.5 py-0.5 rounded bg-surface-container-high font-label-sm text-[11px] text-on-surface-variant">⌘K</kbd>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Master-Detail Editorial Studio Grid -->
+<main class="w-full px-space-lg pb-space-xl">
+<div class="max-w-[1400px] mx-auto grid grid-cols-12 gap-space-lg">
+<!-- LEFT STREAM: Lexical Collection Deck (4 Cols on Desktop) -->
+<aside class="col-span-12 lg:col-span-4 flex flex-col gap-space-sm">
+<div class="flex items-center justify-between px-space-xs pb-1">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-on-surface">語彙索引</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">48 Active</span>
+</div>
+<button class="text-on-surface-variant hover:text-primary transition-colors flex items-center gap-1 font-label-sm text-label-sm">
+<span>Sort: Stability</span>
+<span class="material-symbols-outlined text-[16px]">swap_vert</span>
+</button>
+</div>
+<!-- Stream Cards -->
+<div class="flex flex-col gap-2.5">
+<!-- Item 1: Selected (喫茶店) -->
+<article class="p-space-md rounded-xl bg-surface-container-lowest shadow-md transition-all cursor-pointer relative overflow-hidden">
+<div class="absolute left-0 top-0 bottom-0 w-1.5 bg-primary"></div>
+<div class="flex items-start justify-between gap-space-sm pl-2">
+<div class="flex flex-col">
+<div class="flex items-baseline gap-2">
+<ruby class="font-headline-md text-headline-md text-on-surface font-serif">
+                    喫茶店
+                    <rt class="font-label-sm text-[11px] text-primary font-sans font-medium">きっさてん</rt>
+</ruby>
+<span class="font-label-sm text-[11px] text-on-surface-variant/80 tracking-wide">[kissaten]</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface mt-1 font-medium">
+                  Traditional Japanese Retro Cafe
+                </p>
+<p class="font-body-sm text-[12px] text-on-surface-variant italic">
+                  Quán cà phê / trà truyền thống
+                </p>
+</div>
+<!-- Hanko Seal Stamp: Mastered (習得) -->
+<div class="flex flex-col items-center justify-center w-11 h-11 rounded border-2 border-primary/80 bg-primary/5 text-primary text-center leading-none p-0.5 select-none rotate-3">
+<span class="font-serif text-[11px] font-bold tracking-tighter">習得</span>
+<span class="text-[9px] font-sans font-semibold tracking-tight mt-0.5">94%</span>
+</div>
+</div>
+<!-- Inter-module Footprints -->
+<div class="flex items-center justify-between mt-3 pt-2.5 border-t border-surface-container pl-2">
+<div class="flex items-center gap-1 font-label-sm text-[11px] text-on-surface-variant">
+<span class="px-1.5 py-0.5 rounded bg-surface-container text-on-surface font-medium">N5+</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container font-sans">Noun</span>
+<span class="text-tertiary font-semibold ml-1">3 Kanji Roots</span>
+</div>
+<button class="w-7 h-7 rounded-full bg-surface-container-low hover:bg-primary hover:text-on-primary transition-colors flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]">volume_up</span>
+</button>
+</div>
+</article>
+<!-- Item 2: 駅 [えき] -->
+<article class="p-space-md rounded-xl bg-surface-container-lowest hover:bg-surface-container-low/60 shadow-sm transition-all cursor-pointer">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex flex-col">
+<div class="flex items-baseline gap-2">
+<ruby class="font-headline-sm text-headline-sm text-on-surface font-serif">
+                    駅
+                    <rt class="font-label-sm text-[11px] text-on-surface-variant font-sans">えき</rt>
+</ruby>
+<span class="font-label-sm text-[11px] text-on-surface-variant/80">[eki]</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+                  Train station
+                </p>
+</div>
+<span class="px-2 py-0.5 rounded bg-primary-fixed text-on-primary-fixed font-label-sm text-[11px] font-semibold">
+                Due in 4h
+              </span>
+</div>
+<div class="flex items-center justify-between mt-3 pt-2 border-t border-surface-container">
+<div class="flex items-center gap-1.5 font-label-sm text-[11px] text-on-surface-variant">
+<span class="px-1.5 py-0.5 rounded bg-surface-container">N5</span>
+<span>Stability: 62%</span>
+</div>
+<span class="text-[11px] text-secondary font-medium">1 Radical (馬)</span>
+</div>
+</article>
+<!-- Item 3: 食べる [たべる] -->
+<article class="p-space-md rounded-xl bg-surface-container-lowest hover:bg-surface-container-low/60 shadow-sm transition-all cursor-pointer">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex flex-col">
+<div class="flex items-baseline gap-2">
+<ruby class="font-headline-sm text-headline-sm text-on-surface font-serif">
+                    食べる
+                    <rt class="font-label-sm text-[11px] text-on-surface-variant font-sans">たべる</rt>
+</ruby>
+<span class="font-label-sm text-[11px] text-on-surface-variant/80">[taberu]</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+                  To eat (Ichidan verb)
+                </p>
+</div>
+<span class="px-2 py-0.5 rounded bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-[11px] font-semibold">
+                88% Strong
+              </span>
+</div>
+<div class="flex items-center justify-between mt-3 pt-2 border-t border-surface-container">
+<div class="flex items-center gap-1.5 font-label-sm text-[11px] text-on-surface-variant">
+<span class="px-1.5 py-0.5 rounded bg-surface-container">N5</span>
+<span>動詞 (一段)</span>
+</div>
+<span class="text-[11px] text-on-surface-variant">4 Collocations</span>
+</div>
+</article>
+<!-- Item 4: 毎朝 [まいあさ] -->
+<article class="p-space-md rounded-xl bg-surface-container-lowest hover:bg-surface-container-low/60 shadow-sm transition-all cursor-pointer">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex flex-col">
+<div class="flex items-baseline gap-2">
+<ruby class="font-headline-sm text-headline-sm text-on-surface font-serif">
+                    毎朝
+                    <rt class="font-label-sm text-[11px] text-on-surface-variant font-sans">まいあさ</rt>
+</ruby>
+<span class="font-label-sm text-[11px] text-on-surface-variant/80">[maiasa]</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+                  Every morning (Adverb / Noun)
+                </p>
+</div>
+<div class="w-6 h-6 rounded border border-primary/50 text-primary flex items-center justify-center text-[10px] font-serif font-bold">
+                済
+              </div>
+</div>
+<div class="flex items-center justify-between mt-3 pt-2 border-t border-surface-container">
+<span class="font-label-sm text-[11px] text-on-surface-variant">N5 · 時間詞</span>
+<span class="text-[11px] text-tertiary">Retention: 98%</span>
+</div>
+</article>
+<!-- Item 5: 行く [いく] -->
+<article class="p-space-md rounded-xl bg-surface-container-lowest hover:bg-surface-container-low/60 shadow-sm transition-all cursor-pointer">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex flex-col">
+<div class="flex items-baseline gap-2">
+<ruby class="font-headline-sm text-headline-sm text-on-surface font-serif">
+                    行く
+                    <rt class="font-label-sm text-[11px] text-on-surface-variant font-sans">いく</rt>
+</ruby>
+<span class="font-label-sm text-[11px] text-on-surface-variant/80">[iku]</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+                  To go (Godan verb)
+                </p>
+</div>
+<span class="px-2 py-0.5 rounded bg-secondary-fixed text-on-secondary-fixed font-label-sm text-[11px] font-semibold">
+                Learning
+              </span>
+</div>
+<div class="flex items-center justify-between mt-3 pt-2 border-t border-surface-container">
+<span class="font-label-sm text-[11px] text-on-surface-variant">N5 · 五段動詞</span>
+<span class="text-[11px] text-on-surface-variant">Due Tomorrow</span>
+</div>
+</article>
+</div>
+<!-- Lexical Drawer Insight Card -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col gap-2 mt-space-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">auto_stories</span>
+<span class="font-label-sm text-label-sm font-semibold text-on-surface">Weekly Kanji Imprint</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+            Your recent review pattern shows 92% retention on shop/venue terms (<span class="font-serif text-on-surface">店, 館, 屋</span>). Next scheduled SRS test bundle contains 14 lexical compounds.
+          </p>
+</div>
+</aside>
+<!-- RIGHT MAIN STAGE: In-Depth Lexical Intelligence Inspector (8 Cols on Desktop) -->
+<section class="col-span-12 lg:col-span-8 flex flex-col gap-space-lg">
+<!-- MAIN LEXICAL HEADER CARD -->
+<div class="p-space-xl rounded-2xl bg-surface-container-lowest shadow-md relative overflow-hidden">
+<!-- Background Calligraphic Watermark Accent -->
+<div class="absolute -right-6 -bottom-10 pointer-events-none opacity-[0.03] select-none font-serif text-[180px] font-bold text-on-surface leading-none">
+            喫茶
+          </div>
+<div class="flex flex-col md:flex-row md:items-start justify-between gap-space-lg relative z-10">
+<div class="flex flex-col">
+<!-- Pitch Accent & Part of Speech Pills -->
+<div class="flex flex-wrap items-center gap-2 mb-space-sm">
+<span class="px-2.5 py-0.5 rounded bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm font-bold tracking-wide">
+                  JLPT N5+ Core
+                </span>
+<span class="px-2.5 py-0.5 rounded bg-surface-container-high font-label-sm text-label-sm text-on-surface-variant font-medium">
+                  名詞 · Noun
+                </span>
+<div class="flex items-center gap-1.5 px-2 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-on-surface">
+<span class="text-primary font-bold">①</span>
+<span>頭高型 (Atamadaka)</span>
+<span class="font-serif tracking-widest text-[13px] ml-1 text-on-surface-variant">き＼っさてん</span>
+</div>
+</div>
+<!-- Monumental Authentic Kanji Representation -->
+<div class="flex items-baseline gap-space-md">
+<ruby class="font-serif text-[72px] leading-tight font-medium text-on-surface tracking-wide">
+                  喫茶店
+                  <rt class="font-serif text-kanji-reading text-primary font-normal tracking-normal pb-1">
+                    きっさてん
+                  </rt>
+</ruby>
+<div class="flex flex-col justify-end pb-3">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest">
+                    kissaten
+                  </span>
+<span class="font-body-sm text-[13px] text-on-surface-variant/75">
+                    Common Word · 万病薬
+                  </span>
+</div>
+</div>
+<!-- Audio Player Toolbar -->
+<div class="flex flex-wrap items-center gap-3 mt-space-sm">
+<button class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-on-surface text-surface font-label-sm text-label-sm hover:bg-primary transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[18px]">volume_up</span>
+<span>Audio (Tokyo Native 1.0x)</span>
+</button>
+<button class="px-2.5 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm transition-colors">
+                  0.8x Slow
+                </button>
+<button class="flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm transition-colors">
+<span class="material-symbols-outlined text-[16px]">record_voice_over</span>
+<span>Shadowing Practice</span>
+</button>
+</div>
+</div>
+<!-- Hanko Seal Badge: Authentic Ink Imprint -->
+<div class="flex md:flex-col items-center justify-center p-3 rounded-lg border-2 border-primary text-primary bg-primary-fixed/20 shadow-sm self-start min-w-[90px] text-center rotate-1">
+<span class="font-serif text-lg font-bold leading-tight tracking-wider">言登</span>
+<span class="font-serif text-sm font-semibold border-t border-primary/40 pt-0.5 mt-0.5">習得済</span>
+<span class="font-sans text-[10px] tracking-wider uppercase opacity-80 mt-1">Mastered</span>
+</div>
+</div>
+<!-- Trilingual Semantic Spectrum -->
+<div class="mt-space-lg pt-space-md border-t border-surface-container grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-semibold">
+                English Semantic Definition
+              </span>
+<p class="font-body-md text-body-md text-on-surface leading-snug">
+                Traditional Japanese tearoom; retro cafe or coffeehouse serving pour-over coffee, toasts, and parfaits in a quiet atmosphere.
+              </p>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-semibold">
+                Ý nghĩa Tiếng Việt
+              </span>
+<p class="font-body-md text-body-md text-on-surface leading-snug">
+                Quán cà phê / phòng trà truyền thống phong cách hoài cổ của Nhật Bản; nơi yên tĩnh phục vụ cà phê pha phin và bánh ngọt.
+              </p>
+</div>
+</div>
+<!-- Morpho-semantic Editorial Note (Nuance Distinction) -->
+<div class="mt-space-md p-space-md rounded-xl bg-surface-container-low flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[22px] mt-0.5">lightbulb</span>
+<div class="flex flex-col gap-0.5">
+<span class="font-label-sm text-label-sm font-bold text-on-surface uppercase tracking-wider">
+                Lexical Nuance · カフェ vs. 純喫茶
+              </span>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                While modern <strong class="text-on-surface font-normal">カフェ (kafe)</strong> refers to trendy Western-style coffee shops with espresso machines, a <strong class="text-on-surface font-normal">喫茶店 (kissaten)</strong> or <strong class="text-on-surface font-normal">純喫茶 (junkissaten)</strong> evokes Showa-era nostalgia, siphon brewing, plush velvet booths, and classic jazz background music.
+              </p>
+</div>
+</div>
+</div>
+<!-- MORPHOLOGICAL ROOT & KANJI BREAKDOWN (Cross-linked to Kanji Studio) -->
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-on-surface">構成漢字・語根</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Kanji Morphological Roots</span>
+</div>
+<a class="font-label-sm text-label-sm text-primary hover:underline flex items-center gap-1 font-semibold" href="#">
+<span>Open in Kanji Studio</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+<!-- Root 1: 喫 -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all flex flex-col justify-between group cursor-pointer border-t-2 border-transparent hover:border-primary">
+<div>
+<div class="flex items-start justify-between">
+<span class="font-serif text-4xl text-on-surface group-hover:text-primary transition-colors">喫</span>
+<span class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-[11px] text-on-surface-variant font-medium">N3 Kanji</span>
+</div>
+<div class="mt-2">
+<div class="font-serif text-sm font-medium text-on-surface">キツ (kitsu)</div>
+<div class="font-body-sm text-[13px] text-on-surface-variant">Consume, smoke, drink</div>
+</div>
+</div>
+<div class="pt-3 mt-3 border-t border-surface-container flex items-center justify-between text-[11px] font-label-sm text-on-surface-variant">
+<span>Radical: 口 (Mouth)</span>
+<span class="text-primary font-medium">12 strokes</span>
+</div>
+</div>
+<!-- Root 2: 茶 -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all flex flex-col justify-between group cursor-pointer border-t-2 border-transparent hover:border-primary">
+<div>
+<div class="flex items-start justify-between">
+<span class="font-serif text-4xl text-on-surface group-hover:text-primary transition-colors">茶</span>
+<span class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-[11px] text-on-surface-variant font-medium">N5 Kanji</span>
+</div>
+<div class="mt-2">
+<div class="font-serif text-sm font-medium text-on-surface">チャ · サ (cha, sa)</div>
+<div class="font-body-sm text-[13px] text-on-surface-variant">Tea, tea ceremony</div>
+</div>
+</div>
+<div class="pt-3 mt-3 border-t border-surface-container flex items-center justify-between text-[11px] font-label-sm text-on-surface-variant">
+<span>Radical: 艸 (Grass)</span>
+<span class="text-primary font-medium">9 strokes</span>
+</div>
+</div>
+<!-- Root 3: 店 -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all flex flex-col justify-between group cursor-pointer border-t-2 border-transparent hover:border-primary">
+<div>
+<div class="flex items-start justify-between">
+<span class="font-serif text-4xl text-on-surface group-hover:text-primary transition-colors">店</span>
+<span class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-[11px] text-on-surface-variant font-medium">N5 Kanji</span>
+</div>
+<div class="mt-2">
+<div class="font-serif text-sm font-medium text-on-surface">テン · みせ (ten, mise)</div>
+<div class="font-body-sm text-[13px] text-on-surface-variant">Shop, store, vendor</div>
+</div>
+</div>
+<div class="pt-3 mt-3 border-t border-surface-container flex items-center justify-between text-[11px] font-label-sm text-on-surface-variant">
+<span>Radical: 广 (Cliff)</span>
+<span class="text-primary font-medium">8 strokes</span>
+</div>
+</div>
+</div>
+</div>
+<!-- COLLOCATIONS & SYNTACTIC FRAMES (Cross-module link to Grammar Studio) -->
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-on-surface">共起表現・助詞結合</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Collocations &amp; Syntactic Frames</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Grammar Studio Linked</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<!-- Collocation Frame 1 -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between gap-3">
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<span class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-[11px] text-on-surface-variant font-medium">
+                    Action Venue Pattern
+                  </span>
+<span class="font-label-sm text-[11px] text-primary font-semibold">
+                    Grammar L3.2
+                  </span>
+</div>
+<div class="font-serif text-lg text-on-surface mt-1">
+                  喫茶店<span class="text-primary font-bold px-1 underline decoration-primary/50">で</span>コーヒーを飲む
+                </div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                  To drink coffee <strong class="text-on-surface font-medium">at</strong> a coffeehouse (Particle で denotes venue of intentional action).
+                </p>
+</div>
+<div class="flex items-center justify-between pt-2 border-t border-surface-container text-[12px]">
+<span class="text-on-surface-variant italic">Uống cà phê tại quán</span>
+<button class="text-primary hover:text-on-surface font-label-sm font-semibold flex items-center gap-1">
+<span>Drill Pattern</span>
+<span class="material-symbols-outlined text-[15px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Collocation Frame 2 -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between gap-3">
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<span class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-[11px] text-on-surface-variant font-medium">
+                    Direction / Entrance
+                  </span>
+<span class="font-label-sm text-[11px] text-secondary font-semibold">
+                    Grammar L2.4
+                  </span>
+</div>
+<div class="font-serif text-lg text-on-surface mt-1">
+                  喫茶店<span class="text-secondary font-bold px-1 underline decoration-secondary/50">に</span>入る
+                </div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                  To enter <strong class="text-on-surface font-medium">into</strong> a cafe (Particle に specifies target point of arrival).
+                </p>
+</div>
+<div class="flex items-center justify-between pt-2 border-t border-surface-container text-[12px]">
+<span class="text-on-surface-variant italic">Bước vào quán cà phê</span>
+<button class="text-secondary hover:text-on-surface font-label-sm font-semibold flex items-center gap-1">
+<span>Drill Pattern</span>
+<span class="material-symbols-outlined text-[15px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- AUTHENTIC CONTEXTUAL EXAMPLES -->
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-headline-sm text-on-surface">生きた例文</span>
+<div class="flex items-center gap-2">
+<button class="px-2.5 py-1 rounded bg-surface-container font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">subtitles</span>
+<span>Furigana On</span>
+</button>
+</div>
+</div>
+<div class="flex flex-col gap-space-sm">
+<!-- Sentence Card 1 -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex flex-col gap-2">
+<div class="flex items-start justify-between gap-space-md">
+<p class="font-serif text-lg text-on-surface leading-loose">
+<ruby>静<rt>しず</rt></ruby>かな<ruby>喫茶店<rt>きっさてん</rt></ruby><span class="text-primary font-bold">で</span><ruby>本<rt>ほん</rt></ruby>を<ruby>読<rt>よ</rt></ruby>むのが<ruby>好<rt>す</rt></ruby>きです。
+                </p>
+<button class="w-8 h-8 rounded-full bg-surface-container-low hover:bg-surface-container-high transition-colors flex items-center justify-center text-on-surface-variant flex-shrink-0">
+<span class="material-symbols-outlined text-[18px]">volume_up</span>
+</button>
+</div>
+<div class="flex flex-col gap-0.5 text-on-surface-variant font-body-sm text-body-sm border-t border-surface-container pt-2">
+<span>"I like reading books at a quiet kissaten."</span>
+<span class="text-[13px] opacity-80 italic">"Tôi thích đọc sách ở một quán cà phê truyền thống yên tĩnh."</span>
+</div>
+</div>
+<!-- Sentence Card 2 (Cross-reference to Screen 9 AI Sensei Dialogue) -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex flex-col gap-2 relative overflow-hidden">
+<div class="flex items-center justify-between">
+<span class="px-2 py-0.5 rounded bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-[11px] font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">smart_toy</span>
+                  AI Sensei Scenario · 純喫茶 蓮月での注文シーン
+                </span>
+<span class="font-label-sm text-[11px] text-on-surface-variant">Screen 09 Link</span>
+</div>
+<div class="flex items-start justify-between gap-space-md pt-1">
+<p class="font-serif text-lg text-on-surface leading-loose">
+                  マスター、この<ruby>喫茶店<rt>きっさてん</rt></ruby>のおすすめのブレンドコーヒーを<ruby>一<rt>ひと</rt></ruby>つお<ruby>願<rt>ねが</rt></ruby>いします。
+                </p>
+<button class="w-8 h-8 rounded-full bg-surface-container-low hover:bg-surface-container-high transition-colors flex items-center justify-center text-on-surface-variant flex-shrink-0">
+<span class="material-symbols-outlined text-[18px]">volume_up</span>
+</button>
+</div>
+<div class="flex flex-col gap-0.5 text-on-surface-variant font-body-sm text-body-sm border-t border-surface-container pt-2">
+<span>"Master, one of this cafe's recommended blend coffees, please."</span>
+<span class="text-[13px] opacity-80 italic">"Bác chủ quán ơi, cho cháu một cốc cà phê pha đặc trưng của quán nhé."</span>
+</div>
+</div>
+</div>
+</div>
+<!-- CROSS-MODULE KNOWLEDGE GRAPH MESH -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">hub</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">関連知識トポロジー</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">(Connected Knowledge Mesh)</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">10 Connected Nodes</span>
+</div>
+<div class="flex flex-wrap items-center gap-2 pt-1">
+<span class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container text-on-surface font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px] text-tertiary">brush</span>
+<span>3 Kanji Studio Nodes</span>
+</span>
+<span class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container text-on-surface font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px] text-secondary">menu_book</span>
+<span>2 Grammar Frames (で, に)</span>
+</span>
+<span class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container text-on-surface font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px] text-primary">psychology</span>
+<span>1 AI Sensei Roleplay Dialog</span>
+</span>
+<span class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container text-on-surface font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">style</span>
+<span>4 SRS Active Flashcards</span>
+</span>
+<span class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px]">link</span>
+<span>Related: 純喫茶, 珈琲, 店員</span>
+</span>
+</div>
+</div>
+<!-- SRS LEARNING CONTROLS & MEMORY RECALIBRATION -->
+<div class="p-space-lg rounded-2xl bg-surface-container-high/80 shadow-md flex flex-col gap-space-md">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-bold">
+                Spaced Repetition Scheduler · 間隔反復調整
+              </span>
+<p class="font-body-sm text-body-sm text-on-surface">
+                Rate your immediate semantic recall accuracy for this compound:
+              </p>
+</div>
+<div class="flex items-center gap-1.5 font-label-sm text-label-sm text-on-surface-variant">
+<span>Next interval:</span>
+<strong class="text-tertiary font-bold">+14 Days</strong>
+</div>
+</div>
+<!-- Active Recall Grading Quadrant -->
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+<button class="flex flex-col items-center justify-center p-3 rounded-lg bg-surface-container-lowest hover:bg-error-container hover:text-on-error-container transition-colors text-center group">
+<span class="font-label-md text-label-md font-bold text-error group-hover:text-on-error-container">Again</span>
+<span class="font-label-sm text-[11px] text-on-surface-variant group-hover:text-on-error-container opacity-80 mt-0.5">1 day</span>
+</button>
+<button class="flex flex-col items-center justify-center p-3 rounded-lg bg-surface-container-lowest hover:bg-surface-container transition-colors text-center">
+<span class="font-label-md text-label-md font-semibold text-on-surface">Hard</span>
+<span class="font-label-sm text-[11px] text-on-surface-variant opacity-80 mt-0.5">3 days</span>
+</button>
+<button class="flex flex-col items-center justify-center p-3 rounded-lg bg-surface-container-lowest hover:bg-secondary-fixed hover:text-on-secondary-fixed transition-colors text-center group">
+<span class="font-label-md text-label-md font-semibold text-secondary group-hover:text-on-secondary-fixed">Good</span>
+<span class="font-label-sm text-[11px] text-on-surface-variant group-hover:text-on-secondary-fixed opacity-80 mt-0.5">7 days</span>
+</button>
+<button class="flex flex-col items-center justify-center p-3 rounded-lg bg-primary hover:bg-primary-container text-on-primary shadow-sm transition-colors text-center">
+<span class="font-label-md text-label-md font-bold">Mastered</span>
+<span class="font-label-sm text-[11px] text-on-primary/80 mt-0.5">14 days (習得)</span>
+</button>
+</div>
+<!-- Extended Tool Actions -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm pt-space-xs border-t border-surface-container">
+<div class="flex items-center gap-2">
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container transition-colors font-label-sm text-label-sm font-medium">
+<span class="material-symbols-outlined text-[16px] text-primary">bookmark_add</span>
+<span>Add to "Coffee &amp; Dining" Deck</span>
+</button>
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container transition-colors font-label-sm text-label-sm font-medium">
+<span class="material-symbols-outlined text-[16px] text-secondary">psychology</span>
+<span>Deep Dive with AI Sensei</span>
+</button>
+</div>
+<div class="flex items-center gap-2 font-label-sm text-label-sm text-on-surface-variant">
+<span>Shortcuts:</span>
+<kbd class="px-1.5 py-0.5 rounded bg-surface-container-lowest font-sans font-bold">1</kbd>
+<kbd class="px-1.5 py-0.5 rounded bg-surface-container-lowest font-sans font-bold">2</kbd>
+<kbd class="px-1.5 py-0.5 rounded bg-surface-container-lowest font-sans font-bold">3</kbd>
+<kbd class="px-1.5 py-0.5 rounded bg-surface-container-lowest font-sans font-bold">4</kbd>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+</div></main></div></body></html>

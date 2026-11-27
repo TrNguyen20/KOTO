@@ -1,0 +1,147 @@
+@import "tailwindcss";
+
+@theme {
+  --color-on-primary: #ffffff;
+  --color-tertiary-fixed-dim: #a0d3a5;
+  --color-surface-container: #f0edef;
+  --color-surface-container-high: #eae7ea;
+  --color-on-primary-fixed: #410000;
+  --color-on-error-container: #93000a;
+  --color-on-secondary-fixed: #001b3c;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface: #fcf8fb;
+  --color-secondary-container: #bbd3fd;
+  --color-on-surface-variant: #5b403c;
+  --color-secondary-fixed: #d5e3ff;
+  --color-on-surface: #1b1b1d;
+  --color-surface-bright: #fcf8fb;
+  --color-on-secondary-container: #445a7f;
+  --color-on-primary-container: #fff5f3;
+  --color-surface-container-highest: #e4e2e4;
+  --color-on-error: #ffffff;
+  --color-secondary: #485f84;
+  --color-primary-container: #d1382a;
+  --color-on-background: #1b1b1d;
+  --color-inverse-on-surface: #f3f0f2;
+  --color-primary-fixed-dim: #ffb4a9;
+  --color-on-secondary-fixed-variant: #30476a;
+  --color-on-secondary: #ffffff;
+  --color-tertiary-container: #4d7c55;
+  --color-error-container: #ffdad6;
+  --color-on-tertiary: #ffffff;
+  --color-surface-tint: #b62419;
+  --color-on-tertiary-fixed: #00210a;
+  --color-tertiary: #35633e;
+  --color-surface-variant: #e4e2e4;
+  --color-on-tertiary-fixed-variant: #22502d;
+  --color-tertiary-fixed: #bcefc0;
+  --color-background: #fcf8fb;
+  --color-surface-dim: #dcd9dc;
+  --color-outline: #8f706b;
+  --color-secondary-fixed-dim: #b0c7f1;
+  --color-surface-container-low: #f6f3f5;
+  --color-on-primary-fixed-variant: #930203;
+  --color-primary: #ae1d14;
+  --color-outline-variant: #e3beb9;
+  --color-on-tertiary-container: #e3ffe2;
+  --color-primary-fixed: #ffdad5;
+  --color-inverse-primary: #ffb4a9;
+  --color-inverse-surface: #303032;
+  --color-error: #ba1a1a;
+
+  --font-serif: var(--font-noto-serif), "Noto Serif JP", Georgia, serif;
+  --font-sans: var(--font-plus-jakarta), "Noto Sans JP", system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
+}
+
+@layer base {
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: #fcf8fb;
+    color: #1b1b1d;
+  }
+
+  body {
+    overscroll-behavior: none;
+    font-family: var(--font-sans);
+  }
+}
+
+.font-editorial {
+  font-family: var(--font-serif);
+}
+
+/* Phase 09 / DESIGN.md: Generous 2.2em line-height prevents furigana <rt> clipping */
+.koto-editorial-text {
+  line-height: 2.2em;
+  font-feature-settings: "palt" 1;
+  text-rendering: optimizeLegibility;
+}
+
+ruby {
+  ruby-position: over;
+  ruby-align: center;
+}
+
+ruby rt {
+  font-size: clamp(0.45em, 0.55em, 0.65em);
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+  user-select: none;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+.furigana-hidden rt {
+  display: none;
+}
+
+.furigana-hidden .furigana-label {
+  visibility: hidden;
+}
+
+.romaji-hidden .romaji-sub {
+  display: none;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid #ae1d14;
+  outline-offset: 2px;
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(143, 112, 107, 0.25);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(143, 112, 107, 0.45);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

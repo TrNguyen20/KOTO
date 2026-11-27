@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"on-primary":"#ffffff","tertiary-fixed-dim":"#a0d3a5","surface-container":"#f0edef","surface-container-high":"#eae7ea","on-primary-fixed":"#410000","on-error-container":"#93000a","on-secondary-fixed":"#001b3c","surface-container-lowest":"#ffffff","surface":"#fcf8fb","secondary-container":"#bbd3fd","on-surface-variant":"#5b403c","secondary-fixed":"#d5e3ff","on-surface":"#1b1b1d","surface-bright":"#fcf8fb","on-secondary-container":"#445a7f","on-primary-container":"#fff5f3","surface-container-highest":"#e4e2e4","on-error":"#ffffff","secondary":"#485f84","primary-container":"#d1382a","on-background":"#1b1b1d","inverse-on-surface":"#f3f0f2","primary-fixed-dim":"#ffb4a9","on-secondary-fixed-variant":"#30476a","on-secondary":"#ffffff","tertiary-container":"#4d7c55","error-container":"#ffdad6","on-tertiary":"#ffffff","surface-tint":"#b62419","on-tertiary-fixed":"#00210a","tertiary":"#35633e","surface-variant":"#e4e2e4","on-tertiary-fixed-variant":"#22502d","tertiary-fixed":"#bcefc0","background":"#fcf8fb","surface-dim":"#dcd9dc","outline":"#8f706b","secondary-fixed-dim":"#b0c7f1","surface-container-low":"#f6f3f5","on-primary-fixed-variant":"#930203","primary":"#ae1d14","outline-variant":"#e3beb9","on-tertiary-container":"#e3ffe2","primary-fixed":"#ffdad5","inverse-primary":"#ffb4a9","inverse-surface":"#303032","error":"#ba1a1a"},borderRadius:{DEFAULT:"0.125rem",lg:"0.25rem",xl:"0.5rem",full:"0.75rem"},spacing:{gutter:"1.5rem","space-lg":"1.5rem","space-md":"1rem","gutter-mobile":"1rem","space-sm":"0.5rem","space-xl":"2.5rem","margin-mobile":"1.25rem","space-xs":"0.25rem",margin:"3rem"},fontFamily:{"headline-sm":["Noto Serif"],"headline-lg":["Noto Serif"],"display-hero":["Noto Serif"],"headline-lg-mobile":["Noto Serif"],"kanji-reading":["Noto Serif"],"headline-md":["Noto Serif"],"label-md":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"label-sm":["Plus Jakarta Sans"],"display-hero-mobile":["Noto Serif"],"body-lg":["Plus Jakarta Sans"],"body-sm":["Plus Jakarta Sans"],"kanji-hero":["Noto Serif"]},fontSize:{"headline-sm":["22px",{lineHeight:"30px",fontWeight:"600"}],"headline-lg":["40px",{lineHeight:"52px",letterSpacing:"-0.01em",fontWeight:"500"}],"display-hero":["56px",{lineHeight:"68px",letterSpacing:"-0.02em",fontWeight:"600"}],"headline-lg-mobile":["30px",{lineHeight:"40px",letterSpacing:"-0.01em",fontWeight:"500"}],"kanji-reading":["20px",{lineHeight:"28px",fontWeight:"400"}],"headline-md":["28px",{lineHeight:"38px",fontWeight:"500"}],"label-md":["14px",{lineHeight:"20px",letterSpacing:"0.02em",fontWeight:"600"}],"body-md":["16px",{lineHeight:"26px",fontWeight:"400"}],"label-sm":["12px",{lineHeight:"16px",letterSpacing:"0.06em",fontWeight:"600"}],"display-hero-mobile":["38px",{lineHeight:"48px",letterSpacing:"-0.01em",fontWeight:"600"}],"body-lg":["18px",{lineHeight:"28px",fontWeight:"400"}],"body-sm":["14px",{lineHeight:"22px",fontWeight:"400"}],"kanji-hero":["64px",{lineHeight:"72px",fontWeight:"400"}]}}}}</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-screen w-[260px] bg-surface-container-low shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col justify-between overflow-y-auto"><div class="flex flex-col"><div class="h-16 px-space-md flex items-center justify-between"><div class="flex items-center gap-space-sm"><img alt="KOTO Brand Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ALJJyrD83e6FfTO5VzhVeXtp_t6hNQa0l5Ig2HLbxnyJU-Ff6LpimNZ6077oFeYIy7sdbA3ILnMp7SuOu8UzWbXNT0pP-BEAMDWG1u_v7kYnwbnQ6RwDTwCHYdJOLdrRa7MNbzhuDxvx7QoWL-EQHfdYdLaBeNXiDpu29UF7Z0VTEtOJ84cI-XPNtzNvw73L1zRqgdDwcQwvza-Rqq8DqIZCIWeNlZMBiVsFoapN1RoKyOM"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm tracking-tight text-on-surface leading-none">言登</span><span class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant">KOTO</span></div></div><span class="px-space-xs py-0.5 rounded bg-surface-container-high font-label-sm text-label-sm text-on-surface-variant font-medium">v2.4</span></div><nav class="px-space-sm py-space-sm flex flex-col gap-space-xs" data-active-classes="bg-primary-container text-on-primary font-medium rounded-lg shadow-sm"><div class="pt-space-xs pb-space-xs px-space-sm flex items-center justify-between"><span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-semibold">Ecosystem</span><span class="font-label-sm text-label-sm text-on-surface-variant opacity-60">基盤</span></div><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[20px] transition-colors">grid_view</span><span class="font-body-sm text-body-sm flex-1">Dashboard</span><span class="font-label-sm text-label-sm text-on-surface-variant opacity-50">台</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="learning-path" href="#"><span class="material-symbols-outlined text-[20px] transition-colors">route</span><span class="font-body-sm text-body-sm flex-1">Learning Path</span><span class="font-label-sm text-label-sm text-on-surface-variant opacity-50">進路</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="review-center" href="#"><span class="material-symbols-outlined text-[20px] transition-colors">repeat</span><span class="font-body-sm text-body-sm flex-1">Review Center</span><span class="px-1.5 py-0.5 rounded bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm font-semibold">14</span></a><div class="pt-space-md pb-space-xs px-space-sm flex items-center justify-between"><span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-semibold">Core Pillars</span><span class="font-label-sm text-label-sm text-on-surface-variant opacity-60">六柱</span></div><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="vocabulary-lab" href="#"><span class="material-symbols-outlined text-[20px] transition-colors">style</span><span class="font-body-sm text-body-sm flex-1">Vocabulary Lab</span><span class="font-label-sm text-label-sm text-on-surface-variant opacity-50">語彙</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="kanji-studio" href="#"><span class="material-symbols-outlined text-[20px] transition-colors">brush</span><span class="font-body-sm text-body-sm flex-1">Kanji Studio</span><span class="font-label-sm text-label-sm text-on-surface-variant opacity-50">漢字</span></a><a aria-current="page" class="flex items-center gap-space-sm px-space-sm py-2 transition-all group bg-primary-container text-on-primary font-medium rounded-lg shadow-sm" data-path="grammar-studio" href="#"><span class="material-symbols-outlined text-[20px] transition-colors">menu_book</span><span class="font-body-sm text-body-sm flex-1">Grammar Studio</span><span class="font-label-sm text-label-sm text-on-surface-variant opacity-50">文法</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="listening-and-shadowing" href="#"><span class="material-symbols-outlined text-[20px] transition-colors">headphones</span><span class="font-body-sm text-body-sm flex-1">Listening &amp; Shadowing</span><span class="font-label-sm text-label-sm text-on-surface-variant opacity-50">聴解</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="speaking-and-dialogue" href="#"><span class="material-symbols-outlined text-[20px] transition-colors">record_voice_over</span><span class="font-body-sm text-body-sm flex-1">Speaking &amp; Dialogue</span><span class="font-label-sm text-label-sm text-on-surface-variant opacity-50">会話</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="reading-and-library" href="#"><span class="material-symbols-outlined text-[20px] transition-colors">auto_stories</span><span class="font-body-sm text-body-sm flex-1">Reading &amp; Library</span><span class="font-label-sm text-label-sm text-on-surface-variant opacity-50">読解</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="writing-and-composition" href="#"><span class="material-symbols-outlined text-[20px] transition-colors">edit_note</span><span class="font-body-sm text-body-sm flex-1">Writing &amp; Composition</span><span class="font-label-sm text-label-sm text-on-surface-variant opacity-50">作文</span></a><div class="pt-space-md pb-space-xs px-space-sm flex items-center justify-between"><span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-semibold">Mastery &amp; Tools</span><span class="font-label-sm text-label-sm text-on-surface-variant opacity-60">応用</span></div><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="jlpt-exam-center" href="#"><span class="material-symbols-outlined text-[20px] transition-colors">assignment_turned_in</span><span class="font-body-sm text-body-sm flex-1">JLPT Exam Center</span><span class="font-label-sm text-label-sm text-on-surface-variant opacity-50">試験</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="ai-sensei-tutor" href="#"><span class="material-symbols-outlined text-[20px] transition-colors">psychology</span><span class="font-body-sm text-body-sm flex-1">AI Sensei Tutor</span><span class="font-label-sm text-label-sm text-on-surface-variant opacity-50">先生</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="culture-and-keigo" href="#"><span class="material-symbols-outlined text-[20px] transition-colors">temple_buddhist</span><span class="font-body-sm text-body-sm flex-1">Culture &amp; Keigo</span><span class="font-label-sm text-label-sm text-on-surface-variant opacity-50">敬語</span></a></nav></div><div class="p-space-sm flex flex-col gap-space-xs"><div class="p-space-sm rounded-lg bg-surface-container flex flex-col gap-space-xs"><div class="flex items-center justify-between"><span class="font-label-sm text-label-sm uppercase tracking-wide text-on-surface font-semibold">N5 Mastery</span><span class="font-label-sm text-label-sm font-semibold text-primary">68%</span></div><div class="w-full h-1.5 rounded-full bg-surface-container-highest overflow-hidden"><div class="h-full bg-primary rounded-full w-[68%]"></div></div><div class="flex justify-between items-center text-on-surface-variant font-label-sm text-label-sm pt-0.5"><span>476 / 700 語</span><span class="text-[10px] text-on-surface-variant font-medium">初級基礎</span></div></div><div class="flex items-center justify-between px-space-sm py-1.5"><a class="flex items-center gap-space-xs font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="settings" href="#"><span class="material-symbols-outlined text-[18px]">settings</span><span>Preferences</span></a><a class="flex items-center gap-space-xs font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="dictionary-search" href="#"><span class="material-symbols-outlined text-[18px]">library_books</span><span>辞書</span></a></div></div></aside><div class="pl-[260px]"><header class="fixed top-0 left-[260px] right-0 h-16 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-lg"><div class="flex items-center gap-space-md"><div class="flex items-center bg-surface-container px-2 py-1 rounded-lg gap-1.5"><span class="px-2 py-0.5 rounded bg-primary text-on-primary font-label-sm text-label-sm font-bold tracking-wide">N5</span><div class="flex items-center gap-1 cursor-pointer text-on-surface-variant hover:text-on-surface"><span class="font-label-sm text-label-sm font-medium">JLPT Level</span><span class="material-symbols-outlined text-[18px]">expand_more</span></div></div><button class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg bg-surface-container-low text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors text-left w-60"><span class="material-symbols-outlined text-[18px]">search</span><span class="font-body-sm text-body-sm flex-1 text-on-surface-variant">Search vocabulary, kanji...</span><kbd class="px-1.5 py-0.5 rounded bg-surface-container-highest font-label-sm text-label-sm text-on-surface-variant">⌘K</kbd></button></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-1 px-space-sm py-1 rounded-lg bg-surface-container-low"><span class="text-primary font-bold text-sm">🔥</span><span class="font-label-md text-label-md font-semibold text-on-surface">18</span><span class="font-label-sm text-label-sm text-on-surface-variant">days</span></div><div class="flex items-center gap-1.5 px-space-sm py-1 rounded-lg bg-primary-fixed text-on-primary-fixed"><span class="material-symbols-outlined text-[18px] text-primary">alarm</span><span class="font-label-sm text-label-sm font-semibold">14 Due</span></div><div class="flex items-center gap-1.5 px-space-sm py-1 rounded-lg bg-surface-container-low text-on-surface"><span class="material-symbols-outlined text-[18px] text-tertiary">timelapse</span><span class="font-label-sm text-label-sm font-medium">25/30m</span></div><div class="h-5 w-[1px] bg-surface-container-highest"></div><div class="flex items-center gap-2"><button class="flex items-center gap-1 px-2 py-1 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-label-sm text-label-sm"><span class="material-symbols-outlined text-[16px]">volume_up</span><span>Audio</span></button><button class="flex items-center gap-1 px-2 py-1 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-label-sm text-label-sm"><span class="material-symbols-outlined text-[16px]">translate</span><span>振仮名</span></button></div><div class="h-5 w-[1px] bg-surface-container-highest"></div><div class="flex items-center gap-space-sm cursor-pointer"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzM8bneD0hM9bOCIUJcYJ8lyva152PfGqkP7zF1r5alGuyT3NvRSt5NQphSq7jgBHJ5_fkHjJcqh2vJMIxC-_E0uT9XwaQscIztZZCNlt78ElHJd1fP2oEUjug3VYOzaZ6g2mphDM-t1cfO5zPAv1AHTJam2MZgpRJAwcGIgBOT0U501PWRhsl7MdYFbNtn7ZSGAFnuNgz7Sw269NEV3mMumnlzNZ0DGlUrv2yKWA"/><div class="flex flex-col text-left"><span class="font-label-sm text-label-sm font-semibold text-on-surface leading-none">T. Tanaka</span><span class="font-label-sm text-label-sm text-on-surface-variant opacity-70 leading-none pt-0.5">Shokunin</span></div></div></div></header><main class="relative pt-16 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<!-- Top Command Ribbon & Header Context -->
+<section class="px-space-xl pt-space-lg pb-space-md">
+<div class="max-w-[1280px] mx-auto flex flex-col gap-space-md">
+<!-- Studio Header Bar -->
+<div class="flex flex-wrap items-end justify-between gap-space-md">
+<div class="flex items-baseline gap-space-md">
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm uppercase tracking-widest">
+<span>Ecosystem</span>
+<span class="text-[10px]">/</span>
+<span>Morphology &amp; Syntax</span>
+<span class="text-[10px]">/</span>
+<span class="text-primary font-semibold">Comparative Analysis</span>
+</div>
+<div class="flex items-baseline gap-space-sm pt-1">
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Grammar Studio</h1>
+<span class="font-kanji-reading text-kanji-reading text-on-surface-variant opacity-75">文法研究室</span>
+</div>
+</div>
+<span class="hidden md:inline-flex items-center gap-1 px-2.5 py-1 rounded bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px] text-tertiary">verified</span>
+<span>Orthography Standard 2024</span>
+</span>
+</div>
+<!-- JLPT Selector & Comparison Trigger -->
+<div class="flex items-center gap-space-sm">
+<div class="inline-flex p-1 rounded-xl bg-surface-container-low shadow-sm">
+<button class="px-3 py-1 rounded-lg bg-surface-container-lowest text-primary font-label-sm text-label-sm font-bold shadow-sm transition-all">N5</button>
+<button class="px-3 py-1 rounded-lg text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm font-medium transition-all">N4</button>
+<button class="px-3 py-1 rounded-lg text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm font-medium transition-all">N3</button>
+<button class="px-3 py-1 rounded-lg text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm font-medium transition-all">N2</button>
+<button class="px-3 py-1 rounded-lg text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm font-medium transition-all">N1</button>
+</div>
+<div class="h-6 w-[1px] bg-surface-container-highest mx-1 hidden sm:block"></div>
+<button class="flex items-center gap-2 px-space-md py-2 rounded-xl bg-primary-container text-on-primary font-label-sm text-label-sm font-semibold shadow-sm hover:opacity-95 transition-all" id="toggle-compare-pill">
+<span class="material-symbols-outlined text-[18px]">difference</span>
+<span>Side-by-Side Mode</span>
+<span class="px-1.5 py-0.2 rounded-full bg-on-primary/20 text-on-primary font-label-sm text-label-sm text-[11px]">2 Selected</span>
+</button>
+</div>
+</div>
+<!-- Search & Contextual Quick-Links -->
+<div class="flex flex-col md:flex-row items-center gap-space-sm">
+<div class="relative flex-1 w-full">
+<span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-[20px] text-on-surface-variant">search</span>
+<input class="w-full pl-11 pr-24 py-2.5 rounded-xl bg-surface-container-low text-on-surface placeholder:text-on-surface-variant font-body-sm text-body-sm focus:outline-none focus:bg-surface-container-lowest shadow-sm transition-all" placeholder="Search grammar patterns (e.g., 〜てから, に vs で, 〜てもいい)..." type="text" value="〜に vs 〜で (Destination vs Action Stage)"/>
+<div class="absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-1">
+<span class="px-1.5 py-0.5 rounded bg-surface-container-high font-label-sm text-label-sm text-[11px] text-on-surface-variant">助詞</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm text-[11px]">⌘K</span>
+</div>
+</div>
+<div class="flex items-center gap-2 w-full md:w-auto overflow-x-auto pb-1 md:pb-0">
+<span class="font-label-sm text-label-sm text-on-surface-variant whitespace-nowrap">Suggested:</span>
+<button class="px-2.5 py-1 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface-variant font-label-sm text-label-sm whitespace-nowrap transition-colors">〜は vs 〜が</button>
+<button class="px-2.5 py-1 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface-variant font-label-sm text-label-sm whitespace-nowrap transition-colors">〜てから</button>
+<button class="px-2.5 py-1 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface-variant font-label-sm text-label-sm whitespace-nowrap transition-colors">〜ないで vs 〜なくて</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Editorial Main Workspace: 12-Column Split View -->
+<section class="px-space-xl pb-space-xl">
+<div class="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<!-- LEFT COLUMN: Active Deep Dive Studio (8 Cols) -->
+<main class="lg:col-span-8 flex flex-col gap-space-lg min-w-0">
+<!-- Pattern Hero Card -->
+<article class="relative p-space-xl rounded-2xl bg-surface-container-lowest shadow-[0_4px_24px_-4px_rgba(22,22,24,0.04)] overflow-hidden">
+<!-- Subtle Japanese Calligraphic Watermark Accent -->
+<span class="absolute -right-6 -bottom-10 font-headline-lg text-[130px] leading-none text-surface-container-high opacity-35 select-none pointer-events-none font-kanji-hero">格助</span>
+<div class="relative z-10 flex flex-col gap-space-md">
+<!-- Meta Badges & Hanko Seal -->
+<div class="flex items-center justify-between">
+<div class="flex flex-wrap items-center gap-2">
+<span class="px-2 py-0.5 rounded bg-primary text-on-primary font-label-sm text-label-sm font-bold">JLPT N5 Core</span>
+<span class="px-2 py-0.5 rounded bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm font-semibold">Particle (助詞)</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+                  SRS Retention: 78%
+                </span>
+</div>
+<!-- Hanko Seal -->
+<div class="w-10 h-10 rounded-lg bg-primary-fixed/40 flex items-center justify-center text-primary font-headline-sm text-[16px] leading-none tracking-tighter select-none shadow-sm" title="Standard Master Pattern Seal">
+                言登
+              </div>
+</div>
+<!-- Title & Contrast Thesis -->
+<div class="flex flex-col gap-1 pt-1">
+<div class="flex items-baseline gap-space-sm flex-wrap">
+<h2 class="font-headline-md text-headline-md text-on-surface font-semibold tracking-tight">〜に <span class="font-body-md text-on-surface-variant text-[20px] font-normal mx-1">versus</span> 〜で</h2>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                Targeting vs Staging: Defining physical destination points versus the interactive realm of action.
+              </p>
+</div>
+<!-- Visual Morphological Breakdown Formulas -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md pt-2">
+<!-- Formula 1: に -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest text-primary font-label-sm text-label-sm font-bold">Rule Alpha</span>
+<span class="font-kanji-reading text-kanji-reading text-on-surface-variant text-sm">帰着点 (Endpoint)</span>
+</div>
+<div class="font-headline-sm text-[17px] text-on-surface tracking-wide flex items-center gap-1 flex-wrap">
+<span class="px-2 py-1 rounded bg-surface-container-lowest text-on-surface font-medium text-sm">Noun (Place)</span>
+<span class="text-primary font-bold text-lg">＋ に ＋</span>
+<span class="px-2 py-1 rounded bg-primary/10 text-primary font-medium text-sm">Motion Verb</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant text-xs">
+                  Examples: <span class="text-on-surface font-medium">行く</span> (go), <span class="text-on-surface font-medium">来る</span> (come), <span class="text-on-surface font-medium">帰る</span> (return)
+                </p>
+</div>
+<!-- Formula 2: で -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest text-secondary font-label-sm text-label-sm font-bold">Rule Beta</span>
+<span class="font-kanji-reading text-kanji-reading text-on-surface-variant text-sm">動作の場所 (Location)</span>
+</div>
+<div class="font-headline-sm text-[17px] text-on-surface tracking-wide flex items-center gap-1 flex-wrap">
+<span class="px-2 py-1 rounded bg-surface-container-lowest text-on-surface font-medium text-sm">Noun (Place)</span>
+<span class="text-secondary font-bold text-lg">＋ で ＋</span>
+<span class="px-2 py-1 rounded bg-secondary-container/50 text-on-secondary-container font-medium text-sm">Action Verb</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant text-xs">
+                  Examples: <span class="text-on-surface font-medium">食べる</span> (eat), <span class="text-on-surface font-medium">勉強する</span> (study), <span class="text-on-surface font-medium">買う</span> (buy)
+                </p>
+</div>
+</div>
+<!-- Cognitive Nuance Deep Dive -->
+<div class="p-space-md rounded-xl bg-surface-container-high/60 flex flex-col gap-space-sm mt-1">
+<div class="flex items-center gap-2 text-on-surface">
+<span class="material-symbols-outlined text-[20px] text-primary">psychology_alt</span>
+<h3 class="font-headline-sm text-[17px] font-semibold">The Cognitive Distinctions (Why Learners Confuse Them)</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface text-sm leading-relaxed">
+<strong class="font-semibold text-primary">〜に</strong> marks the needle drop: a final target or point in spacetime where motion terminates, or where an entity passively exists (ある / いる).<br/>
+<strong class="font-semibold text-secondary">〜で</strong> marks the stage: the physical sandbox or boundary envelope inside which dynamic energy and human events unfold.
+              </p>
+<!-- Sensei Callout Box -->
+<div class="p-space-sm rounded-lg bg-surface-container-lowest flex items-start gap-space-sm shadow-sm">
+<span class="material-symbols-outlined text-[20px] text-tertiary shrink-0 mt-0.5">lightbulb</span>
+<div class="flex flex-col gap-0.5">
+<span class="font-label-sm text-label-sm text-on-surface font-bold">AI Sensei Mnemonic</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant text-xs">
+                    Remember: <ruby>図<rt>としょ</rt>書<rt>かん</rt>館</ruby><strong class="text-secondary font-bold">で</strong><ruby>本<rt>ほん</rt></ruby>を<ruby>読<rt>よ</rt></ruby>みます (Reading transpires inside the library envelope) vs <ruby>図<rt>としょ</rt>書<rt>かん</rt>館</ruby><strong class="text-primary font-bold">に</strong><ruby>行<rt>い</rt></ruby>きます (The library is solely the target destination coordinate).
+                  </p>
+</div>
+</div>
+</div>
+</div>
+</article>
+<!-- Interactive Audio Examples with Pitch Accent & Furigana -->
+<article class="p-space-xl rounded-2xl bg-surface-container-lowest shadow-[0_4px_24px_-4px_rgba(22,22,24,0.04)] flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[22px]">volume_up</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Curated Native Audio &amp; Syntactic Decomposition</h3>
+</div>
+<div class="flex items-center gap-2">
+<button class="px-2.5 py-1 rounded-lg bg-surface-container text-on-surface font-label-sm text-label-sm hover:bg-surface-container-high transition-colors" id="toggle-furigana">
+                振仮名 Furigana: <span class="text-primary font-bold">ON</span>
+</button>
+</div>
+</div>
+<!-- Sentence Entry 1 -->
+<div class="p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-all flex flex-col md:flex-row md:items-center justify-between gap-space-md group">
+<div class="flex flex-col gap-1 min-w-0">
+<div class="flex items-center gap-2">
+<span class="px-1.5 py-0.2 rounded bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm text-[11px] font-bold">に · Target</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant text-[11px]">Tokyo Transit Context</span>
+</div>
+<div class="font-headline-sm text-[21px] text-on-surface tracking-wide pt-1 leading-relaxed">
+<ruby class="ruby-text">明日<rt class="text-[10px] text-on-surface-variant font-normal">あした</rt></ruby>、<ruby class="ruby-text">東京<rt class="text-[10px] text-on-surface-variant font-normal">とうきょう</rt></ruby><span class="text-primary font-bold mx-0.5">に</span><ruby class="ruby-text">行<rt class="text-[10px] text-on-surface-variant font-normal">い</rt></ruby>きます。
+              </div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">
+                Ashita, Toukyou ni ikimasu. · <span class="italic text-on-surface">"Tomorrow, I will go to Tokyo."</span>
+</div>
+</div>
+<div class="flex items-center gap-2 shrink-0 self-end md:self-center">
+<button class="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-surface-container-lowest hover:bg-primary hover:text-on-primary text-on-surface font-label-sm text-label-sm transition-all shadow-sm" onclick="playAudioSample('sample1')">
+<span class="material-symbols-outlined text-[18px]">play_arrow</span>
+<span>Play 1.0x</span>
+</button>
+<button class="p-2 rounded-xl bg-surface-container-lowest text-on-surface-variant hover:text-primary transition-colors shadow-sm" title="Analyze Pitch Contour">
+<span class="material-symbols-outlined text-[18px]">graphic_eq</span>
+</button>
+</div>
+</div>
+<!-- Sentence Entry 2 -->
+<div class="p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-all flex flex-col md:flex-row md:items-center justify-between gap-space-md group">
+<div class="flex flex-col gap-1 min-w-0">
+<div class="flex items-center gap-2">
+<span class="px-1.5 py-0.2 rounded bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm text-[11px] font-bold">で · Action Stage</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant text-[11px]">Dining Activity</span>
+</div>
+<div class="font-headline-sm text-[21px] text-on-surface tracking-wide pt-1 leading-relaxed">
+                レストラン<span class="text-secondary font-bold mx-0.5">で</span>お<ruby class="ruby-text">昼<rt class="text-[10px] text-on-surface-variant font-normal">ひる</rt></ruby>ご<ruby class="ruby-text">飯<rt class="text-[10px] text-on-surface-variant font-normal">はん</rt></ruby>を<ruby class="ruby-text">食<rt class="text-[10px] text-on-surface-variant font-normal">た</rt></ruby>べました。
+              </div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">
+                Resutoran de ohirugohan wo tabemashita. · <span class="italic text-on-surface">"I ate lunch at a restaurant."</span>
+</div>
+</div>
+<div class="flex items-center gap-2 shrink-0 self-end md:self-center">
+<button class="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-surface-container-lowest hover:bg-secondary hover:text-on-secondary text-on-surface font-label-sm text-label-sm transition-all shadow-sm" onclick="playAudioSample('sample2')">
+<span class="material-symbols-outlined text-[18px]">play_arrow</span>
+<span>Play 1.0x</span>
+</button>
+<button class="p-2 rounded-xl bg-surface-container-lowest text-on-surface-variant hover:text-secondary transition-colors shadow-sm" title="Analyze Pitch Contour">
+<span class="material-symbols-outlined text-[18px]">graphic_eq</span>
+</button>
+</div>
+</div>
+<!-- Sentence Entry 3 -->
+<div class="p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-all flex flex-col md:flex-row md:items-center justify-between gap-space-md group">
+<div class="flex flex-col gap-1 min-w-0">
+<div class="flex items-center gap-2">
+<span class="px-1.5 py-0.2 rounded bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm text-[11px] font-bold">に · Specific Point of Time</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant text-[11px]">Chronological Anchor</span>
+</div>
+<div class="font-headline-sm text-[21px] text-on-surface tracking-wide pt-1 leading-relaxed">
+<ruby class="ruby-text">毎<rt class="text-[10px] text-on-surface-variant font-normal">まい</rt>朝<rt class="text-[10px] text-on-surface-variant font-normal">あさ</rt></ruby>、<ruby class="ruby-text">七<rt class="text-[10px] text-on-surface-variant font-normal">しち</rt>時<rt class="text-[10px] text-on-surface-variant font-normal">じ</rt></ruby><span class="text-primary font-bold mx-0.5">に</span><ruby class="ruby-text">起<rt class="text-[10px] text-on-surface-variant font-normal">お</rt></ruby>きます。
+              </div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">
+                Maiasa, shichiji ni okimasu. · <span class="italic text-on-surface">"Every morning, I wake up at 7 o'clock."</span>
+</div>
+</div>
+<div class="flex items-center gap-2 shrink-0 self-end md:self-center">
+<button class="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-surface-container-lowest hover:bg-primary hover:text-on-primary text-on-surface font-label-sm text-label-sm transition-all shadow-sm" onclick="playAudioSample('sample3')">
+<span class="material-symbols-outlined text-[18px]">play_arrow</span>
+<span>Play 1.0x</span>
+</button>
+<button class="p-2 rounded-xl bg-surface-container-lowest text-on-surface-variant hover:text-primary transition-colors shadow-sm" title="Analyze Pitch Contour">
+<span class="material-symbols-outlined text-[18px]">graphic_eq</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Pitfalls & Common Mistakes Panel -->
+<article class="p-space-xl rounded-2xl bg-surface-container-lowest shadow-[0_4px_24px_-4px_rgba(22,22,24,0.04)] flex flex-col gap-space-md">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[22px]">warning</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Common Traps &amp; Contrast Diagnostics</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<!-- Fatal Trap -->
+<div class="p-space-md rounded-xl bg-error-container/20 flex flex-col gap-2">
+<div class="flex items-center gap-1.5 text-error font-label-sm text-label-sm font-bold uppercase tracking-wider">
+<span class="material-symbols-outlined text-[18px]">cancel</span>
+<span>Unnatural Formation</span>
+</div>
+<div class="font-headline-sm text-[18px] text-on-surface line-through opacity-80 pt-1">
+                学校に行くで勉強します。
+              </div>
+<p class="font-body-sm text-body-sm text-on-surface-variant text-xs">
+                Cannot append で directly to a verb motion phrase without nominalization, nor concatenate motion destination and activity redundantly.
+              </p>
+</div>
+<!-- Orthogonal Remedy -->
+<div class="p-space-md rounded-xl bg-tertiary-fixed/30 flex flex-col gap-2">
+<div class="flex items-center gap-1.5 text-tertiary font-label-sm text-label-sm font-bold uppercase tracking-wider">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+<span>Natural Remediation</span>
+</div>
+<div class="font-headline-sm text-[18px] text-on-surface pt-1">
+                学校に<strong class="text-primary font-bold">行って</strong>勉強します。<br/>
+<span class="font-body-sm text-xs text-on-surface-variant">or</span> 学校<strong class="text-secondary font-bold">で</strong>勉強します。
+              </div>
+<p class="font-body-sm text-body-sm text-on-surface-variant text-xs">
+                Either chain the motion verb with 〜て sequence, or collapse the space purely into the scene of study with で.
+              </p>
+</div>
+</div>
+<!-- Cultural Context / Calligraphy Insight Artwork -->
+<div class="mt-2 p-space-md rounded-xl bg-surface-container-low flex flex-col sm:flex-row items-center gap-space-md">
+<img class="w-full sm:w-36 h-24 rounded-lg object-cover shadow-sm shrink-0" data-alt="Close-up editorial photograph of traditional Japanese calligraphy inkstone with sumi ink and washi paper textures in soft studio morning light with earth tones and vermilion ink stamp." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQA45dYXa9jsjDd2ONizEEp6tB5rIZNc-xwU6xY1OW9C6ifO-c1zhHqoHWjvxxSgHqme9J1-Hz1WQPMeXTFhEQZ24SNsCG6kCs3bMYZntZHc9aLGKLMwibWuUHT-B8JFcEKJymNuqYY24VzeMjh7E9XYdrDeeVHv9flxr24W8q5AjSVcSuKCZeLpt66Jof0XEiWQq7ehXdsVSA_1LqTs6l-cuh0ZkuJtV7thIbVqM"/>
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm uppercase tracking-wide text-primary font-bold">Etymology &amp; Spatial Geometry</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant text-xs leading-relaxed">
+                In classical Japanese grammar, 「に」 evolved from pointing indicators denoting absolute convergence. Modern learners visualize it as a vector arrow hitting a bullseye, while 「で」 acts as a circle outlining the event perimeter.
+              </p>
+</div>
+</div>
+</article>
+</main>
+<!-- RIGHT COLUMN: Comparative Studio Drawer & Recall Center (4 Cols) -->
+<aside class="lg:col-span-4 flex flex-col gap-space-lg min-w-0">
+<!-- Comparative Matrix Table (Hairline Minimalist Style) -->
+<div class="p-space-lg rounded-2xl bg-surface-container-lowest shadow-[0_4px_24px_-4px_rgba(22,22,24,0.04)] flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] text-primary">table_chart</span>
+<h4 class="font-headline-sm text-[18px] text-on-surface font-semibold">Location Particles</h4>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant opacity-60">助詞対照</span>
+</div>
+<!-- Minimalist Matrix -->
+<div class="flex flex-col divide-y divide-surface-container-high text-xs">
+<!-- に Row -->
+<div class="py-2.5 flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-[18px] text-primary font-bold">〜に</span>
+<span class="px-2 py-0.2 rounded bg-surface-container font-label-sm text-label-sm text-[10px] text-on-surface-variant font-medium">Destination / Presence</span>
+</div>
+<p class="font-body-sm text-[12px] text-on-surface-variant">
+<strong>Verbs:</strong> 行く, 来る, いる, ある, 入る<br/>
+<strong>Focus:</strong> Pinpoints the terminal landing site.
+              </p>
+</div>
+<!-- で Row -->
+<div class="py-2.5 flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-[18px] text-secondary font-bold">〜で</span>
+<span class="px-2 py-0.2 rounded bg-surface-container font-label-sm text-label-sm text-[10px] text-on-surface-variant font-medium">Dynamic Action Arena</span>
+</div>
+<p class="font-body-sm text-[12px] text-on-surface-variant">
+<strong>Verbs:</strong> 読む, 働く, 走る, 食べる<br/>
+<strong>Focus:</strong> Bounds the perimeter of event execution.
+              </p>
+</div>
+<!-- へ Row -->
+<div class="py-2.5 flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-[18px] text-on-surface font-bold">〜へ (pronounced え)</span>
+<span class="px-2 py-0.2 rounded bg-surface-container font-label-sm text-label-sm text-[10px] text-on-surface-variant font-medium">Orientation / Heading</span>
+</div>
+<p class="font-body-sm text-[12px] text-on-surface-variant">
+<strong>Verbs:</strong> 向かう, 旅立つ, 出発する<br/>
+<strong>Focus:</strong> Emphasizes trajectory rather than the final hit.
+              </p>
+</div>
+<!-- を Row -->
+<div class="py-2.5 flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-[18px] text-on-surface font-bold">〜を (Motion Pass)</span>
+<span class="px-2 py-0.2 rounded bg-surface-container font-label-sm text-label-sm text-[10px] text-on-surface-variant font-medium">Space Traversed</span>
+</div>
+<p class="font-body-sm text-[12px] text-on-surface-variant">
+<strong>Verbs:</strong> 渡る, 飛ぶ, 通る, 歩く<br/>
+<strong>Focus:</strong> The actual terrain being passed through or left behind.
+              </p>
+</div>
+</div>
+</div>
+<!-- Active Recall: Interactive Mini Check -->
+<div class="p-space-lg rounded-2xl bg-surface-container-lowest shadow-[0_4px_24px_-4px_rgba(22,22,24,0.04)] flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] text-tertiary">quiz</span>
+<h4 class="font-headline-sm text-[18px] text-on-surface font-semibold">Active Diagnostic Check</h4>
+</div>
+<span class="px-1.5 py-0.5 rounded bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm text-[11px] font-bold">Question 1/3</span>
+</div>
+<!-- Question Prompt -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col gap-space-sm">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Select the valid particle:</span>
+<p class="font-headline-sm text-[18px] text-on-surface font-medium leading-relaxed">
+              昨日、喫茶店［ <span class="text-primary font-bold underline" id="quiz-blank">?</span> ］コーヒーを飲みました。
+            </p>
+<span class="font-body-sm text-[12px] text-on-surface-variant">
+              "Yesterday, I drank coffee at a cafe."
+            </span>
+</div>
+<!-- Options -->
+<div class="grid grid-cols-2 gap-2" id="quiz-options">
+<button class="p-3 rounded-xl bg-surface-container-low hover:bg-surface-container text-on-surface font-headline-sm text-sm font-semibold transition-all text-center flex flex-col items-center" onclick="checkAnswer('ni', this)">
+<span>に (ni)</span>
+<span class="text-[10px] font-normal text-on-surface-variant">Destination</span>
+</button>
+<button class="p-3 rounded-xl bg-surface-container-low hover:bg-surface-container text-on-surface font-headline-sm text-sm font-semibold transition-all text-center flex flex-col items-center" onclick="checkAnswer('de', this)">
+<span>で (de)</span>
+<span class="text-[10px] font-normal text-on-surface-variant">Action Realm</span>
+</button>
+<button class="p-3 rounded-xl bg-surface-container-low hover:bg-surface-container text-on-surface font-headline-sm text-sm font-semibold transition-all text-center flex flex-col items-center" onclick="checkAnswer('he', this)">
+<span>へ (he)</span>
+<span class="text-[10px] font-normal text-on-surface-variant">Direction</span>
+</button>
+<button class="p-3 rounded-xl bg-surface-container-low hover:bg-surface-container text-on-surface font-headline-sm text-sm font-semibold transition-all text-center flex flex-col items-center" onclick="checkAnswer('wo', this)">
+<span>を (wo)</span>
+<span class="text-[10px] font-normal text-on-surface-variant">Traverse</span>
+</button>
+</div>
+<!-- Feedback Container -->
+<div class="hidden p-space-sm rounded-xl text-xs transition-all" id="quiz-feedback"></div>
+</div>
+<!-- AI Sensei Nuance Inquirer Bar -->
+<div class="p-space-lg rounded-2xl bg-surface-container-lowest shadow-[0_4px_24px_-4px_rgba(22,22,24,0.04)] flex flex-col gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">psychology</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">AI Sensei Morpho-Tutor</span>
+<span class="font-label-sm text-[11px] text-tertiary">Online · Syntactic Assistant</span>
+</div>
+</div>
+<p class="font-body-sm text-[12px] text-on-surface-variant">
+            Have a nuanced edge-case? Ask why certain verbs like <span class="text-on-surface font-medium">住む</span> (to live) take に instead of で.
+          </p>
+<form class="relative mt-1" onsubmit="handleSenseiAsk(event)">
+<input class="w-full pl-3 pr-10 py-2.5 rounded-xl bg-surface-container-low text-on-surface placeholder:text-on-surface-variant font-body-sm text-xs focus:outline-none focus:bg-surface-container-lowest shadow-sm" id="sensei-input" placeholder="e.g. Why is it 部屋に入る with に?" type="text"/>
+<button class="absolute right-1.5 top-1/2 -translate-y-1/2 p-1.5 rounded-lg bg-primary text-on-primary hover:opacity-90 transition-opacity" type="submit">
+<span class="material-symbols-outlined text-[16px]">send</span>
+</button>
+</form>
+<div class="hidden mt-2 p-2.5 rounded-xl bg-surface-container-low text-xs text-on-surface font-body-sm leading-relaxed border-l-2 border-primary" id="sensei-response">
+<!-- Simulated streaming answer -->
+</div>
+</div>
+<!-- Mastery Milestone Metric Card -->
+<div class="p-space-md rounded-2xl bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-surface-container-lowest flex items-center justify-center text-primary shadow-sm">
+<span class="material-symbols-outlined text-[22px]">auto_stories</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm font-semibold text-on-surface">Grammar Deck 2.1</span>
+<span class="font-label-sm text-[11px] text-on-surface-variant">42 / 54 Patterns Mastered</span>
+</div>
+</div>
+<button class="px-3 py-1.5 rounded-xl bg-surface-container-lowest text-primary font-label-sm text-label-sm font-semibold shadow-sm hover:bg-surface-container-high transition-colors">
+            Review
+          </button>
+</div>
+</aside>
+</div>
+</section>
+<!-- Interactive Logic Script -->
+<script>
+    // Audio Player Mock Feedback
+    function playAudioSample(sampleId) {
+      console.log('Playing synthesized native sample: ' + sampleId);
+      const audioBtn = event.currentTarget;
+      const originalText = audioBtn.innerHTML;
+      audioBtn.innerHTML = '<span class="material-symbols-outlined text-[18px] animate-spin">sync</span><span>Playing...</span>';
+      setTimeout(() => {
+        audioBtn.innerHTML = originalText;
+      }, 1400);
+    }
+
+    // Toggle Furigana Display
+    const furiganaBtn = document.getElementById('toggle-furigana');
+    let furiganaVisible = true;
+    if (furiganaBtn) {
+      furiganaBtn.addEventListener('click', () => {
+        furiganaVisible = !furiganaVisible;
+        const rubies = document.querySelectorAll('rt');
+        rubies.forEach(rt => {
+          rt.style.display = furiganaVisible ? 'block' : 'none';
+        });
+        furiganaBtn.innerHTML = `振仮名 Furigana: <span class="${furiganaVisible ? 'text-primary font-bold' : 'text-on-surface-variant'}">${furiganaVisible ? 'ON' : 'OFF'}</span>`;
+      });
+    }
+
+    // Interactive Quiz Logic
+    function checkAnswer(selected, btnElement) {
+      const feedback = document.getElementById('quiz-feedback');
+      const blank = document.getElementById('quiz-blank');
+      const optionButtons = document.querySelectorAll('#quiz-options button');
+
+      optionButtons.forEach(b => {
+        b.classList.remove('bg-primary', 'bg-tertiary', 'text-on-primary', 'text-on-tertiary');
+      });
+
+      if (selected === 'de') {
+        blank.innerText = 'で';
+        blank.className = 'text-tertiary font-bold underline';
+        btnElement.classList.add('bg-tertiary', 'text-on-tertiary');
+
+        feedback.className = 'p-space-sm rounded-xl text-xs bg-tertiary-fixed text-on-tertiary-fixed flex items-start gap-2';
+        feedback.innerHTML = '<span class="material-symbols-outlined text-[18px]">check_circle</span><div><strong>Correct! (正解)</strong><br>Drinking coffee (コーヒーを飲む) is a dynamic action taking place inside the coffee shop. Therefore, the stage marker <strong>〜で</strong> is mandated.</div>';
+        feedback.classList.remove('hidden');
+      } else {
+        blank.innerText = selected === 'ni' ? 'に' : selected === 'he' ? 'へ' : 'を';
+        blank.className = 'text-error font-bold underline';
+        btnElement.classList.add('bg-error-container', 'text-on-error-container');
+
+        feedback.className = 'p-space-sm rounded-xl text-xs bg-error-container text-on-error-container flex items-start gap-2';
+        feedback.innerHTML = '<span class="material-symbols-outlined text-[18px]">error</span><div><strong>Incorrect</strong><br>Drinking is not a verb of motion or existence. It represents an active occurrence within the establishment; select <strong>〜で</strong>.</div>';
+        feedback.classList.remove('hidden');
+      }
+    }
+
+    // AI Sensei Ask Sim
+    function handleSenseiAsk(e) {
+      e.preventDefault();
+      const input = document.getElementById('sensei-input');
+      const res = document.getElementById('sensei-response');
+      if (!input.value.trim()) return;
+
+      res.classList.remove('hidden');
+      res.innerHTML = '<div class="flex items-center gap-1.5 text-on-surface-variant"><span class="material-symbols-outlined text-[16px] animate-spin">motion_photos_on</span><span>Consulting semantic syntax corpus...</span></div>';
+      
+      const q = input.value;
+      input.value = '';
+
+      setTimeout(() => {
+        res.innerHTML = `<strong>Sensei explanation for:</strong> "${q}"<br><br>In Japanese cognitive grammar, verbs of continuous state like <ruby>住む<rt>すむ</rt></ruby> (to reside) treat the location not as a bustling stage of work, but as an existential permanent anchor point. Thus, <strong>東京に住んでいます</strong> is natural because your presence settles into the coordinates.`;
+      }, 1000);
+    }
+  </script>
+</div></main></div></body></html>
