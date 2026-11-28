@@ -1,3 +1,4 @@
+export const runtime = 'edge';
 import { GoogleGenAI, Type } from '@google/genai';
 import { NextRequest, NextResponse } from 'next/server';
 

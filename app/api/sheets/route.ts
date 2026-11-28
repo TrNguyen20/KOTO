@@ -1,3 +1,4 @@
+export const runtime = 'edge';
 import { NextRequest, NextResponse } from 'next/server';
 
 const SPREADSHEET_ID_RE = /^[a-zA-Z0-9_-]{10,128}$/;
