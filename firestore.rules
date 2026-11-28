@@ -1,0 +1,311 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Global default deny safety net
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    function isValidId(id) {
+      return id is string && id.size() >= 1 && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function existing() {
+      return resource.data;
+    }
+
+    function isSignedIn() {
+      return request.auth != null && request.auth.token.email_verified == true;
+    }
+
+    function isBootstrapAdmin() {
+      return isSignedIn() && request.auth.token.email == 'trung.persie96@gmail.com';
+    }
+
+    function isAdmin() {
+      return isBootstrapAdmin() || (
+        isSignedIn() &&
+        exists(/databases/$(database)/documents/users/$(request.auth.uid)) &&
+        get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin' &&
+        get(/databases/$(database)/documents/users/$(request.auth.uid)).data.status == 'active'
+      );
+    }
+
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+
+    function isActiveOwner(userId) {
+      return isOwner(userId) && (
+        isBootstrapAdmin() || (
+          exists(/databases/$(database)/documents/users/$(userId)) &&
+          get(/databases/$(database)/documents/users/$(userId)).data.status == 'active'
+        )
+      );
+    }
+
+    function isValidUserAccount(data, userId) {
+      return data.keys().hasAll([
+        'uid',
+        'displayName',
+        'role',
+        'status',
+        'activeLessonNumber',
+        'completedLessonsCount',
+        'createdAt',
+        'updatedAt',
+        'lastLoginAt'
+      ]) &&
+      data.keys().hasOnly([
+        'uid',
+        'displayName',
+        'role',
+        'status',
+        'activeLessonNumber',
+        'completedLessonsCount',
+        'createdAt',
+        'updatedAt',
+        'lastLoginAt'
+      ]) &&
+      data.uid == userId &&
+      data.displayName is string && data.displayName.size() >= 1 && data.displayName.size() <= 120 &&
+      data.role in ['admin', 'student'] &&
+      data.status in ['pending', 'active', 'suspended'] &&
+      data.activeLessonNumber is number && data.activeLessonNumber >= 1 && data.activeLessonNumber <= 50 &&
+      data.completedLessonsCount is number && data.completedLessonsCount >= 0 && data.completedLessonsCount <= 50 &&
+      data.createdAt is timestamp &&
+      data.updatedAt is timestamp &&
+      data.lastLoginAt is timestamp;
+    }
+
+    function isValidPrivateProfile(data, userId) {
+      return data.keys().hasAll(['uid', 'email', 'photoURL', 'updatedAt']) &&
+      data.keys().hasOnly(['uid', 'email', 'photoURL', 'updatedAt']) &&
+      data.uid == userId &&
+      data.email is string && data.email.size() >= 3 && data.email.size() <= 180 &&
+      data.photoURL is string && data.photoURL.size() <= 500 &&
+      data.updatedAt is timestamp;
+    }
+
+    function isValidProgress(data, userId) {
+      return data.keys().hasAll([
+        'uid',
+        'activeJlpt',
+        'activeLessonNumber',
+        'completedLessons',
+        'srsQueue',
+        'srsReviewedCount',
+        'srsMasteredCount',
+        'studyTasks',
+        'bookmarkedKanji',
+        'lessonDraft',
+        'weeklyMinutes',
+        'streakDays',
+        'lastStudyDate',
+        'examBestScore',
+        'showFurigana',
+        'showRomaji',
+        'audioEnabled',
+        'speechRate',
+        'updatedAt'
+      ]) &&
+      data.keys().hasOnly([
+        'uid',
+        'activeJlpt',
+        'activeLessonNumber',
+        'completedLessons',
+        'srsQueue',
+        'srsReviewedCount',
+        'srsMasteredCount',
+        'studyTasks',
+        'bookmarkedKanji',
+        'lessonDraft',
+        'weeklyMinutes',
+        'streakDays',
+        'lastStudyDate',
+        'examBestScore',
+        'showFurigana',
+        'showRomaji',
+        'audioEnabled',
+        'speechRate',
+        'updatedAt'
+      ]) &&
+      data.uid == userId &&
+      data.activeJlpt in ['N5', 'N4', 'N3', 'N2', 'N1'] &&
+      data.activeLessonNumber is number && data.activeLessonNumber >= 1 && data.activeLessonNumber <= 50 &&
+      data.completedLessons is list && data.completedLessons.size() <= 50 &&
+      (data.completedLessons.size() == 0 || data.completedLessons[0] is number) &&
+      data.srsQueue is list && data.srsQueue.size() <= 500 &&
+      data.srsReviewedCount is number && data.srsReviewedCount >= 0 && data.srsReviewedCount <= 100000 &&
+      data.srsMasteredCount is number && data.srsMasteredCount >= 0 && data.srsMasteredCount <= 100000 &&
+      data.studyTasks is list && data.studyTasks.size() <= 20 &&
+      data.bookmarkedKanji is list && data.bookmarkedKanji.size() <= 500 &&
+      (data.bookmarkedKanji.size() == 0 || data.bookmarkedKanji[0] is string) &&
+      data.lessonDraft is map &&
+      data.weeklyMinutes is list && data.weeklyMinutes.size() == 7 &&
+      data.weeklyMinutes[0] is number &&
+      data.streakDays is number && data.streakDays >= 0 && data.streakDays <= 36500 &&
+      data.lastStudyDate is string && data.lastStudyDate.size() <= 32 &&
+      data.examBestScore is number && data.examBestScore >= 0 && data.examBestScore <= 180 &&
+      data.showFurigana is bool &&
+      data.showRomaji is bool &&
+      data.audioEnabled is bool &&
+      data.speechRate is number && data.speechRate >= 0.5 && data.speechRate <= 2.0 &&
+      data.updatedAt is timestamp;
+    }
+
+    function isValidSheetConfig(data) {
+      return data.keys().hasAll([
+        'spreadsheetId',
+        'spreadsheetUrl',
+        'spreadsheetTitle',
+        'lastPushAt',
+        'lastPullAt',
+        'lastSyncSummary',
+        'updatedByUid',
+        'updatedAt'
+      ]) &&
+      data.keys().hasOnly([
+        'spreadsheetId',
+        'spreadsheetUrl',
+        'spreadsheetTitle',
+        'lastPushAt',
+        'lastPullAt',
+        'lastSyncSummary',
+        'updatedByUid',
+        'updatedAt'
+      ]) &&
+      data.spreadsheetId is string && data.spreadsheetId.size() >= 5 && data.spreadsheetId.size() <= 128 &&
+      data.spreadsheetUrl is string && data.spreadsheetUrl.size() <= 500 &&
+      data.spreadsheetTitle is string && data.spreadsheetTitle.size() <= 200 &&
+      data.lastPushAt is string && data.lastPushAt.size() <= 64 &&
+      data.lastPullAt is string && data.lastPullAt.size() <= 64 &&
+      data.lastSyncSummary is string && data.lastSyncSummary.size() <= 300 &&
+      data.updatedByUid is string && data.updatedByUid.size() >= 1 && data.updatedByUid.size() <= 128 &&
+      data.updatedAt is timestamp;
+    }
+
+    match /users/{userId} {
+      allow get: if isValidId(userId) && (isOwner(userId) || isAdmin());
+      allow list: if isAdmin() || (isSignedIn() && resource.data.uid == request.auth.uid);
+
+      allow create: if isValidId(userId) &&
+        isOwner(userId) &&
+        isValidUserAccount(incoming(), userId) &&
+        incoming().createdAt == request.time &&
+        incoming().updatedAt == request.time &&
+        incoming().lastLoginAt == request.time &&
+        incoming().completedLessonsCount == 0 &&
+        incoming().activeLessonNumber == 1 && (
+          (isBootstrapAdmin() && incoming().role == 'admin' && incoming().status == 'active') ||
+          (!isBootstrapAdmin() && incoming().role == 'student' && incoming().status == 'pending')
+        );
+
+      allow update: if isValidId(userId) &&
+        isValidUserAccount(incoming(), userId) &&
+        incoming().uid == existing().uid &&
+        incoming().createdAt == existing().createdAt &&
+        incoming().updatedAt == request.time && (
+          (
+            isAdmin() &&
+            incoming().diff(existing()).affectedKeys().hasOnly([
+              'role',
+              'status',
+              'displayName',
+              'activeLessonNumber',
+              'completedLessonsCount',
+              'lastLoginAt',
+              'updatedAt'
+            ])
+          ) ||
+          (
+            isActiveOwner(userId) &&
+            incoming().role == existing().role &&
+            incoming().status == existing().status &&
+            incoming().diff(existing()).affectedKeys().hasOnly([
+              'displayName',
+              'activeLessonNumber',
+              'completedLessonsCount',
+              'lastLoginAt',
+              'updatedAt'
+            ])
+          ) ||
+          (
+            isOwner(userId) &&
+            incoming().role == existing().role &&
+            incoming().status == existing().status &&
+            incoming().diff(existing()).affectedKeys().hasOnly([
+              'displayName',
+              'lastLoginAt',
+              'updatedAt'
+            ])
+          )
+        );
+    }
+
+    match /users/{userId}/private/{docId} {
+      allow get: if isValidId(userId) && isValidId(docId) && (isOwner(userId) || isAdmin());
+      allow list: if isAdmin() || (isSignedIn() && resource.data.uid == request.auth.uid);
+
+      allow create: if isValidId(userId) &&
+        isValidId(docId) &&
+        docId == 'info' &&
+        isOwner(userId) &&
+        isValidPrivateProfile(incoming(), userId) &&
+        incoming().updatedAt == request.time;
+
+      allow update: if isValidId(userId) &&
+        isValidId(docId) &&
+        docId == 'info' &&
+        (isOwner(userId) || isAdmin()) &&
+        isValidPrivateProfile(incoming(), userId) &&
+        incoming().uid == existing().uid &&
+        incoming().updatedAt == request.time &&
+        incoming().diff(existing()).affectedKeys().hasOnly(['email', 'photoURL', 'updatedAt']);
+    }
+
+    match /users/{userId}/progress/{docId} {
+      allow get: if isValidId(userId) && isValidId(docId) && (isOwner(userId) || isAdmin());
+      allow list: if isAdmin() || (isSignedIn() && resource.data.uid == request.auth.uid);
+
+      allow create: if isValidId(userId) &&
+        isValidId(docId) &&
+        docId == 'main' &&
+        (isOwner(userId) || isAdmin()) &&
+        isValidProgress(incoming(), userId) &&
+        incoming().completedLessons.size() == 0 &&
+        incoming().srsReviewedCount == 0 &&
+        incoming().srsMasteredCount == 0 &&
+        incoming().streakDays == 0 &&
+        incoming().examBestScore == 0 &&
+        incoming().updatedAt == request.time;
+
+      allow update: if isValidId(userId) &&
+        isValidId(docId) &&
+        docId == 'main' &&
+        (isActiveOwner(userId) || isAdmin()) &&
+        isValidProgress(incoming(), userId) &&
+        incoming().uid == existing().uid &&
+        incoming().updatedAt == request.time;
+    }
+
+    match /adminConfig/{docId} {
+      allow get, list: if isAdmin();
+      allow create: if isValidId(docId) &&
+        isAdmin() &&
+        isValidSheetConfig(incoming()) &&
+        incoming().updatedByUid == request.auth.uid &&
+        incoming().updatedAt == request.time;
+      allow update: if isValidId(docId) &&
+        isAdmin() &&
+        isValidSheetConfig(incoming()) &&
+        incoming().updatedByUid == request.auth.uid &&
+        incoming().updatedAt == request.time;
+    }
+  }
+}

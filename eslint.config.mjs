@@ -1,11 +1,13 @@
 import { defineConfig } from "eslint/config";
 import next from "eslint-config-next";
+import firebaseRulesPlugin from "@firebase/eslint-plugin-security-rules";
 
 export default defineConfig([
   {
-    ignores: [".next-dev/**", ".next/**", "out/**", "node_modules/**"],
+    ignores: [".next-dev/**", ".next/**", "out/**", "dist/**", "node_modules/**"],
   },
   {
     extends: [...next],
   },
+  firebaseRulesPlugin.configs["flat/recommended"],
 ]);

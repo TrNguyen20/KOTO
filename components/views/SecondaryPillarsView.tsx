@@ -15,6 +15,8 @@ import {
   SlidersHorizontal,
   RefreshCw,
   RotateCcw,
+  LogOut,
+  UserCheck,
 } from 'lucide-react';
 import { useKoto } from '@/context/KotoContext';
 import { RubySegment } from '@/lib/koto-data';
@@ -28,6 +30,7 @@ import { LessonSwitcherBar } from '@/components/LessonSwitcherBar';
 export function ReviewCenterView() {
   const {
     srsQueue,
+    srsReviewedCount,
     completeSrsCard,
     dueCount,
     speakJapanese,
@@ -83,30 +86,37 @@ export function ReviewCenterView() {
   }, [commandOpen, card, revealed, speakJapanese, completeSrsCard]);
 
   if (!card) {
+    const isFreshDeck = srsReviewedCount === 0;
     return (
       <div className="max-w-xl mx-auto bg-surface-container-lowest rounded-lg border border-on-surface/12 p-8 sm:p-10 text-center space-y-5">
         <div className="w-20 h-20 mx-auto rounded-xs border-2 border-tertiary/80 text-tertiary font-serif flex flex-col items-center justify-center rotate-[-3deg] bg-tertiary-fixed/15">
-          <span className="text-lg font-bold leading-none">復習</span>
-          <span className="text-lg font-bold leading-none mt-0.5">完了</span>
+          <span className="text-lg font-bold leading-none">{isFreshDeck ? '準備' : '復習'}</span>
+          <span className="text-lg font-bold leading-none mt-0.5">{isFreshDeck ? '完了' : '完了'}</span>
         </div>
         <div className="space-y-1.5">
           <div className="text-[11px] font-mono uppercase tracking-[0.16em] text-tertiary font-semibold">
-            Editorial Washi Clear State · 0 Items Due
+            {isFreshDeck ? '0 Cards Queued Yet' : 'Editorial Washi Clear State · 0 Items Due'}
           </div>
           <h1 className="font-serif text-2xl sm:text-3xl font-bold text-on-surface">
-            「復習完了」— Clear Mind (心身爽快)
+            {isFreshDeck
+              ? 'Your SRS Deck Starts Clean'
+              : '「復習完了」— Clear Mind (心身爽快)'}
           </h1>
         </div>
         <p className="text-sm text-on-surface-variant leading-relaxed">
-          All immediate Ebbinghaus recall items are consolidated for today. Continue advancing in Lesson {String(activeLessonNumber).padStart(2, '0')} or read graded stories in the Library.
+          {isFreshDeck
+            ? `Open Vocabulary Lab or Lesson ${String(activeLessonNumber).padStart(2, '0')} and click "Queue to SRS" to add your first flashcards.`
+            : `All immediate Ebbinghaus recall items are consolidated for today. Continue advancing in Lesson ${String(activeLessonNumber).padStart(2, '0')} or read graded stories in the Library.`}
         </p>
         <div className="flex flex-wrap justify-center gap-3 pt-2">
           <button
             type="button"
-            onClick={() => setRoute('lesson')}
+            onClick={() => setRoute(isFreshDeck ? 'vocabulary-lab' : 'lesson')}
             className="px-5 py-2.5 rounded-md bg-primary text-on-primary text-xs font-semibold hover:bg-primary-container cursor-pointer"
           >
-            Continue Lesson {String(activeLessonNumber).padStart(2, '0')}
+            {isFreshDeck
+              ? 'Open Vocabulary Lab'
+              : `Continue Lesson ${String(activeLessonNumber).padStart(2, '0')}`}
           </button>
           <button
             type="button"
@@ -956,6 +966,11 @@ export function CultureKeigoView() {
  * ========================================================================== */
 export function SettingsView() {
   const {
+    userAccount,
+    userEmail,
+    isSavingCloud,
+    signOut,
+    setRoute,
     showFurigana,
     toggleFurigana,
     showRomaji,
@@ -975,11 +990,73 @@ export function SettingsView() {
     <div className="max-w-2xl space-y-6">
       <div>
         <div className="text-[11px] font-mono uppercase tracking-[0.14em] text-outline">
-          学習設定 · Learner Preferences
+          学習設定 · Learner Profile &amp; Preferences
         </div>
         <h1 className="font-serif text-3xl font-bold text-on-surface mt-1">
-          Study Preferences
+          Account &amp; Study Preferences
         </h1>
+      </div>
+
+      {/* Signed-in Account Card */}
+      <div className="bg-surface-container-lowest rounded-lg border border-on-surface/10 p-6 space-y-4">
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <div className="flex items-center gap-2 text-sm font-bold text-on-surface">
+            <UserCheck className="w-4 h-4 text-primary" />
+            <span>Authenticated Learner Profile</span>
+          </div>
+          <span className="text-[11px] font-mono text-outline">
+            {isSavingCloud ? 'Syncing to Firestore...' : 'Cloud Sync Active'}
+          </span>
+        </div>
+
+        <div className="p-4 rounded-md bg-surface-container-low grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+          <div>
+            <div className="text-outline text-[10px] font-mono uppercase">Display Name</div>
+            <div className="font-semibold text-on-surface mt-0.5">
+              {userAccount?.displayName || 'Learner'}
+            </div>
+          </div>
+          <div>
+            <div className="text-outline text-[10px] font-mono uppercase">Email</div>
+            <div className="font-mono text-on-surface mt-0.5 truncate">{userEmail}</div>
+          </div>
+          <div>
+            <div className="text-outline text-[10px] font-mono uppercase">Role &amp; Access</div>
+            <div className="font-mono font-semibold text-primary mt-0.5 uppercase">
+              {userAccount?.role || 'student'} · {userAccount?.status || 'active'}
+            </div>
+          </div>
+          <div>
+            <div className="text-outline text-[10px] font-mono uppercase">Lessons Completed</div>
+            <div className="font-mono font-semibold text-on-surface mt-0.5 tabular-nums">
+              {userAccount?.completedLessonsCount ?? 0} / 25
+            </div>
+          </div>
+        </div>
+
+        <div className="flex flex-wrap items-center justify-between gap-2 pt-1">
+          {userAccount?.role === 'admin' ? (
+            <button
+              type="button"
+              onClick={() => setRoute('admin-database')}
+              className="px-3.5 py-2 rounded-md bg-secondary text-on-secondary text-xs font-semibold cursor-pointer"
+            >
+              Open Admin &amp; Google Sheets Console →
+            </button>
+          ) : (
+            <span className="text-[11px] text-outline">
+              All progress is stored privately per user account.
+            </span>
+          )}
+          <button
+            type="button"
+            onClick={() => void signOut()}
+            className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-md border border-on-surface/15 text-xs font-semibold text-on-surface hover:bg-surface-container-low cursor-pointer"
+          >
+            <LogOut className="w-3.5 h-3.5" />
+            <span>Sign Out</span>
+          </button>
+        </div>
       </div>
 
       <div className="bg-surface-container-lowest rounded-lg border border-on-surface/10 p-6 space-y-5">
@@ -1081,10 +1158,10 @@ export function SettingsView() {
         <div className="p-4 rounded-md bg-surface-container-low border border-error/25 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div>
             <div className="text-xs font-semibold text-on-surface">
-              Local Offline Storage (koto_state_v1)
+              Reset My Study Progress (0%)
             </div>
             <div className="text-xs text-outline mt-0.5">
-              SRS queue, lesson drafts, bookmarked kanji, and preferences are saved automatically on this device.
+              Resets your completed lessons, SRS queue, streaks, and exam scores back to zero in Firestore and local cache.
             </div>
           </div>
           {!confirmReset ? (
@@ -1094,7 +1171,7 @@ export function SettingsView() {
               className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-sm border border-error/40 text-error text-xs font-semibold hover:bg-error-container/30 cursor-pointer shrink-0"
             >
               <RotateCcw className="w-3.5 h-3.5" />
-              <span>Reset Local Progress</span>
+              <span>Reset Progress</span>
             </button>
           ) : (
             <div className="flex items-center gap-2 shrink-0">

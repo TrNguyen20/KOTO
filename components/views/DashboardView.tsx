@@ -28,21 +28,21 @@ const CADENCE_META: Record<CadenceMode, { label: string; minutes: number; desc: 
   deep: { label: '50-min Deep Immersion', minutes: 50, desc: 'Full Unit + Mock Section + AI Sensei' },
 };
 
-const WEEKLY_BARS = [
-  { day: 'Mon', mins: 25, heightPct: 56, active: false },
-  { day: 'Tue', mins: 32, heightPct: 72, active: false },
-  { day: 'Wed', mins: 18, heightPct: 40, active: false },
-  { day: 'Thu', mins: 45, heightPct: 100, active: false },
-  { day: 'Fri', mins: 30, heightPct: 68, active: false },
-  { day: 'Sat', mins: 28, heightPct: 62, active: false },
-  { day: 'Sun', mins: 25, heightPct: 56, active: true },
-];
+const DAY_LABELS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 
 export function DashboardView() {
   const {
+    userAccount,
     setRoute,
     activeJlpt,
     dueCount,
+    srsQueue,
+    srsReviewedCount,
+    srsMasteredCount,
+    bookmarkedKanji,
+    weeklyMinutes,
+    streakDays,
+    examBestScore,
     studyTasks,
     toggleStudyTask,
     speakJapanese,
@@ -57,6 +57,8 @@ export function DashboardView() {
 
   const [cadence, setCadence] = useState<CadenceMode>('standard');
 
+  const displayName = userAccount?.displayName || 'Learner';
+  const shortName = displayName.split(' ')[0] || displayName;
   const activeMeta = getLessonMeta(activeLessonNumber);
   const lessonCode = String(activeLessonNumber).padStart(2, '0');
   const completedN5Count = completedLessons.filter((n) => n >= 1 && n <= 25).length;
@@ -65,6 +67,14 @@ export function DashboardView() {
   const hasSavedLessonDraft = Object.values(lessonDraft).some((arr) =>
     arr.some((tileId) => tileId !== null)
   );
+  const recallPct =
+    srsReviewedCount > 0 ? Math.round((srsMasteredCount / srsReviewedCount) * 100) : 0;
+  const learningCount = Math.max(0, srsReviewedCount - srsMasteredCount);
+  const totalWeeklyMins = weeklyMinutes.reduce((acc, m) => acc + m, 0);
+  const maxWeeklyMin = Math.max(30, ...weeklyMinutes);
+  const todayMonIdx = (new Date().getDay() + 6) % 7;
+  const readinessPct = Math.round((examBestScore / 180) * 100);
+  const sectionEst = Math.round(examBestScore / 3);
 
   return (
     <div className="space-y-8">
@@ -76,13 +86,17 @@ export function DashboardView() {
             <span>·</span>
             <span>Unit {String(activeMeta.unitNumber).padStart(2, '0')} · L{lessonCode}</span>
             <span>·</span>
-            <span className="text-primary font-semibold">Day 18 Streak</span>
+            <span className="text-primary font-semibold">Day {streakDays} Streak</span>
           </div>
           <h1 className="font-serif text-3xl sm:text-4xl font-bold tracking-tight text-on-surface">
-            お帰りなさい、Ren
+            {completedLessons.length === 0 && srsReviewedCount === 0
+              ? `ようこそ、${shortName}`
+              : `お帰りなさい、${shortName}`}
           </h1>
           <p className="text-sm text-on-surface-variant mt-1.5 max-w-2xl">
-            {dueCount} items are ripe for memory consolidation today, and Minna Lesson {lessonCode} ({activeMeta.titleEn}) is queued across all 6 skills.
+            {dueCount > 0
+              ? `${dueCount} items are queued for SRS review today, and Minna Lesson ${lessonCode} (${activeMeta.titleEn}) is ready across all 6 skills.`
+              : `Your workspace starts fresh at 0%. Open Minna Lesson ${lessonCode} (${activeMeta.titleEn}) or queue vocabulary to begin building your mastery curve.`}
           </p>
         </div>
 
@@ -270,7 +284,7 @@ export function DashboardView() {
                 <p className="text-xs text-outline">Ebbinghaus decay curve · 7 days</p>
               </div>
               <span className="text-xs font-mono font-bold text-tertiary tabular-nums">
-                91.4% Recall
+                {recallPct}% Recall
               </span>
             </div>
 
@@ -283,37 +297,59 @@ export function DashboardView() {
                     <stop offset="100%" stopColor="#35633e" stopOpacity="0" />
                   </linearGradient>
                 </defs>
-                <path
-                  d="M 8 52 C 48 44, 72 34, 112 36 C 148 38, 178 22, 214 18 C 238 15, 256 12, 272 10 L 272 70 L 8 70 Z"
-                  fill="url(#srsFill)"
-                />
-                <path
-                  d="M 8 52 C 48 44, 72 34, 112 36 C 148 38, 178 22, 214 18 C 238 15, 256 12, 272 10"
-                  fill="none"
-                  stroke="#35633e"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                />
-                <circle cx="272" cy="10" r="4" fill="#35633e" />
+                {srsReviewedCount > 0 ? (
+                  <>
+                    <path
+                      d={`M 8 64 L 272 ${Math.max(10, 64 - Math.round((recallPct / 100) * 52))} L 272 70 L 8 70 Z`}
+                      fill="url(#srsFill)"
+                    />
+                    <path
+                      d={`M 8 64 Q 140 52 272 ${Math.max(10, 64 - Math.round((recallPct / 100) * 52))}`}
+                      fill="none"
+                      stroke="#35633e"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                    />
+                    <circle
+                      cx="272"
+                      cy={Math.max(10, 64 - Math.round((recallPct / 100) * 52))}
+                      r="4"
+                      fill="#35633e"
+                    />
+                  </>
+                ) : (
+                  <>
+                    <line
+                      x1="8"
+                      y1="62"
+                      x2="272"
+                      y2="62"
+                      stroke="#8b7d7b"
+                      strokeWidth="1.5"
+                      strokeDasharray="4 4"
+                    />
+                    <circle cx="8" cy="62" r="3.5" fill="#8b7d7b" />
+                  </>
+                )}
               </svg>
             </div>
 
             <div className="grid grid-cols-3 gap-2 text-center">
               <div className="p-2.5 rounded-md bg-surface-container-low">
                 <div className="font-mono text-base font-bold text-primary tabular-nums">
-                  {dueCount}
+                  {srsQueue.length}
                 </div>
                 <div className="text-[10px] text-outline uppercase">Due Now</div>
               </div>
               <div className="p-2.5 rounded-md bg-surface-container-low">
                 <div className="font-mono text-base font-bold text-secondary tabular-nums">
-                  142
+                  {learningCount}
                 </div>
                 <div className="text-[10px] text-outline uppercase">Learning</div>
               </div>
               <div className="p-2.5 rounded-md bg-surface-container-low">
                 <div className="font-mono text-base font-bold text-tertiary tabular-nums">
-                  476
+                  {srsMasteredCount}
                 </div>
                 <div className="text-[10px] text-outline uppercase">Mastered</div>
               </div>
@@ -408,7 +444,9 @@ export function DashboardView() {
                   <BookOpen className="w-4 h-4" />
                   Vocabulary Lab
                 </span>
-                <span className="text-[11px] font-mono text-outline tabular-nums">476 / 800 語</span>
+                <span className="text-[11px] font-mono text-outline tabular-nums">
+                  {srsMasteredCount} Mastered
+                </span>
               </div>
               <div className="flex items-baseline justify-between gap-2">
                 <div className="font-serif text-2xl font-bold text-on-surface">
@@ -445,7 +483,9 @@ export function DashboardView() {
                   <Grid2x2 className="w-4 h-4" />
                   Kanji Intelligence
                 </span>
-                <span className="text-[11px] font-mono text-outline tabular-nums">82 / 103 字</span>
+                <span className="text-[11px] font-mono text-outline tabular-nums">
+                  {bookmarkedKanji.length} Saved
+                </span>
               </div>
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-md bg-surface-container-low border border-outline-variant/30 flex items-center justify-center font-serif text-3xl font-bold text-primary">
@@ -475,7 +515,9 @@ export function DashboardView() {
                   <GitBranch className="w-4 h-4" />
                   Grammar Studio
                 </span>
-                <span className="text-[11px] font-mono text-outline tabular-nums">78% Retention</span>
+                <span className="text-[11px] font-mono text-outline tabular-nums">
+                  {completedN5Count} / 25 Units
+                </span>
               </div>
               <div className="font-serif text-xl font-bold text-on-surface">
                 〜に vs. 〜で
@@ -587,37 +629,48 @@ export function DashboardView() {
               <h3 className="font-serif text-lg font-bold text-on-surface">
                 Weekly Study Cadence
               </h3>
-              <p className="text-xs text-outline">203 active minutes logged this week</p>
+              <p className="text-xs text-outline tabular-nums">
+                {totalWeeklyMins} active minutes logged this week
+              </p>
             </div>
-            <span className="inline-flex items-center gap-1 text-xs font-semibold text-tertiary">
+            <span className="inline-flex items-center gap-1 text-xs font-semibold text-tertiary tabular-nums">
               <TrendingUp className="w-3.5 h-3.5" />
-              +14% vs last week
+              {streakDays > 0 ? `${streakDays}-day streak` : 'Fresh week'}
             </span>
           </div>
 
           <div className="grid grid-cols-7 gap-3 items-end h-36 pt-4">
-            {WEEKLY_BARS.map((bar) => (
-              <div key={bar.day} className="flex flex-col items-center h-full justify-end gap-2">
-                <span className="text-[10px] font-mono text-outline tabular-nums">
-                  {bar.mins}m
-                </span>
-                <div className="w-full max-w-[34px] h-24 bg-surface-container-low rounded-lg flex items-end overflow-hidden">
-                  <div
-                    className={`w-full rounded-t-md transition-all ${
-                      bar.active ? 'bg-primary' : 'bg-secondary/75'
+            {DAY_LABELS.map((day, idx) => {
+              const mins = weeklyMinutes[idx] ?? 0;
+              const heightPct = mins > 0 ? Math.max(10, Math.round((mins / maxWeeklyMin) * 100)) : 4;
+              const active = idx === todayMonIdx;
+              return (
+                <div key={day} className="flex flex-col items-center h-full justify-end gap-2">
+                  <span className="text-[10px] font-mono text-outline tabular-nums">
+                    {mins}m
+                  </span>
+                  <div className="w-full max-w-[34px] h-24 bg-surface-container-low rounded-lg flex items-end overflow-hidden">
+                    <div
+                      className={`w-full rounded-t-md transition-all ${
+                        mins === 0
+                          ? 'bg-outline-variant/35'
+                          : active
+                            ? 'bg-primary'
+                            : 'bg-secondary/75'
+                      }`}
+                      style={{ height: `${heightPct}%` }}
+                    />
+                  </div>
+                  <span
+                    className={`text-[11px] font-medium ${
+                      active ? 'text-primary font-bold' : 'text-outline'
                     }`}
-                    style={{ height: `${bar.heightPct}%` }}
-                  />
+                  >
+                    {day}
+                  </span>
                 </div>
-                <span
-                  className={`text-[11px] font-medium ${
-                    bar.active ? 'text-primary font-bold' : 'text-outline'
-                  }`}
-                >
-                  {bar.day}
-                </span>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
 
@@ -631,7 +684,9 @@ export function DashboardView() {
                 JLPT N5 Readiness
               </h3>
               <p className="text-xs text-on-surface-variant mt-1">
-                Projected exam score <strong className="text-on-surface tabular-nums">148 / 180</strong> (Pass threshold: 80)
+                Best exam score{' '}
+                <strong className="text-on-surface tabular-nums">{examBestScore} / 180</strong>{' '}
+                (Pass threshold: 80)
               </p>
             </div>
 
@@ -655,11 +710,11 @@ export function DashboardView() {
                   strokeWidth="7"
                   strokeLinecap="round"
                   strokeDasharray={207.3}
-                  strokeDashoffset={207.3 * (1 - 0.82)}
+                  strokeDashoffset={207.3 * (1 - readinessPct / 100)}
                 />
               </svg>
               <div className="absolute inset-0 flex items-center justify-center font-mono text-sm font-bold text-primary tabular-nums">
-                82%
+                {readinessPct}%
               </div>
             </div>
           </div>
@@ -667,15 +722,21 @@ export function DashboardView() {
           <div className="grid grid-cols-3 gap-2 my-4 text-xs">
             <div className="p-2.5 rounded-md bg-surface-container-low">
               <div className="text-outline text-[10px]">Vocab / Kanji</div>
-              <div className="font-mono font-bold text-on-surface mt-0.5 tabular-nums">52 / 60</div>
+              <div className="font-mono font-bold text-on-surface mt-0.5 tabular-nums">
+                {sectionEst} / 60
+              </div>
             </div>
             <div className="p-2.5 rounded-md bg-surface-container-low">
               <div className="text-outline text-[10px]">Grammar / Read</div>
-              <div className="font-mono font-bold text-on-surface mt-0.5 tabular-nums">49 / 60</div>
+              <div className="font-mono font-bold text-on-surface mt-0.5 tabular-nums">
+                {sectionEst} / 60
+              </div>
             </div>
             <div className="p-2.5 rounded-md bg-surface-container-low">
               <div className="text-outline text-[10px]">Listening</div>
-              <div className="font-mono font-bold text-on-surface mt-0.5 tabular-nums">47 / 60</div>
+              <div className="font-mono font-bold text-on-surface mt-0.5 tabular-nums">
+                {Math.max(0, examBestScore - sectionEst * 2)} / 60
+              </div>
             </div>
           </div>
 

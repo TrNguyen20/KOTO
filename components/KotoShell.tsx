@@ -30,6 +30,8 @@ import {
   Check,
   Languages,
   WifiOff,
+  Database,
+  LogOut,
 } from 'lucide-react';
 import { useKoto } from '@/context/KotoContext';
 import {
@@ -71,18 +73,14 @@ const MASTERY_NAV: NavItem[] = [
   { id: 'culture-and-keigo', label: 'Culture & Keigo', jpLabel: '文化・敬語', icon: Landmark },
 ];
 
-const JLPT_LEVELS: { level: JlptLevel; label: string; desc: string }[] = [
-  { level: 'N5', label: 'JLPT N5', desc: 'Foundation · 68%' },
-  { level: 'N4', label: 'JLPT N4', desc: 'Elementary · 12%' },
-  { level: 'N3', label: 'JLPT N3', desc: 'Intermediate' },
-  { level: 'N2', label: 'JLPT N2', desc: 'Advanced' },
-  { level: 'N1', label: 'JLPT N1', desc: 'Mastery' },
+const ADMIN_NAV: NavItem[] = [
+  { id: 'admin-database', label: 'Database & Users', jpLabel: '管理', icon: Database },
 ];
 
 const ROUTE_BREADCRUMBS: Record<KotoRoute, { realm: string; module: string; jp: string }> = {
   dashboard: { realm: 'ECOSYSTEM (基盤)', module: 'Command Center', jp: '台' },
   'learning-path': { realm: 'LEARN (学習)', module: 'Mastery Path', jp: '道' },
-  lesson: { realm: 'LEARN (学習)', module: 'Lesson 3.2', jp: '課' },
+  lesson: { realm: 'LEARN (学習)', module: 'Lesson Workspace', jp: '課' },
   'review-center': { realm: 'EVALUATE (評価)', module: 'SRS Review Center', jp: '復' },
   'vocabulary-lab': { realm: 'LANG LABS (言語)', module: 'Vocabulary Lab', jp: '語彙' },
   'kanji-studio': { realm: 'LANG LABS (言語)', module: 'Kanji Studio', jp: '漢字' },
@@ -95,21 +93,28 @@ const ROUTE_BREADCRUMBS: Record<KotoRoute, { realm: string; module: string; jp: 
   'ai-sensei-tutor': { realm: 'LANG LABS (言語)', module: 'AI Sensei Tutor', jp: '先生' },
   'culture-and-keigo': { realm: 'LANG LABS (言語)', module: 'Culture & Keigo', jp: '敬語' },
   settings: { realm: 'ECOSYSTEM (基盤)', module: 'Preferences', jp: '設定' },
+  'admin-database': { realm: 'ADMIN (管理)', module: 'Sheets & Users', jp: '管理' },
 };
 
 export function KotoShell({ children }: { children: React.ReactNode }) {
   const {
+    userAccount,
+    userPhotoUrl,
+    signOut,
     route,
     setRoute,
     activeJlpt,
     setActiveJlpt,
+    activeLessonNumber,
+    completedLessons,
+    streakDays,
+    weeklyMinutes,
     showFurigana,
     toggleFurigana,
     showRomaji,
     audioEnabled,
     toggleAudioEnabled,
     dueCount,
-    studyTasks,
     commandOpen,
     setCommandOpen,
     openVocab,
@@ -120,17 +125,56 @@ export function KotoShell({ children }: { children: React.ReactNode }) {
     toastMessage,
   } = useKoto();
 
-  const breadcrumb = ROUTE_BREADCRUMBS[route] ?? ROUTE_BREADCRUMBS.dashboard;
+  const baseBreadcrumb = ROUTE_BREADCRUMBS[route] ?? ROUTE_BREADCRUMBS.dashboard;
+  const breadcrumb =
+    route === 'lesson'
+      ? {
+          ...baseBreadcrumb,
+          module: `Lesson ${String(activeLessonNumber).padStart(2, '0')}`,
+        }
+      : baseBreadcrumb;
 
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [jlptMenuOpen, setJlptMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
 
+  const completedN5Count = useMemo(
+    () => completedLessons.filter((n) => n >= 1 && n <= 25).length,
+    [completedLessons]
+  );
+  const completedN4Count = useMemo(
+    () => completedLessons.filter((n) => n >= 26 && n <= 50).length,
+    [completedLessons]
+  );
+  const n5Pct = Math.round((completedN5Count / 25) * 100);
+  const n4Pct = Math.round((completedN4Count / 25) * 100);
+  const activeLevelDoneCount = activeJlpt === 'N4' ? completedN4Count : completedN5Count;
+  const activeMasteryPct = activeJlpt === 'N4' ? n4Pct : activeJlpt === 'N5' ? n5Pct : 0;
+
+  const jlptLevels = useMemo(
+    () => [
+      { level: 'N5' as JlptLevel, label: 'JLPT N5', desc: `Foundation · ${n5Pct}%` },
+      { level: 'N4' as JlptLevel, label: 'JLPT N4', desc: `Elementary · ${n4Pct}%` },
+      { level: 'N3' as JlptLevel, label: 'JLPT N3', desc: 'Intermediate' },
+      { level: 'N2' as JlptLevel, label: 'JLPT N2', desc: 'Advanced' },
+      { level: 'N1' as JlptLevel, label: 'JLPT N1', desc: 'Mastery' },
+    ],
+    [n5Pct, n4Pct]
+  );
+
   const completedMinutes = useMemo(() => {
-    const baseDone = 25;
-    const taskExtra = studyTasks.filter((t) => t.done).reduce((acc, t) => acc + t.minutes, 0);
-    return Math.min(30, baseDone + Math.min(5, taskExtra));
-  }, [studyTasks]);
+    const todayIdx = (new Date().getDay() + 6) % 7;
+    return weeklyMinutes[todayIdx] ?? 0;
+  }, [weeklyMinutes]);
+
+  const displayName = userAccount?.displayName || 'Learner';
+  const shortName = displayName.split(' ')[0] || displayName;
+  const initials = displayName
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((part) => part[0]?.toUpperCase() || '')
+    .join('') || 'K';
 
   const searchResults = useMemo(() => {
     const q = searchQuery.trim().toLowerCase();
@@ -251,9 +295,10 @@ export function KotoShell({ children }: { children: React.ReactNode }) {
         {renderNavSection('Ecosystem', ECOSYSTEM_NAV)}
         {renderNavSection('Core Pillars', PILLARS_NAV)}
         {renderNavSection('Mastery & Tools', MASTERY_NAV)}
+        {userAccount?.role === 'admin' && renderNavSection('Admin & Sheets', ADMIN_NAV)}
       </nav>
 
-      {/* Bottom N5 Mastery Card & Footer Links */}
+      {/* Bottom Mastery Card & Footer Links */}
       <div className="p-3.5 border-t border-outline-variant/25 bg-surface-container-low space-y-2.5">
         <button
           type="button"
@@ -262,13 +307,18 @@ export function KotoShell({ children }: { children: React.ReactNode }) {
         >
           <div className="flex items-center justify-between text-xs mb-1.5">
             <span className="font-semibold text-on-surface">{activeJlpt} Mastery</span>
-            <span className="font-mono font-bold text-primary tabular-nums">68%</span>
+            <span className="font-mono font-bold text-primary tabular-nums">
+              {activeMasteryPct}%
+            </span>
           </div>
           <div className="w-full h-1.5 bg-surface-container rounded-xs overflow-hidden">
-            <div className="h-full bg-primary rounded-xs w-[68%]" />
+            <div
+              className="h-full bg-primary rounded-xs transition-all"
+              style={{ width: `${activeMasteryPct}%` }}
+            />
           </div>
           <div className="mt-1.5 flex items-center justify-between text-[11px] text-outline tabular-nums">
-            <span>476 / 700 語</span>
+            <span>{activeLevelDoneCount} / 25 Lessons</span>
             <span className="text-secondary font-medium">View Path →</span>
           </div>
         </button>
@@ -284,15 +334,25 @@ export function KotoShell({ children }: { children: React.ReactNode }) {
             <Settings className="w-3.5 h-3.5" />
             <span>Preferences</span>
           </button>
-          <button
-            type="button"
-            onClick={() => setCommandOpen(true)}
-            className="flex items-center gap-1 hover:text-primary transition-colors cursor-pointer font-serif"
-            title="Open Dictionary & Quick Search (⌘K)"
-          >
-            <BookOpen className="w-3.5 h-3.5" />
-            <span>辞書</span>
-          </button>
+          <div className="flex items-center gap-2.5">
+            <button
+              type="button"
+              onClick={() => setCommandOpen(true)}
+              className="flex items-center gap-1 hover:text-primary transition-colors cursor-pointer font-serif"
+              title="Open Dictionary & Quick Search (⌘K)"
+            >
+              <BookOpen className="w-3.5 h-3.5" />
+              <span>辞書</span>
+            </button>
+            <button
+              type="button"
+              onClick={() => void signOut()}
+              className="flex items-center gap-1 hover:text-error transition-colors cursor-pointer"
+              title="Sign Out"
+            >
+              <LogOut className="w-3.5 h-3.5" />
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -368,7 +428,7 @@ export function KotoShell({ children }: { children: React.ReactNode }) {
                   onClick={() => setJlptMenuOpen(false)}
                 />
                 <div className="absolute left-0 mt-1.5 w-52 bg-surface-container-lowest rounded-md border border-on-surface/15 shadow-sm py-1.5 z-20">
-                  {JLPT_LEVELS.map((item) => (
+                  {jlptLevels.map((item) => (
                     <button
                       key={item.level}
                       type="button"
@@ -426,7 +486,7 @@ export function KotoShell({ children }: { children: React.ReactNode }) {
             title="Active daily study streak"
           >
             <Flame className="w-3.5 h-3.5 text-primary" />
-            <span>18 days</span>
+            <span>{streakDays} {streakDays === 1 ? 'day' : 'days'}</span>
           </div>
 
           {/* Due Counter */}
@@ -489,21 +549,27 @@ export function KotoShell({ children }: { children: React.ReactNode }) {
             className="flex items-center gap-2 pl-2 border-l border-on-surface/10 cursor-pointer group"
             title="Learner Profile & Preferences"
           >
-            <div className="relative w-8 h-8 rounded-sm overflow-hidden border border-on-surface/15 bg-surface-container">
-              <Image
-                src="/images/tanaka_profile_avatar.jpg"
-                alt="Ren Tanaka"
-                fill
-                sizes="32px"
-                referrerPolicy="no-referrer"
-                className="object-cover"
-              />
+            <div className="relative w-8 h-8 rounded-sm overflow-hidden border border-on-surface/15 bg-primary-fixed/40 flex items-center justify-center text-xs font-serif font-bold text-primary">
+              {userPhotoUrl ? (
+                <Image
+                  src={userPhotoUrl}
+                  alt={displayName}
+                  fill
+                  sizes="32px"
+                  referrerPolicy="no-referrer"
+                  className="object-cover"
+                />
+              ) : (
+                <span>{initials}</span>
+              )}
             </div>
             <div className="hidden sm:block text-left leading-tight">
               <div className="text-xs font-semibold text-on-surface group-hover:text-primary transition-colors">
-                Ren
+                {shortName}
               </div>
-              <div className="text-[10px] text-outline">{activeJlpt} Track</div>
+              <div className="text-[10px] text-outline">
+                {userAccount?.role === 'admin' ? 'Admin' : `${activeJlpt} Track`}
+              </div>
             </div>
           </button>
         </div>

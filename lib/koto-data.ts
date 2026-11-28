@@ -15,7 +15,8 @@ export type KotoRoute =
   | 'ai-sensei-tutor'
   | 'culture-and-keigo'
   | 'lesson'
-  | 'settings';
+  | 'settings'
+  | 'admin-database';
 
 export interface RubySegment {
   text: string;
@@ -1498,12 +1499,12 @@ export const LEARNING_LEVELS = [
     kanjiNum: '五',
     title: 'Foundation',
     jpSub: '言霊の基礎',
-    progress: 68,
-    modulesDone: '34/50',
-    remaining: '16 Remaining',
+    progress: 0,
+    modulesDone: '0/25',
+    remaining: '25 Remaining',
     status: 'active' as const,
-    unitsCount: 8,
-    lessonsCount: 48,
+    unitsCount: 5,
+    lessonsCount: 25,
     vocabCount: 800,
     kanjiCount: 103,
     patternsCount: 34,
@@ -1515,12 +1516,12 @@ export const LEARNING_LEVELS = [
     kanjiNum: '四',
     title: 'Elementary',
     jpSub: '日常の深化',
-    progress: 12,
-    modulesDone: '6/52',
-    remaining: 'Conditional Access',
+    progress: 0,
+    modulesDone: '0/25',
+    remaining: '25 Remaining',
     status: 'unlocked' as const,
-    unitsCount: 10,
-    lessonsCount: 52,
+    unitsCount: 5,
+    lessonsCount: 25,
     vocabCount: 1500,
     kanjiCount: 181,
     patternsCount: 64,

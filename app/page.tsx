@@ -4,6 +4,8 @@ import React from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import { KotoProvider, useKoto } from '@/context/KotoContext';
 import { KotoShell } from '@/components/KotoShell';
+import { LoginGateView } from '@/components/views/LoginGateView';
+import { AdminSheetsView } from '@/components/views/AdminSheetsView';
 import { DashboardView } from '@/components/views/DashboardView';
 import { LearningPathView } from '@/components/views/LearningPathView';
 import { InteractiveLessonView } from '@/components/views/InteractiveLessonView';
@@ -21,6 +23,53 @@ import {
   SpeakingDialogueView,
   WritingCompositionView,
 } from '@/components/views/SecondaryPillarsView';
+
+interface ErrorBoundaryState {
+  hasError: boolean;
+  message: string;
+}
+
+class KotoErrorBoundary extends React.Component<
+  { children: React.ReactNode },
+  ErrorBoundaryState
+> {
+  constructor(props: { children: React.ReactNode }) {
+    super(props);
+    this.state = { hasError: false, message: '' };
+  }
+
+  static getDerivedStateFromError(error: unknown): ErrorBoundaryState {
+    return {
+      hasError: true,
+      message: error instanceof Error ? error.message : 'Unexpected application error.',
+    };
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return (
+        <div className="min-h-screen bg-surface text-on-surface flex items-center justify-center p-6">
+          <div className="max-w-md w-full bg-surface-container-lowest rounded-lg border border-error/30 p-6 space-y-3">
+            <h1 className="font-serif text-xl font-bold text-primary">
+              KOTO Workspace Error
+            </h1>
+            <p className="text-xs text-on-surface-variant leading-relaxed">
+              Something interrupted the current session. Reload the page to restore your synced state.
+            </p>
+            <button
+              type="button"
+              onClick={() => window.location.reload()}
+              className="px-4 py-2 rounded-md bg-primary text-on-primary text-xs font-semibold cursor-pointer"
+            >
+              Reload Workspace
+            </button>
+          </div>
+        </div>
+      );
+    }
+    return this.props.children;
+  }
+}
 
 function KotoRouteViewport() {
   const { route } = useKoto();
@@ -57,6 +106,8 @@ function KotoRouteViewport() {
         return <CultureKeigoView />;
       case 'settings':
         return <SettingsView />;
+      case 'admin-database':
+        return <AdminSheetsView />;
       default:
         return <DashboardView />;
     }
@@ -77,12 +128,26 @@ function KotoRouteViewport() {
   );
 }
 
+function AuthenticatedWorkspace() {
+  const { firebaseUser, userAccount } = useKoto();
+
+  if (!firebaseUser || userAccount?.status !== 'active') {
+    return <LoginGateView />;
+  }
+
+  return (
+    <KotoShell>
+      <KotoRouteViewport />
+    </KotoShell>
+  );
+}
+
 export default function HomePage() {
   return (
-    <KotoProvider>
-      <KotoShell>
-        <KotoRouteViewport />
-      </KotoShell>
-    </KotoProvider>
+    <KotoErrorBoundary>
+      <KotoProvider>
+        <AuthenticatedWorkspace />
+      </KotoProvider>
+    </KotoErrorBoundary>
   );
 }

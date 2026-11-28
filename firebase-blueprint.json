@@ -1,0 +1,240 @@
+{
+  "entities": {
+    "UserAccount": {
+      "title": "UserAccount",
+      "description": "Registered KOTO learner or admin account metadata and access-control gate.",
+      "type": "object",
+      "properties": {
+        "uid": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "displayName": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 120
+        },
+        "role": {
+          "type": "string",
+          "enum": ["admin", "student"]
+        },
+        "status": {
+          "type": "string",
+          "enum": ["pending", "active", "suspended"]
+        },
+        "activeLessonNumber": {
+          "type": "number"
+        },
+        "completedLessonsCount": {
+          "type": "number"
+        },
+        "createdAt": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "string"
+        },
+        "lastLoginAt": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "uid",
+        "displayName",
+        "role",
+        "status",
+        "activeLessonNumber",
+        "completedLessonsCount",
+        "createdAt",
+        "updatedAt",
+        "lastLoginAt"
+      ]
+    },
+    "UserPrivateProfile": {
+      "title": "UserPrivateProfile",
+      "description": "Isolated PII sub-document holding user email and avatar URL.",
+      "type": "object",
+      "properties": {
+        "uid": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "maxLength": 180
+        },
+        "photoURL": {
+          "type": "string",
+          "maxLength": 500
+        },
+        "updatedAt": {
+          "type": "string"
+        }
+      },
+      "required": ["uid", "email", "photoURL", "updatedAt"]
+    },
+    "UserLearningProgress": {
+      "title": "UserLearningProgress",
+      "description": "Per-user KOTO study progress initialized at zero for every new user.",
+      "type": "object",
+      "properties": {
+        "uid": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "activeJlpt": {
+          "type": "string",
+          "enum": ["N5", "N4", "N3", "N2", "N1"]
+        },
+        "activeLessonNumber": {
+          "type": "number"
+        },
+        "completedLessons": {
+          "type": "array"
+        },
+        "srsQueue": {
+          "type": "array"
+        },
+        "srsReviewedCount": {
+          "type": "number"
+        },
+        "srsMasteredCount": {
+          "type": "number"
+        },
+        "studyTasks": {
+          "type": "array"
+        },
+        "bookmarkedKanji": {
+          "type": "array"
+        },
+        "lessonDraft": {
+          "type": "object"
+        },
+        "weeklyMinutes": {
+          "type": "array"
+        },
+        "streakDays": {
+          "type": "number"
+        },
+        "lastStudyDate": {
+          "type": "string",
+          "maxLength": 32
+        },
+        "examBestScore": {
+          "type": "number"
+        },
+        "showFurigana": {
+          "type": "boolean"
+        },
+        "showRomaji": {
+          "type": "boolean"
+        },
+        "audioEnabled": {
+          "type": "boolean"
+        },
+        "speechRate": {
+          "type": "number"
+        },
+        "updatedAt": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "uid",
+        "activeJlpt",
+        "activeLessonNumber",
+        "completedLessons",
+        "srsQueue",
+        "srsReviewedCount",
+        "srsMasteredCount",
+        "studyTasks",
+        "bookmarkedKanji",
+        "lessonDraft",
+        "weeklyMinutes",
+        "streakDays",
+        "lastStudyDate",
+        "examBestScore",
+        "showFurigana",
+        "showRomaji",
+        "audioEnabled",
+        "speechRate",
+        "updatedAt"
+      ]
+    },
+    "WorkspaceSheetConfig": {
+      "title": "WorkspaceSheetConfig",
+      "description": "Admin-managed Google Sheets backend binding and sync metadata.",
+      "type": "object",
+      "properties": {
+        "spreadsheetId": {
+          "type": "string",
+          "minLength": 5,
+          "maxLength": 128
+        },
+        "spreadsheetUrl": {
+          "type": "string",
+          "maxLength": 500
+        },
+        "spreadsheetTitle": {
+          "type": "string",
+          "maxLength": 200
+        },
+        "lastPushAt": {
+          "type": "string",
+          "maxLength": 64
+        },
+        "lastPullAt": {
+          "type": "string",
+          "maxLength": 64
+        },
+        "lastSyncSummary": {
+          "type": "string",
+          "maxLength": 300
+        },
+        "updatedByUid": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "updatedAt": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "spreadsheetId",
+        "spreadsheetUrl",
+        "spreadsheetTitle",
+        "lastPushAt",
+        "lastPullAt",
+        "lastSyncSummary",
+        "updatedByUid",
+        "updatedAt"
+      ]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": { "$ref": "#/entities/UserAccount" },
+      "description": "User access control metadata and summary progress counts."
+    },
+    "/users/{userId}/private/{docId}": {
+      "schema": { "$ref": "#/entities/UserPrivateProfile" },
+      "description": "Isolated user PII document (email, photoURL)."
+    },
+    "/users/{userId}/progress/{docId}": {
+      "schema": { "$ref": "#/entities/UserLearningProgress" },
+      "description": "Per-user study state initialized at zero."
+    },
+    "/adminConfig/{docId}": {
+      "schema": { "$ref": "#/entities/WorkspaceSheetConfig" },
+      "description": "Admin Google Sheets database connection and sync audit metadata."
+    }
+  }
+}

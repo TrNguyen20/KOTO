@@ -16,17 +16,17 @@ import { MOCK_EXAM_QUESTIONS, SPRINT_QUESTIONS } from '@/lib/koto-data';
 
 type ExamTab = 'arena' | 'telemetry' | 'weakness' | 'history';
 
-const SKILL_SPECTRUM = [
-  { label: 'Vocabulary (語彙)', pct: 86, color: 'bg-tertiary' },
-  { label: 'Kanji Recognition (漢字)', pct: 84, color: 'bg-tertiary' },
-  { label: 'Particle Accuracy (助詞)', pct: 74, color: 'bg-primary' },
-  { label: 'Verb Conjugation (活用)', pct: 81, color: 'bg-secondary' },
-  { label: 'Reading Comp (読解)', pct: 79, color: 'bg-secondary' },
-  { label: 'Listening Speed (聴解)', pct: 76, color: 'bg-primary' },
-];
-
 export function ExamCenterView() {
-  const { addSrsCard, openGrammar, setRoute, showToast } = useKoto();
+  const {
+    addSrsCard,
+    openGrammar,
+    setRoute,
+    showToast,
+    examBestScore,
+    recordExamScore,
+    completedLessons,
+    srsMasteredCount,
+  } = useKoto();
 
   const [tab, setTab] = useState<ExamTab>('arena');
   const [activeQNum, setActiveQNum] = useState(18);
@@ -39,6 +39,11 @@ export function ExamCenterView() {
   const [sprintDone, setSprintDone] = useState(false);
   const endTimeMsRef = useRef<number | null>(null);
   const sprintSubmittingRef = useRef(false);
+
+  const sprintScore = SPRINT_QUESTIONS.reduce(
+    (acc, q) => acc + (sprintAnswers[q.id] === q.correct ? 1 : 0),
+    0
+  );
 
   useEffect(() => {
     if (!sprintActive || sprintDone) return;
@@ -53,11 +58,13 @@ export function ExamCenterView() {
         setSprintDone(true);
         setSprintActive(false);
         endTimeMsRef.current = null;
+        const scaled = Math.round((sprintScore / SPRINT_QUESTIONS.length) * 180);
+        recordExamScore(scaled);
         showToast('Time expired — Sprint automatically graded!');
       }
     }, 250);
     return () => clearInterval(t);
-  }, [sprintActive, sprintDone, showToast]);
+  }, [sprintActive, sprintDone, sprintScore, recordExamScore, showToast]);
 
   const activeQuestion =
     MOCK_EXAM_QUESTIONS.find((q) => q.num === activeQNum) ?? MOCK_EXAM_QUESTIONS[17];
@@ -85,19 +92,29 @@ export function ExamCenterView() {
     }
     setSprintDone(true);
     setSprintActive(false);
-    showToast('Timed Sprint graded!');
+    const scaled = Math.round((sprintScore / SPRINT_QUESTIONS.length) * 180);
+    recordExamScore(scaled);
+    showToast(`Timed Sprint graded: ${sprintScore}/${SPRINT_QUESTIONS.length}!`);
   };
-
-  const sprintScore = SPRINT_QUESTIONS.reduce(
-    (acc, q) => acc + (sprintAnswers[q.id] === q.correct ? 1 : 0),
-    0
-  );
 
   const formatTimer = (sec: number) => {
     const m = Math.floor(sec / 60);
     const s = sec % 60;
     return `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
   };
+
+  const examPct = Math.round((examBestScore / 180) * 100);
+  const completedN5Pct = Math.round(
+    (completedLessons.filter((n) => n >= 1 && n <= 25).length / 25) * 100
+  );
+  const skillSpectrum = [
+    { label: 'Vocabulary (語彙)', pct: srsMasteredCount > 0 ? Math.min(100, srsMasteredCount * 5) : 0, color: 'bg-tertiary' },
+    { label: 'Kanji Recognition (漢字)', pct: completedN5Pct, color: 'bg-tertiary' },
+    { label: 'Particle Accuracy (助詞)', pct: examPct, color: 'bg-primary' },
+    { label: 'Verb Conjugation (活用)', pct: completedN5Pct, color: 'bg-secondary' },
+    { label: 'Reading Comp (読解)', pct: completedN5Pct, color: 'bg-secondary' },
+    { label: 'Listening Speed (聴解)', pct: examPct, color: 'bg-primary' },
+  ];
 
   return (
     <div className="space-y-6">
@@ -140,43 +157,51 @@ export function ExamCenterView() {
         <div className="lg:col-span-6 bg-surface-container-lowest rounded-lg border border-on-surface/10 p-5 flex items-center justify-between gap-4">
           <div className="space-y-1">
             <div className="text-[10px] font-mono uppercase tracking-widest text-primary font-bold">
-              JLPT N5 Pass Projection
+              JLPT N5 Best Score
             </div>
             <div className="font-serif text-3xl font-bold text-on-surface tabular-nums">
-              148 <span className="text-base font-normal text-outline">/ 180 pts</span>
+              {examBestScore} <span className="text-base font-normal text-outline">/ 180 pts</span>
             </div>
             <p className="text-xs text-tertiary font-semibold">
-              +68 pts above official 80-pt passing threshold · High Confidence
+              {examBestScore === 0
+                ? 'No graded sprint recorded yet · Pass threshold: 80 pts'
+                : examBestScore >= 80
+                  ? `+${examBestScore - 80} pts above 80-pt passing threshold`
+                  : `${80 - examBestScore} pts needed to reach 80-pt passing threshold`}
             </p>
           </div>
           <div className="w-16 h-16 rounded-xs border-2 border-primary/80 flex flex-col items-center justify-center font-serif text-primary rotate-[-4deg] bg-primary-fixed/15 shrink-0">
-            <span className="text-base font-bold">合格</span>
-            <span className="text-[10px] font-mono">82%</span>
+            <span className="text-base font-bold">{examBestScore >= 80 ? '合格' : '準備'}</span>
+            <span className="text-[10px] font-mono tabular-nums">{examPct}%</span>
           </div>
         </div>
 
         <div className="lg:col-span-2 bg-surface-container-lowest rounded-lg border border-on-surface/10 p-5">
-          <div className="text-[10px] font-mono uppercase text-outline">Mock #03 Score</div>
+          <div className="text-[10px] font-mono uppercase text-outline">Latest Sprint</div>
           <div className="font-mono text-2xl font-bold text-on-surface mt-1 tabular-nums">
-            31 / 35
+            {sprintDone ? `${sprintScore} / ${SPRINT_QUESTIONS.length}` : '0 / 5'}
           </div>
-          <div className="text-xs text-tertiary mt-1">88.6% Accuracy</div>
+          <div className="text-xs text-tertiary mt-1 tabular-nums">
+            {sprintDone
+              ? `${Math.round((sprintScore / SPRINT_QUESTIONS.length) * 100)}% Accuracy`
+              : 'Not started'}
+          </div>
         </div>
 
         <div className="lg:col-span-2 bg-surface-container-lowest rounded-lg border border-on-surface/10 p-5">
-          <div className="text-[10px] font-mono uppercase text-outline">Avg Pace</div>
+          <div className="text-[10px] font-mono uppercase text-outline">Lessons Done</div>
           <div className="font-mono text-2xl font-bold text-on-surface mt-1 tabular-nums">
-            41s
+            {completedLessons.length} / 25
           </div>
-          <div className="text-xs text-secondary mt-1">Per question item</div>
+          <div className="text-xs text-secondary mt-1">Minna N5 syllabus</div>
         </div>
 
         <div className="lg:col-span-2 bg-surface-container-lowest rounded-lg border border-on-surface/10 p-5">
-          <div className="text-[10px] font-mono uppercase text-outline">Trap Items</div>
+          <div className="text-[10px] font-mono uppercase text-outline">SRS Mastered</div>
           <div className="font-mono text-2xl font-bold text-primary mt-1 tabular-nums">
-            4 Errors
+            {srsMasteredCount}
           </div>
-          <div className="text-xs text-outline mt-1">Particles &amp; Counters</div>
+          <div className="text-xs text-outline mt-1">Verified items</div>
         </div>
       </section>
 
@@ -187,7 +212,7 @@ export function ExamCenterView() {
               Six-Core Skill Spectrum
             </h2>
             <div className="space-y-3">
-              {SKILL_SPECTRUM.map((sk) => (
+              {skillSpectrum.map((sk) => (
                 <div key={sk.label} className="space-y-1">
                   <div className="flex justify-between text-xs">
                     <span className="font-medium text-on-surface">{sk.label}</span>
@@ -206,37 +231,16 @@ export function ExamCenterView() {
           <div className="bg-surface-container-lowest rounded-lg border border-on-surface/10 p-6 space-y-4">
             <div className="flex items-center justify-between">
               <h2 className="font-serif text-lg font-bold text-on-surface">
-                Retention Velocity Curve
+                Readiness Baseline
               </h2>
-              <span className="inline-flex items-center gap-1 text-xs font-semibold text-tertiary">
-                <TrendingUp className="w-3.5 h-3.5" /> +18% over 4 mocks
+              <span className="inline-flex items-center gap-1 text-xs font-semibold text-tertiary tabular-nums">
+                <TrendingUp className="w-3.5 h-3.5" /> {examPct}% Peak
               </span>
             </div>
-            <div className="p-4 rounded-md bg-surface-container-low">
-              <svg viewBox="0 0 360 120" className="w-full h-28">
-                <path
-                  d="M 20 96 C 90 88, 140 66, 195 54 C 250 42, 300 28, 340 20"
-                  fill="none"
-                  stroke="#485f84"
-                  strokeWidth="3"
-                  strokeLinecap="round"
-                />
-                {[20, 125, 230, 340].map((cx, i) => (
-                  <circle
-                    key={cx}
-                    cx={cx}
-                    cy={[96, 70, 44, 20][i]}
-                    r="5"
-                    fill="#ae1d14"
-                  />
-                ))}
-              </svg>
-              <div className="flex justify-between text-[11px] font-mono text-outline mt-1">
-                <span>Diagnostic (64%)</span>
-                <span>Mock #01 (74%)</span>
-                <span>Mock #02 (81%)</span>
-                <span>Mock #03 (89%)</span>
-              </div>
+            <div className="p-4 rounded-md bg-surface-container-low text-xs text-on-surface-variant leading-relaxed">
+              {examBestScore === 0
+                ? 'Complete the Timed Grammar Sprint in the Mock Arena tab to record your first official benchmark score.'
+                : `Your highest recorded sprint scale score is ${examBestScore} / 180 (${examPct}%).`}
             </div>
           </div>
         </div>
@@ -287,27 +291,28 @@ export function ExamCenterView() {
           <h2 className="font-serif text-xl font-bold text-on-surface">
             Historical Exam Archive
           </h2>
-          {[
-            { name: 'JLPT N5 Full Simulation #03', date: '2 days ago', score: '148 / 180', pass: true },
-            { name: 'JLPT N5 Grammar & Reading Mock #02', date: '9 days ago', score: '134 / 180', pass: true },
-            { name: 'JLPT N5 Baseline Diagnostic', date: '18 days ago', score: '108 / 180', pass: true },
-          ].map((h) => (
-            <div
-              key={h.name}
-              className="p-4 rounded-md bg-surface-container-low border border-outline-variant/15 flex items-center justify-between"
-            >
+          {examBestScore === 0 ? (
+            <div className="p-5 rounded-md bg-surface-container-low border border-outline-variant/15 text-xs text-outline">
+              No exams recorded yet for this account. Complete a Timed Grammar Sprint in Mock Arena to log your first score.
+            </div>
+          ) : (
+            <div className="p-4 rounded-md bg-surface-container-low border border-outline-variant/15 flex items-center justify-between">
               <div>
-                <div className="text-sm font-semibold text-on-surface">{h.name}</div>
-                <div className="text-xs text-outline">{h.date}</div>
+                <div className="text-sm font-semibold text-on-surface">
+                  JLPT N5 Timed Grammar Sprint (Best Score)
+                </div>
+                <div className="text-xs text-outline">Synced to your learner profile</div>
               </div>
               <div className="text-right">
                 <div className="font-mono text-sm font-bold text-primary tabular-nums">
-                  {h.score}
+                  {examBestScore} / 180
                 </div>
-                <div className="text-[10px] font-mono text-tertiary uppercase">Passed</div>
+                <div className="text-[10px] font-mono text-tertiary uppercase">
+                  {examBestScore >= 80 ? 'Passed' : 'In Progress'}
+                </div>
               </div>
             </div>
-          ))}
+          )}
         </div>
       )}
 

@@ -38,7 +38,12 @@ export function LearningPathView() {
     () => completedLessons.filter((n) => n >= 1 && n <= 25).length,
     [completedLessons]
   );
+  const completedN4Count = useMemo(
+    () => completedLessons.filter((n) => n >= 26 && n <= 50).length,
+    [completedLessons]
+  );
   const n5ProgressPct = Math.round((completedN5Count / 25) * 100);
+  const n4ProgressPct = Math.round((completedN4Count / 25) * 100);
 
   const selectedLevel =
     LEARNING_LEVELS.find((l) => l.id === activeJlpt) ?? LEARNING_LEVELS[0];
@@ -92,12 +97,13 @@ export function LearningPathView() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
           {LEARNING_LEVELS.map((lvl) => {
             const isSelected = activeJlpt === lvl.id;
-            const progressVal = lvl.id === 'N5' ? n5ProgressPct : lvl.progress;
+            const progressVal =
+              lvl.id === 'N5' ? n5ProgressPct : lvl.id === 'N4' ? n4ProgressPct : lvl.progress;
             const modulesDoneText =
               lvl.id === 'N5'
                 ? `${completedN5Count} / 25 Lessons`
                 : lvl.id === 'N4'
-                  ? '25 Lessons Mapped'
+                  ? `${completedN4Count} / 25 Mapped`
                   : lvl.modulesDone;
             const remainingText =
               lvl.id === 'N5'
