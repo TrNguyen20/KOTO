@@ -15,7 +15,6 @@ export default function createNextConfig(phase: string): NextConfig {
     },
     // Allow access to remote image placeholder.
     images: {
-      unoptimized: true,
       remotePatterns: [
         {
           protocol: 'https',
@@ -31,7 +30,7 @@ export default function createNextConfig(phase: string): NextConfig {
         },
       ],
     },
-    output: 'export',
+    output: 'standalone',
     transpilePackages: ['motion'],
     experimental: {
       devtoolSegmentExplorer: false,
